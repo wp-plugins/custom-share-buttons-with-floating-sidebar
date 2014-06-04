@@ -1,5 +1,5 @@
 === Custom Share Buttons with Floating Sidebar ===
-Contributors: india-web-developer
+Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin, pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 2.7
@@ -20,7 +20,9 @@ Live [demo](http://www.mrwebsolution.in/)
 == Installation ==
 
 Step 1. Upload "custom-share-buttons-with-floating-sidebar" folder to the `/wp-content/plugins/` directory
+
 Step 2. Activate the plugin through the Plugins menu in WordPress
+
 Step 3. Go to Settings/"Custom Share Buttons with Floating Sidebar" and configure the plugin settings.
 
 == Frequently Asked Questions ==
