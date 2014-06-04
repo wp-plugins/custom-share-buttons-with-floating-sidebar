@@ -14,7 +14,7 @@ Add "Custom Floating Share buttons" on your site.
 
 It's very simple plugin. Not added any external JS files in this plugign so it's does not effect on your site speed.
 
-= Live [Demo](http://www.mrwebsolution.in/). =
+Live [demo](http://www.mrwebsolution.in/)
 
 
 == Installation ==
