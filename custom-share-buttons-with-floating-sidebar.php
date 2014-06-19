@@ -1,9 +1,10 @@
 <?php
 /*
 Plugin Name: Custom Share Buttons with Floating Sidebar
-Plugin URI: http://www.researchgrantdatabase.com/
+Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
+Author URI: http://raghunathgurjar.wordpress.com
 Version: 0.1
 */
 

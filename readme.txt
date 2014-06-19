@@ -6,13 +6,14 @@ Requires at least: 2.7
 Tested up to: 3.9.1
 Stable tag: 1.0
 
-Add "Custom Floating Share buttons" on your site.
+Add Social Share Buttons (Facebook,Twitter,Linkedin,Google+,Pinterest,Mail) Using Floating Sidebar On Your Site.
 
 == Description ==
 
-"custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to floating social share buttons on all of your site.Even you can change the share buttons images if you wish!.
+"custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to floating social share buttons on your site.Even you can change the share buttons images if you wish!.
 
-It's very simple plugin. Not added any external JS files in this plugign so it's does not effect on your site speed.
+It's very simple plugin for share your site with your firends on Facebook,Twitter,Linkedin,Pinterest,Google+. 
+There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
 Live [demo](http://www.mrwebsolution.in/)
 
@@ -52,6 +53,3 @@ Yes, Please visit on this [site](http://www.mrwebsolution.in/) for check live de
 
 = 1.0 = 
  * First stable release 
-
-
-
