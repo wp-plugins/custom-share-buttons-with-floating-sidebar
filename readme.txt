@@ -6,7 +6,7 @@ Requires at least: 2.7
 Tested up to: 3.9.1
 Stable tag: 1.0
 
-Add Social Share Buttons (Facebook,Twitter,Linkedin,Google+,Pinterest,Mail) Using Floating Sidebar On Your Site.
+Add Social Share Buttons(Facebook,Twitter,Linkedin,Google+,Pinterest,Mail) Using Floating Sidebar On Your Site.
 
 == Description ==
 
