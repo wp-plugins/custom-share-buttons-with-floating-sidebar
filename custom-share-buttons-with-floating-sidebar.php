@@ -5,7 +5,7 @@ Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 0.1
+Version: 1.0
 */
 
 //Admin "Custom Share Buttons with Floating Sidebar" Menu Item
@@ -90,7 +90,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 			<tr>
 				<th nowrap><?php echo 'Siderbar Position:';?></th>
 				<td>
-				<select id="str_sortby" name="str_sortby" >
+				<select id="csbwfs_position" name="csbwfs_position" >
 				<option value="left" <?php if(get_option('csbwfs_position')=='left'){echo 'selected="selected"';}?>>Left</option>
 				<option value="right" <?php if(get_option('csbwfs_position')=='right'){echo 'selected="selected"';}?>>Right</option>
 				</select>
@@ -189,23 +189,14 @@ function csbwf_sidebar_uninstall(){
 		
 	delete_option('csbwfs_active');
 	delete_option('csbwfs_position');
-
 	delete_option('csbwfs_fb_image');
-
 	delete_option('csbwfs_tw_image');
-	
 	delete_option('csbwfs_li_image');
-	
 	delete_option('csbwfs_mail_image');
-	
 	delete_option('csbwfs_gp_image');
-	
 	delete_option('csbwfs_pin_image');
-	
 	delete_option('csbwfs_fpublishBtn');
-	
 	delete_option('csbwfs_tpublishBtn');
-	
 	delete_option('csbwfs_gpublishBtn');
 	
 	delete_option('csbwfs_ppublishBtn');
