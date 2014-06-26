@@ -112,7 +112,7 @@ function csbwf_sidebar_load_inline_js()
                               "Custom Share Buttons with Floating Sidebar" HTML
 -----------------------------------------------------------------------------------------------
 */
-  
+
 
 function get_csbwf_sidebar_content() {
 global $post;
@@ -159,12 +159,36 @@ if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_p
 if($pluginOptionsVal['csbwfs_mailMessage']!=''){ $mailMsg=$pluginOptionsVal['csbwfs_mailMessage'];} 
    else{$mailMsg='raghunath.0087@gmail.com?subject=Thanks for create social share plugin';}   
 
+// Top Margin
+if($pluginOptionsVal['csbwfs_top_margin']!=''){
+	$margin=$pluginOptionsVal['csbwfs_top_margin'];
+}else
+{
+	$margin='25%';
+	}
+
+//Sidebar Position
+if($pluginOptionsVal['csbwfs_position']=='right'){
+	$style=' style="top:'.$margin.';right:-5px;"';
+	$idName=' id="csbwfs-right"';
+	$showImg='hide.png';
+	$hideImg='show.png';
+	
+}else
+{
+	$idName=' id="csbwfs-left"';
+	$style=' style="top:'.$margin.';left:0;"';
+    $showImg='show.png';
+	$hideImg='hide.png';
+	}
 ?>
 
-<div id='social-widget' title="Share This With Your Friends">
-<!--
-<div class="show"><a href="javascript:" alt="Email" id="show"><img src="<?php //echo plugins_url('custom-share-buttons-with-floating-sidebar/images/show.png');?>" title="Show Buttons"></a></div>
--->
+
+
+<div class='social-widget' <?php echo $idName;?> title="Share This With Your Friends" <?php echo $style;?> >
+
+<div class="show"><a href="javascript:" alt="Email" id="show"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$showImg);?>" title="Show Buttons"></a></div>
+
 <div id="social-inner">
 	<?php if(get_csbwf_sidebar_options('csbwfs_fpublishBtn')!=''):?>
 	<!-- Facebook -->
@@ -217,9 +241,9 @@ if($pluginOptionsVal['csbwfs_mailMessage']!=''){ $mailMsg=$pluginOptionsVal['csb
 	</div>
 	 <?php endif;?>
 </div>
-	<!--
-<div class="hide"><a href="javascript:" alt="Email" id="hide"><img src="<?php //echo plugins_url('custom-share-buttons-with-floating-sidebar/images/hide.png');?>" title="Hide Buttons"></a></div>
--->
+
+<div class="hide"><a href="javascript:" alt="Email" id="hide"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$hideImg);?>" title="Hide Buttons"></a></div>
+
 </div>
 <?php
 }

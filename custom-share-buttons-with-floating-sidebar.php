@@ -5,7 +5,7 @@ Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 1.0
+Version: 1.1
 */
 
 //Admin "Custom Share Buttons with Floating Sidebar" Menu Item
@@ -39,6 +39,7 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_lpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_mpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_mailMessage');
+	register_setting('csbwf_sidebar_options','csbwfs_top_margin');
 	
 } 
 
@@ -140,6 +141,15 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<input type="textbox" id="csbwfs_mail_image" name="csbwfs_mail_image" value="<?php echo get_option('csbwfs_mail_image'); ?>" placeholder="Insert mail button image path" size="40"/>
 				</td>
 			</tr>
+			<tr><td colspan="2"><h2 style="width: 80%; border-bottom: 1px solid #666; padding-top: 10px; padding-bottom: 10px;"><strong>Style(Optional):</strong></h2></td></tr>
+			
+			<tr>
+				<th><?php echo 'Top Margin:';?></th>
+				<td>
+			
+				<input type="textbox" id="csbwfs_top_margin" name="csbwfs_top_margin" value="<?php echo get_option('csbwfs_top_margin'); ?>" placeholder="10% OR 10px" size="10"/>
+				</td>
+			</tr>
 			
 			<tr><td colspan="2"><h2 style="width: 90%; border-bottom: 1px solid #666; padding-top: 10px; padding-bottom: 10px;"><strong>Social Share Button Publish Options</strong></h2></td></tr>
 			<tr>
@@ -197,15 +207,12 @@ function csbwf_sidebar_uninstall(){
 	delete_option('csbwfs_pin_image');
 	delete_option('csbwfs_fpublishBtn');
 	delete_option('csbwfs_tpublishBtn');
-	delete_option('csbwfs_gpublishBtn');
-	
-	delete_option('csbwfs_ppublishBtn');
-	
-	delete_option('csbwfs_lpublishBtn');
-	
-	delete_option('csbwfs_mpublishBtn');
-	
+	delete_option('csbwfs_gpublishBtn');	
+	delete_option('csbwfs_ppublishBtn');	
+	delete_option('csbwfs_lpublishBtn');	
+	delete_option('csbwfs_mpublishBtn');	
 	delete_option('csbwfs_mailMessage');
+	delete_option('csbwfs_top_margin');
 	
 } 
 ?>
