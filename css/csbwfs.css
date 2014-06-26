@@ -1,0 +1,24 @@
+#social-widget {
+		position:fixed;
+		top:25%;
+		left:0px;
+		z-index:998;
+		width:200px;
+	}
+
+	#social-widget .sbutton {
+		margin: 0px;
+	}
+	.sbutton img{padding:5px;}
+	
+	#tw a{background:none repeat scroll 0 0 #2CA8D2; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1)}
+	
+	#fb a{background:none repeat scroll 0 0 #305891; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1);outline:none;}
+	
+	#ml a{background:none repeat scroll 0 0 #738A8D; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1);outline:none;}
+	
+	#gp a{background:none repeat scroll 0 0 #DD4C39; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1); outline:none;}
+	
+	#li a{background:none repeat scroll 0 0 #007BB6; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1); outline:none;}
+	
+	#pin a{background:none repeat scroll 0 0 #ca2027; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1); outline:none;}
