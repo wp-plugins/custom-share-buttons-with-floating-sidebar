@@ -7,12 +7,10 @@
 // get all options value for "Custom Share Buttons with Floating Sidebar"
 	function get_csbwf_sidebar_options() {
 		global $wpdb;
-		$ctOptions = $wpdb->get_results("SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'csbwfs_%'");
-								
+		$ctOptions = $wpdb->get_results("SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'csbwfs_%'");				
 		foreach ($ctOptions as $option) {
 			$ctOptions[$option->option_name] =  $option->option_value;
 		}
-	
 		return $ctOptions;	
 	}
 	
@@ -137,7 +135,7 @@ if(is_category())
 	else
 	{
         $shareurl =home_url('/');
-        $ShareTitle='Raghunath Blog';
+        $ShareTitle='My Blog';
 		}
 
 /* Get All buttons Image */
