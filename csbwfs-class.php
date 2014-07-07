@@ -208,7 +208,7 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
     <?php if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):?>
 	<!-- Twitter -->
 	<div class="sbutton">
-	<div id="tw"><a href="javascript:" onclick="window.open('https://twitter.com/?status=<?php echo $ShareTitle;?>', '_blank', 'width=800,height=300')" alt="Twitter"><img src="<?php echo $tImg;?>"></a></div>
+	<div id="tw"><a href="javascript:" onclick="window.open('https://twitter.com/?status=<?php echo $ShareTitle;?>&nbsp;&nbsp;<?php echo $shareurl;?>', '_blank', 'width=800,height=300')" alt="Twitter"><img src="<?php echo $tImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):?>
