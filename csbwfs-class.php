@@ -1,16 +1,13 @@
-<?php
-/*
- * Define all function for manage the sidebar
- * 
- * */
- 
+<?php 
 // get all options value for "Custom Share Buttons with Floating Sidebar"
 	function get_csbwf_sidebar_options() {
 		global $wpdb;
-		$ctOptions = $wpdb->get_results("SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'csbwfs_%'");				
+		$ctOptions = $wpdb->get_results("SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'csbwfs_%'");
+								
 		foreach ($ctOptions as $option) {
 			$ctOptions[$option->option_name] =  $option->option_value;
 		}
+	
 		return $ctOptions;	
 	}
 	
@@ -135,7 +132,7 @@ if(is_category())
 	else
 	{
         $shareurl =home_url('/');
-        $ShareTitle='My Blog';
+        $ShareTitle=bloginfo('name');
 		}
 
 /* Get All buttons Image */
@@ -159,8 +156,15 @@ if($pluginOptionsVal['csbwfs_gp_image']!=''){ $gImg=$pluginOptionsVal['csbwfs_gp
 if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_pin_image'];} 
    else{$pImg=plugins_url('images/pinit.png',__FILE__);}   
 //get email message
-if($pluginOptionsVal['csbwfs_mailMessage']!=''){ $mailMsg=$pluginOptionsVal['csbwfs_mailMessage'];} 
-   else{$mailMsg='raghunath.0087@gmail.com?subject=Thanks for create social share plugin';}   
+if(is_page() || is_single() || is_category() || is_archive()){
+	
+		if($pluginOptionsVal['csbwfs_mailMessage']!=''){ $mailMsg=$pluginOptionsVal['csbwfs_mailMessage'];} else{
+		 $mailMsg='?subject='.get_the_title().'&body='.get_the_permalink();}
+ }else
+ {
+	 $mailMsg='?subject='.bloginfo('name').'&body='.home_url('/');
+	 }
+ 
 
 // Top Margin
 if($pluginOptionsVal['csbwfs_top_margin']!=''){
@@ -196,51 +200,47 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 	<?php if(get_csbwf_sidebar_options('csbwfs_fpublishBtn')!=''):?>
 	<!-- Facebook -->
 	<div class="sbutton">
-		<div class="fb"><div id="fb">
+		<div id="fb">
 			<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-   target="_blank" alt="Share on Facebook">
-   
-   <img src="<?php echo $fImg;?>"></a></div></div>
+   target="_blank" alt="Share on Facebook"> <img src="<?php echo $fImg;?>"></a></div>
 	</div>
     <?php endif;?>
     <?php if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):?>
 	<!-- Twitter -->
 	<div class="sbutton">
-	<div class="tw"><div id="tw"><a href="javascript:" onclick="window.open('https://twitter.com/?status=<?php echo $ShareTitle;?>', '_blank', 'width=800,height=300')" alt="Twitter"><img src="<?php echo $tImg;?>"></a></div></div>
+	<div id="tw"><a href="javascript:" onclick="window.open('https://twitter.com/?status=<?php echo $ShareTitle;?>', '_blank', 'width=800,height=300')" alt="Twitter"><img src="<?php echo $tImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):?>
 	<!-- Google plus -->
 	<div class="sbutton">
 
-	<div class="gp"><div id="gp"><a href="https://plus.google.com/share?url=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href,
-  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Google Plus">
-  
-    
-  <img src="<?php echo $gImg;?>"></a></div></div>
+	<div id="gp"><a href="https://plus.google.com/share?url=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Google Plus">    
+  <img src="<?php echo $gImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):?>
 	<!-- Linkdin -->
 	<div class="sbutton">
 
-	<div class="li"><div id="li">
+	<div id="li">
 		<a href="https://www.linkedin.com/cws/share?url=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href,
   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Google Plus">
-  <img src="<?php echo $lImg;?>"></a></div></div>
+  <img src="<?php echo $lImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):?>
 	<!-- Pinterest -->
 	<div class="sbutton">
 
-	<div class="pin"><div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://myrevsource.pbodev.info/Projects/newrevsite/img/logo.png&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" style="width: 45px;"><img src="<?php echo $pImg;?>"></a></div></div>
+	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://myrevsource.pbodev.info/Projects/newrevsite/img/logo.png&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" style="width: 45px;"><img src="<?php echo $pImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
    <?php if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):?>
 	<!-- Mail-->
 	<div class="sbutton">
-    <div class="ml"><div id="ml"><a href="mailto:<?php echo $mailMsg;?>" alt="Email"><img src="<?php echo $mImg;?>"></a></div></div>
+    <div id="ml"><a href="mailto:<?php echo $mailMsg;?>" alt="Email"><img src="<?php echo $mImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 </div>

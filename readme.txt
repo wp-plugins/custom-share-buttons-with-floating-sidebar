@@ -58,3 +58,4 @@ Yes, Please visit on this [site](http://www.mrwebsolution.in/) for check live de
  * Fixed the right float sidebar issue
  * Added new option for define the margin from TOP
  * Added the show/hide buttons
+ * On Mail buttons :by default set current page title as a mail subject-line and page link in mail-body
