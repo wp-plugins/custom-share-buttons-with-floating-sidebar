@@ -132,7 +132,7 @@ if(is_category())
 	else
 	{
         $shareurl =home_url('/');
-        $ShareTitle=bloginfo('name');
+        $ShareTitle=get_bloginfo('name');
 		}
 
 /* Get All buttons Image */
@@ -162,7 +162,7 @@ if(is_page() || is_single() || is_category() || is_archive()){
 		 $mailMsg='?subject='.get_the_title().'&body='.get_the_permalink();}
  }else
  {
-	 $mailMsg='?subject='.bloginfo('name').'&body='.home_url('/');
+	 $mailMsg='?subject='.get_bloginfo('name').'&body='.home_url('/');
 	 }
  
 
