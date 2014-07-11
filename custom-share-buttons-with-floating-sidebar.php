@@ -7,23 +7,17 @@ Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
 Version: 1.1
 */
-
 //Admin "Custom Share Buttons with Floating Sidebar" Menu Item
 add_action('admin_menu','csbwf_sidebar_menu');
-
 function csbwf_sidebar_menu(){
-
-	add_options_page('Custom Share Buttons With Floating Sidebar','Custom Share Buttons With Floating Sidebar','manage_options','csbwfs-settings','csbwf_sidebar_admin_option_page');
+add_options_page('Custom Share Buttons With Floating Sidebar','Custom Share Buttons With Floating Sidebar','manage_options','csbwfs-settings','csbwf_sidebar_admin_option_page');
 
 }
-
 //Define Action for register "Custom Share Buttons with Floating Sidebar" Options
 add_action('admin_init','csbwf_sidebar_init');
 
-
 //Register "Custom Share Buttons with Floating Sidebar" options
 function csbwf_sidebar_init(){
-
 	register_setting('csbwf_sidebar_options','csbwfs_active');
 	register_setting('csbwf_sidebar_options','csbwfs_position');
 	register_setting('csbwf_sidebar_options','csbwfs_fb_image');
@@ -40,7 +34,6 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_mpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_mailMessage');
 	register_setting('csbwf_sidebar_options','csbwfs_top_margin');
-	
 } 
 
 
