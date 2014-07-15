@@ -1,4 +1,9 @@
 <?php 
+/*
+ * Define all the function
+ * Custom Share Buttons With Floating Sidebar
+ * 
+ * */
 // get all options value for "Custom Share Buttons with Floating Sidebar"
 	function get_csbwf_sidebar_options() {
 		global $wpdb;
