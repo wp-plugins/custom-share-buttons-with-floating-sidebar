@@ -1,9 +1,4 @@
 <?php 
-/*
- * Define all the function
- * Custom Share Buttons With Floating Sidebar
- * 
- * */
 // get all options value for "Custom Share Buttons with Floating Sidebar"
 	function get_csbwf_sidebar_options() {
 		global $wpdb;
@@ -43,7 +38,15 @@ wp_enqueue_style( 'csbwf_sidebar_style' );
 function csbwf_sidebar_load_inline_js()
 {
    $pluginOptionsVal=get_csbwf_sidebar_options();
-	$jscnt='<script>jQuery(document).ready(function(){';
+	$jscnt='<script>jQuery(document).ready(function()
+  { ';
+ 
+ 
+  if($pluginOptionsVal['csbwfs_delayTimeBtn']!='0'):
+   $jscnt.='jQuery("#delaydiv").hide();
+	setTimeout(function(){
+	 jQuery("#delaydiv").fadeIn();}, '.$pluginOptionsVal['csbwfs_delayTimeBtn'].');';
+  endif;  
   
   if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):
   $jscnt.='jQuery("div#tw a").hover(function(){
@@ -104,9 +107,9 @@ function csbwf_sidebar_load_inline_js()
      jQuery("div.show").show(500);
       jQuery("div.hide").hide(500);
      jQuery("div#social-inner").hide(500);
-  });
+  });';
   
-});</script>';
+$jscnt.='});</script>';
 	
 	echo $jscnt;
 }	
@@ -193,8 +196,11 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 	$hideImg='hide.png';
 	}
 ?>
+<div id="delaydiv">
 <div class='social-widget' <?php echo $idName;?> title="Share This With Your Friends" <?php echo $style;?> >
+
 <div class="show"><a href="javascript:" alt="Email" id="show"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$showImg);?>" title="Show Buttons"></a></div>
+
 <div id="social-inner">
 	<?php if(get_csbwf_sidebar_options('csbwfs_fpublishBtn')!=''):?>
 	<!-- Facebook -->
@@ -243,7 +249,10 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 	</div>
 	 <?php endif;?>
 </div>
+
 <div class="hide"><a href="javascript:" alt="Email" id="hide"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$hideImg);?>" title="Hide Buttons"></a></div>
+
+</div>
 </div>
 <?php
 }

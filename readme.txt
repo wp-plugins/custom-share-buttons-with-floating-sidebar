@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin, pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 2.7
 Tested up to: 3.9.1
-Stable tag: 1.1
+Stable tag: 1.2
 
 Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Mail)
 
@@ -59,3 +59,7 @@ Yes, Please visit on this [site](http://www.mrwebsolution.in/) for check live de
  * Added new option for define the margin from TOP
  * Added the show/hide buttons
  * On Mail buttons :by default set current page title as a mail subject-line and page link in mail-body
+
+= 1.2 = 
+ * Fixed button image gap issue for right position
+ * Added new option for set the delay time to publish the share butttons

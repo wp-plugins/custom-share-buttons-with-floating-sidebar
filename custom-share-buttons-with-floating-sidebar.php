@@ -5,19 +5,41 @@ Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 1.1
+Version: 1.2
 */
+
+/*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : raghunath.0087@gmail.com)
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License, version 2, as 
+    published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
 //Admin "Custom Share Buttons with Floating Sidebar" Menu Item
 add_action('admin_menu','csbwf_sidebar_menu');
+
 function csbwf_sidebar_menu(){
-add_options_page('Custom Share Buttons With Floating Sidebar','Custom Share Buttons With Floating Sidebar','manage_options','csbwfs-settings','csbwf_sidebar_admin_option_page');
+
+	add_options_page('Custom Share Buttons With Floating Sidebar','Custom Share Buttons With Floating Sidebar','manage_options','csbwfs-settings','csbwf_sidebar_admin_option_page');
 
 }
+
 //Define Action for register "Custom Share Buttons with Floating Sidebar" Options
 add_action('admin_init','csbwf_sidebar_init');
 
+
 //Register "Custom Share Buttons with Floating Sidebar" options
 function csbwf_sidebar_init(){
+
 	register_setting('csbwf_sidebar_options','csbwfs_active');
 	register_setting('csbwf_sidebar_options','csbwfs_position');
 	register_setting('csbwf_sidebar_options','csbwfs_fb_image');
@@ -34,6 +56,8 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_mpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_mailMessage');
 	register_setting('csbwf_sidebar_options','csbwfs_top_margin');
+	register_setting('csbwf_sidebar_options','csbwfs_delayTimeBtn');
+	
 } 
 
 
@@ -73,11 +97,12 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<td rowspan="17" valign="top" style="padding-left: 20px;border-left:1px solid #ccc;">
 					<h2>Plugin Author:</h2>
 					<div style="font-size: 14px;">
-	<img src="<?php echo  plugins_url( 'images/raghu.jpg' , __FILE__ );?>" width="100" height="100"><br><a href="http://raghunathgurjar.wordpress.com" target="_blank">Raghunath Gurjar</a><br><br>Author Blog <a href="http://raghunathgurjar.wordpress.com" target="_blank">http://raghunathgurjar.wordpress.com</a>
+	<img src="<?php echo  plugins_url( 'images/raghu.jpg' , __FILE__ );?>" width="100" height="100"><br><a href="http://raghunathgurjar.wordpress.com" target="_blank">Raghunath Gurjar</a><br><br><a href="mailto:raghunath.0087@gmail.com" target="_blank">Contact Me!</a><br><br>Author Blog <a href="http://raghunathgurjar.wordpress.com" target="_blank">http://raghunathgurjar.wordpress.com</a>
 	<br><br><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4" target="_blank" style="font-size: 17px; font-weight: bold;">Donate for this plugin</a><br><br>
-	Other Plugins:<br>
+	My Other Plugins:<br>
 	<ul>
 		<li><a href="https://wordpress.org/plugins/simple-testimonial-rutator/" target="_blank">Simple Testimonial Rutator(Responsive)</a></li>
+		<li><a href="https://wordpress.org/plugins/wp-easy-recipe/" target="_blank">WP Easy Recipe</a></li>
 		</ul>
 	</div></td>
 			</tr>
@@ -90,6 +115,8 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				</select>
 				</td>
 			</tr>
+			<tr><th nowrap valign="top"><?php echo 'Delay Time: '; ?></th><td><input type="text" name="csbwfs_delayTimeBtn" id="csbwfs_delayTimeBtn" value="<?php echo get_option('csbwfs_delayTimeBtn')?get_option('csbwfs_delayTimeBtn'):0;?>"  size="40" class="regular-text ltr"><br><i>Publish share buttons after given time(seconds)</i></td></tr>
+				
 			<tr><td colspan="2">&nbsp;</td></tr>
 			<tr><td colspan="2"><h2 style="width: 80%; border-bottom: 1px solid #666; padding-top: 10px; padding-bottom: 10px;"><strong>Social Share Button Images (Size:36X34)</strong></h2></td></tr>
 			<tr>
