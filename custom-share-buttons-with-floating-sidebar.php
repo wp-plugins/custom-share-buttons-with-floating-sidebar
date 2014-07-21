@@ -115,7 +115,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				</select>
 				</td>
 			</tr>
-			<tr><th nowrap valign="top"><?php echo 'Delay Time: '; ?></th><td><input type="text" name="csbwfs_delayTimeBtn" id="csbwfs_delayTimeBtn" value="<?php echo get_option('csbwfs_delayTimeBtn')?get_option('csbwfs_delayTimeBtn'):0;?>"  size="40" class="regular-text ltr"><br><i>Publish share buttons after given time(seconds)</i></td></tr>
+			<tr><th nowrap valign="top"><?php echo 'Delay Time: '; ?></th><td><input type="text" name="csbwfs_delayTimeBtn" id="csbwfs_delayTimeBtn" value="<?php echo get_option('csbwfs_delayTimeBtn')?get_option('csbwfs_delayTimeBtn'):0;?>"  size="40" class="regular-text ltr"><br><i>Publish share buttons after given time(millisecond)</i></td></tr>
 				
 			<tr><td colspan="2">&nbsp;</td></tr>
 			<tr><td colspan="2"><h2 style="width: 80%; border-bottom: 1px solid #666; padding-top: 10px; padding-bottom: 10px;"><strong>Social Share Button Images (Size:36X34)</strong></h2></td></tr>
