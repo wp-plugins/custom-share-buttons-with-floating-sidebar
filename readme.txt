@@ -33,11 +33,16 @@ After active the plugin you have must need to enable this plugin and cheked the 
 
 2.Can i change the custom share buttons images from admin?
 
-Yes,You can changes all social share custom buttons images if you wish, For do that you have only need to define the buttons images path through the plugins settings.
+Yes,admin can changes all social share custom buttons images if you wish, for that you have only need to define the buttons images path from plugins settings page.
 
 3.Is there any demo site where your plugins have been used?
 
 Yes, Please visit on this [site](http://www.mrwebsolution.in/) for check live demo
+
+3.Can i define the top margin for share buttons block?
+
+Yes, admin can define the top margin from plugins settings page
+
 
 
 == Screenshots ==
