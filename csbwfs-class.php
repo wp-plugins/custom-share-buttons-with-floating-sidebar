@@ -219,7 +219,6 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 	<?php if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):?>
 	<!-- Google plus -->
 	<div class="sbutton">
-
 	<div id="gp"><a href="https://plus.google.com/share?url=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href,
   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Google Plus">    
   <img src="<?php echo $gImg;?>"></a></div>
@@ -228,18 +227,15 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 	<?php if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):?>
 	<!-- Linkdin -->
 	<div class="sbutton">
-
 	<div id="li">
 		<a href="https://www.linkedin.com/cws/share?url=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href,
-  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Google Plus">
-  <img src="<?php echo $lImg;?>"></a></div>
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Linkdin"> <img src="<?php echo $lImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):?>
 	<!-- Pinterest -->
 	<div class="sbutton">
-
-	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://myrevsource.pbodev.info/Projects/newrevsite/img/logo.png&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" style="width: 45px;"><img src="<?php echo $pImg;?>"></a></div>
+	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://myrevsource.pbodev.info/Projects/newrevsite/img/logo.png&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" style="width: 45px;" alt="Pinterest"><img src="<?php echo $pImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
    <?php if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):?>
