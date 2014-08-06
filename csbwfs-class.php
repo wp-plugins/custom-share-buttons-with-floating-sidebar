@@ -18,6 +18,7 @@ if($pluginOptionsVal['csbwfs_active']==1){
 add_action('wp_footer','get_csbwf_sidebar_content');
 add_action( 'wp_enqueue_scripts', 'csbwf_sidebar_scripts' );
 add_action('wp_footer','csbwf_sidebar_load_inline_js');
+add_filter( 'the_content', 'csbfs_the_content_filter', 20 );
 }
 
 
@@ -219,6 +220,7 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 	<?php if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):?>
 	<!-- Google plus -->
 	<div class="sbutton">
+
 	<div id="gp"><a href="https://plus.google.com/share?url=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href,
   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Google Plus">    
   <img src="<?php echo $gImg;?>"></a></div>
@@ -227,15 +229,18 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 	<?php if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):?>
 	<!-- Linkdin -->
 	<div class="sbutton">
+
 	<div id="li">
 		<a href="https://www.linkedin.com/cws/share?url=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href,
-  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Linkdin"> <img src="<?php echo $lImg;?>"></a></div>
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" alt="Google Plus">
+  <img src="<?php echo $lImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):?>
 	<!-- Pinterest -->
 	<div class="sbutton">
-	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://myrevsource.pbodev.info/Projects/newrevsite/img/logo.png&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" style="width: 45px;" alt="Pinterest"><img src="<?php echo $pImg;?>"></a></div>
+
+	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://myrevsource.pbodev.info/Projects/newrevsite/img/logo.png&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" style="width: 45px;"><img src="<?php echo $pImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
    <?php if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):?>
@@ -251,5 +256,116 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 </div>
 </div>
 <?php
+}
+/**
+ * Add social share bottons to the end of every post/page.
+ *
+ * @uses is_home()
+ * @uses is_page()
+ * @uses is_single()
+ */
+function csbfs_the_content_filter( $content ) {
+
+global $post;
+$pluginOptionsVal=get_csbwf_sidebar_options();
+
+if(is_category())
+	{
+	   $category_id = get_query_var('cat');
+	   $shareurl =get_category_link( $category_id );   
+	   $cats = get_the_category();
+	   $ShareTitle=$cats[0]->name;
+	}elseif(is_page() || is_single())
+	{
+	   $shareurl=get_permalink($post->ID);
+	   $ShareTitle=$post->post_title;
+	}
+	else
+	{
+        $shareurl =home_url('/');
+        $ShareTitle=get_bloginfo('name');
+		}
+
+/* Get All buttons Image */
+
+//get facebook button image
+if($pluginOptionsVal['csbwfs_fb_image']!=''){ $fImg=$pluginOptionsVal['csbwfs_fb_image'];} 
+   else{$fImg=plugins_url('images/fb-p.png',__FILE__);}   
+//get twitter button image  
+if($pluginOptionsVal['csbwfs_tw_image']!=''){ $tImg=$pluginOptionsVal['csbwfs_tw_image'];} 
+   else{$tImg=plugins_url('images/tw-p.png',__FILE__);}   
+//get linkdin button image
+if($pluginOptionsVal['csbwfs_li_image']!=''){ $lImg=$pluginOptionsVal['csbwfs_li_image'];} 
+   else{$lImg=plugins_url('images/in-p.png',__FILE__);}   
+//get mail button image  
+if($pluginOptionsVal['csbwfs_mail_image']!=''){ $mImg=$pluginOptionsVal['csbwfs_mail_image'];} 
+   else{$mImg=plugins_url('images/ml-p.png',__FILE__);}   
+//get google plus button image 
+if($pluginOptionsVal['csbwfs_gp_image']!=''){ $gImg=$pluginOptionsVal['csbwfs_gp_image'];} 
+   else{$gImg=plugins_url('images/gp-p.png',__FILE__);}  
+//get pinterest button image   
+if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_pin_image'];} 
+   else{$pImg=plugins_url('images/pinit-p.png',__FILE__);}   
+//get email message
+if(is_page() || is_single() || is_category() || is_archive()){
+	
+		if($pluginOptionsVal['csbwfs_mailMessage']!=''){ $mailMsg=$pluginOptionsVal['csbwfs_mailMessage'];} else{
+		 $mailMsg='?subject='.get_the_title().'&body='.get_the_permalink();}
+ }else
+ {
+	 $mailMsg='?subject='.get_bloginfo('name').'&body='.home_url('/');
+	 }
+	 
+$shareButtonContent='<div id="socialButtonOnPage"><div class="sharethis-arrow"><img src="'.plugins_url('images/sharethis.png',__FILE__).'"></div>';
+/* Facebook*/
+if(get_csbwf_sidebar_options('csbwfs_fpublishBtn')!=''):
+	$shareButtonContent.='<div class="sbutton-post"><div id="fb-p"><a href="https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'" onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;"
+   target="_blank" alt="Share on Facebook"> <img src="'.$fImg.'"></a></div></div>';
+endif;
+
+/* Twitter */
+if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):
+	$shareButtonContent.='<div class="sbutton-post"><div id="tw-p"><a href="javascript:" onclick="window.open(\'https://twitter.com/?status='.$ShareTitle.'&nbsp;&nbsp;'.$shareurl.'\', \'_blank\', \'width=800,height=300\')" alt="Twitter"><img src="'.$tImg.'"></a></div></div>';
+endif;
+
+/* Google Plus */
+if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):
+	$shareButtonContent.='<div class="sbutton-post"><div id="gp-p"><a href="https://plus.google.com/share?url='.$shareurl.'" onclick="javascript:window.open(this.href,\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" alt="Google Plus">    
+  <img src="'.$gImg.'"></a></div>
+	</div>';
+endif;
+
+/* Linkedin */
+if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):
+$shareButtonContent.='<div class="sbutton-post"><div id="li-p"><a href="https://www.linkedin.com/cws/share?url='.$shareurl.'" onclick="javascript:window.open(this.href,\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" alt="Google Plus"><img src="'.$lImg.'"></a></div></div>';
+endif;
+
+/* Pinterest */
+if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):
+$shareButtonContent.='<div class="sbutton-post"><div id="pin-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media=http://www.mrwebsolution.in/wp-content/themes/mrweb/images/logo.png&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$pImg.'"></a></div></div>';
+endif;
+
+/* Email */
+if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):
+$shareButtonContent.='<div class="sbutton-post"><div id="ml-p"><a href="mailto:'.$mailMsg.'" alt="Email"><img src="'.$mImg.'"></a></div></div>';
+endif;
+$shareButtonContent.='</div>';
+
+$content = sprintf('%s'.$shareButtonContent,$content);
+
+    // Returns the content.
+    if(is_home() && $pluginOptionsVal['csbwfs_page_hide_home']!='yes'):
+    $content='';
+    endif;
+    
+     if(is_single() && $pluginOptionsVal['csbwfs_page_hide_post']!='yes'):
+    $content='';
+    endif;
+    
+     if(is_page() && $pluginOptionsVal['csbwfs_page_hide_page']!='yes'):
+    $content='';
+    endif;
+    
+    return $content;
 }
 ?>

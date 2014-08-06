@@ -60,3 +60,9 @@
 
 #csbwfs-right a#show {float:right;}
 
+/* CSS for SHARE BUTTONS ON PAGES*/
+#socialButtonOnPage {width:100%; padding-top:5px; padding-bottom:5px;}
+#socialButtonOnPage .sbutton-post {float:left; padding:5px 1px;}
+#socialButtonOnPage .sbutton-post img {width:31px; height:30px;opacity:0.7; border-radius:3px 3px 3px 3px;box-shadow:0 1px 4px rgba(0, 0, 0, 0.2);}
+#socialButtonOnPage .sbutton-post img:hover{opacity:1;}
+#socialButtonOnPage .sharethis-arrow{float:left;padding:5px 10px 5px 1px;}
