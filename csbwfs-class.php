@@ -12,9 +12,10 @@
 	}
 	
 // Get plugin options
+
 $pluginOptionsVal=get_csbwf_sidebar_options();
 //check plugin in enable or not
-if($pluginOptionsVal['csbwfs_active']==1){
+if(isset($pluginOptionsVal['csbwfs_active']) && $pluginOptionsVal['csbwfs_active']==1){
 add_action('wp_footer','get_csbwf_sidebar_content');
 add_action( 'wp_enqueue_scripts', 'csbwf_sidebar_scripts' );
 add_action('wp_footer','csbwf_sidebar_load_inline_js');
