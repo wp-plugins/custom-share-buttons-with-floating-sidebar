@@ -19,9 +19,11 @@ if(isset($pluginOptionsVal['csbwfs_active']) && $pluginOptionsVal['csbwfs_active
 add_action('wp_footer','get_csbwf_sidebar_content');
 add_action( 'wp_enqueue_scripts', 'csbwf_sidebar_scripts' );
 add_action('wp_footer','csbwf_sidebar_load_inline_js');
-add_filter( 'the_content', 'csbfs_the_content_filter', 20 );
 }
 
+if(isset($pluginOptionsVal['csb_active']) && $pluginOptionsVal['csb_active']==1){
+add_filter( 'the_content', 'csbfs_the_content_filter', 20);
+}
 
 //register style and scrip files
 function csbwf_sidebar_scripts() {

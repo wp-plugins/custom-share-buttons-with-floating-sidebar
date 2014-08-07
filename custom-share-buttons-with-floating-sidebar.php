@@ -59,6 +59,7 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_delayTimeBtn');
 	
 	//Options for post/pages
+	register_setting('csbwf_sidebar_options','csb_active');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_home');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_post');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_page');
@@ -94,17 +95,14 @@ function csbwf_sidebar_admin_option_page(){ ?>
 
 	<h1>Custom Share Buttons With Floating Sidebar Settings</h1>
 	
-	<p style="padding-bottom: 2%;">Please fill all options value.</p>
+	
 
 <!-- Start Options Form -->
 
 	<form action="options.php" method="post" id="csbwf-sidebar-admin-form">
 		<table class="cssfw">
-			<tr>
-				<th><?php echo 'Enable Plugin:';?></th>
-				<td>
-					<input type="checkbox" id="csbwfs_active" name="csbwfs_active" value='1' <?php if(get_option('csbwfs_active')!=''){ echo ' checked="checked"'; }?>/>
-				</td>
+			<tr><th>&nbsp;</th>
+				<td>&nbsp;</td>
 				<td rowspan="24" valign="top" style="padding-left: 20px;border-left:1px solid #ccc;">
 					<h2>Plugin Author:</h2>
 	<div style="font-size: 14px;">
@@ -120,6 +118,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 			<tr>
 				<td nowrap colspan="2"><h2 style="width: 80%; border-bottom: 1px solid #666; padding-top: 10px; padding-bottom: 10px;font-size:18px;"><strong><?php echo 'Floating Sidebar Settings:';?></strong></h2></td>
 			</tr>
+			<tr><th>Enable: </th><td><input type="checkbox" id="csbwfs_active" name="csbwfs_active" value='1' <?php if(get_option('csbwfs_active')!=''){ echo ' checked="checked"'; }?>/></td></tr>
 			<tr>
 				<th nowrap><?php echo 'Siderbar Position:';?></th>
 				<td>
@@ -182,7 +181,12 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				</td>
 			</tr>
 			<tr><td colspan="2" border="1"><h2 style="width: 80%; border-bottom: 1px solid #666; padding-top: 10px; padding-bottom: 10px;font-size:18px;"><strong>Social Share Button Settings (Page/Post)</strong></h2></td></tr>
-		
+		    <tr>
+		    <th><?php echo 'Enable:';?></th>
+				<td>
+					<input type="checkbox" id="csb_active" name="csb_active" value='1' <?php if(get_option('csb_active')!=''){ echo ' checked="checked"'; }?>/>
+				</td>
+		    </tr>
 			
 			<tr><td colspan="2"><strong>Show Share Buttons On :</strong> Home <input type="checkbox" id="csbwfs_page_hide_home" value="yes" name="csbwfs_page_hide_home" <?php if(get_option('csbwfs_page_hide_home')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> Page <input type="checkbox" id="csbwfs_page_hide_page" value="yes" name="csbwfs_page_hide_page" <?php if(get_option('csbwfs_page_hide_page')!='yes'){echo '';}else { echo 'checked="checked"';}?>/> Post <input type="checkbox" id="csbwfs_page_hide_post" value="yes" name="csbwfs_page_hide_post" <?php if(get_option('csbwfs_page_hide_post')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> <br>
 			</td></tr>
