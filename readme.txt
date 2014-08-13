@@ -52,8 +52,7 @@ Yes,you have only need to enable the "Social Share Button" from admin by plugin 
 
 5.Can we add at a time only the "Floating Sidebar" OR "Social Share Buttons"? 
 
-Yes,For do it you have need to enable at a time only one
-
+Yes,For do it you have need to enable at a time only one from both "Floating Sidebar" and "Social Share Buttons"
 
 
 == Screenshots ==

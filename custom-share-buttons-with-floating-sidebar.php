@@ -59,7 +59,7 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_delayTimeBtn');
 	
 	//Options for post/pages
-	register_setting('csbwf_sidebar_options','csb_active');
+	register_setting('csbwf_sidebar_options','csbwfs_buttons_active');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_home');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_post');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_page');
@@ -184,7 +184,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 		    <tr>
 		    <th><?php echo 'Enable:';?></th>
 				<td>
-					<input type="checkbox" id="csb_active" name="csb_active" value='1' <?php if(get_option('csb_active')!=''){ echo ' checked="checked"'; }?>/>
+					<input type="checkbox" id="csbwfs_buttons_active" name="csbwfs_buttons_active" value='1' <?php if(get_option('csbwfs_buttons_active')!=''){ echo ' checked="checked"'; }?>/>
 				</td>
 		    </tr>
 			
@@ -282,6 +282,7 @@ if( function_exists('register_uninstall_hook') )
 function csbwf_sidebar_uninstall(){
 		
 	delete_option('csbwfs_active');
+	delete_option('csbbuttons_active');
 	delete_option('csbwfs_position');
 	delete_option('csbwfs_fb_image');
 	delete_option('csbwfs_tw_image');

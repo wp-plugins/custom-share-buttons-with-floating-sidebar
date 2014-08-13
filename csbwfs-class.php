@@ -1,3 +1,10 @@
+<?php
+/*
+ * Custom Share Buttons With Floating Sidebar (C)
+ * @get_csbwf_sidebar_options()
+ * @get_csbwf_sidebar_content()
+ * */
+?>
 <?php 
 // get all options value for "Custom Share Buttons with Floating Sidebar"
 	function get_csbwf_sidebar_options() {
@@ -21,10 +28,15 @@ add_action( 'wp_enqueue_scripts', 'csbwf_sidebar_scripts' );
 add_action('wp_footer','csbwf_sidebar_load_inline_js');
 }
 
-if(isset($pluginOptionsVal['csb_active']) && $pluginOptionsVal['csb_active']==1){
+if(isset($pluginOptionsVal['csbwfs_buttons_active']) && $pluginOptionsVal['csbwfs_buttons_active']==1){
 add_filter( 'the_content', 'csbfs_the_content_filter', 20);
+add_action('wp_head','csbuttons_style');
 }
 
+function csbuttons_style(){
+  	$csbstylee='<style>/* Custom Share Buttons Style*/ #socialButtonOnPage {width:100%; padding-top:5px; padding-bottom:5px;}#socialButtonOnPage .sbutton-post {float:left; padding:5px 1px;}#socialButtonOnPage .sbutton-post img {width:31px; height:30px;opacity:0.7; border-radius:3px 3px 3px 3px;box-shadow:0 1px 4px rgba(0, 0, 0, 0.2);}#socialButtonOnPage .sbutton-post img:hover{opacity:1;}#socialButtonOnPage .sharethis-arrow{float:left;padding:5px 10px 5px 1px;}</style>';
+	echo $csbstylee;
+	}
 //register style and scrip files
 function csbwf_sidebar_scripts() {
 wp_enqueue_script( 'jquery' ); // wordpress jQuery
@@ -354,21 +366,25 @@ $shareButtonContent.='<div class="sbutton-post"><div id="ml-p"><a href="mailto:'
 endif;
 $shareButtonContent.='</div>';
 
-$content = sprintf('%s'.$shareButtonContent,$content);
 
+	//add_filter( 'the_content', array($this, 'add_share_buttons_to_content'));	
     // Returns the content.
     if(is_home() && $pluginOptionsVal['csbwfs_page_hide_home']!='yes'):
-    $content='';
+    $shareButtonContent='';
     endif;
     
      if(is_single() && $pluginOptionsVal['csbwfs_page_hide_post']!='yes'):
-    $content='';
+     $shareButtonContent='';
     endif;
     
      if(is_page() && $pluginOptionsVal['csbwfs_page_hide_page']!='yes'):
-    $content='';
+     $shareButtonContent='';
     endif;
     
+   if($shareButtonContent!=''): 
+   return sprintf('%s'.$shareButtonContent,$content);
+    else:
     return $content;
+    endif;
 }
 ?>
