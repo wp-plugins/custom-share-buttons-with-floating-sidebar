@@ -134,41 +134,41 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<th><?php echo 'Facebook:';?></th>
 				<td>
 			
-				<input type="textbox" id="csbwfs_fb_image" name="csbwfs_fb_image" value="<?php echo get_option('csbwfs_fb_image'); ?>" placeholder="Insert facebook button image path" size="40"/>
+				<input type="textbox" id="csbwfs_fb_image" name="csbwfs_fb_image" value="<?php echo get_option('csbwfs_fb_image'); ?>" placeholder="Insert facebook button image path" size="40"/>&nbsp;<input type="textbox" name="csbwfs_fb_image_gb" name="csbwfs_fb_image_gb" value="" placeholder="Background Color" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Twitter:';?></th>
 				<td>
 			
-				<input type="textbox" id="csbwfs_tw_image" name="csbwfs_tw_image" value="<?php echo get_option('csbwfs_tw_image'); ?>" placeholder="Insert twitter button image path" size="40"/>
+				<input type="textbox" id="csbwfs_tw_image" name="csbwfs_tw_image" value="<?php echo get_option('csbwfs_tw_image'); ?>" placeholder="Insert twitter button image path" size="40"/>&nbsp;<input type="textbox" name="csbwfs_fb_image_gb" name="csbwfs_fb_image_gb" value="" placeholder="Background Color" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Linkdin:';?></th>
 				<td>
 			
-				<input type="textbox" id="csbwfs_li_image" name="csbwfs_li_image" value="<?php echo get_option('csbwfs_li_image'); ?>" placeholder="Insert linkdin button image path" size="40"/>
+				<input type="textbox" id="csbwfs_li_image" name="csbwfs_li_image" value="<?php echo get_option('csbwfs_li_image'); ?>" placeholder="Insert linkdin button image path" size="40"/>&nbsp;<input type="textbox" name="csbwfs_fb_image_gb" name="csbwfs_fb_image_gb" value="" placeholder="Background Color" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Pintrest:';?></th>
 				<td>
 			
-				<input type="textbox" id="csbwfs_pin_image" name="csbwfs_pin_image" value="<?php echo get_option('csbwfs_pin_image'); ?>" placeholder="Insert pinterest button image path" size="40"/>
+				<input type="textbox" id="csbwfs_pin_image" name="csbwfs_pin_image" value="<?php echo get_option('csbwfs_pin_image'); ?>" placeholder="Insert pinterest button image path" size="40"/>&nbsp;<input type="textbox" name="csbwfs_fb_image_gb" name="csbwfs_fb_image_gb" value="" placeholder="Background Color" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Google:';?></th>
 				<td>
 			
-				<input type="textbox" id="csbwfs_gp_image" name="csbwfs_gp_image" value="<?php echo get_option('csbwfs_gp_image'); ?>" placeholder="Insert google button image path" size="40"/>
+				<input type="textbox" id="csbwfs_gp_image" name="csbwfs_gp_image" value="<?php echo get_option('csbwfs_gp_image'); ?>" placeholder="Insert google button image path" size="40"/>&nbsp;<input type="textbox" name="csbwfs_fb_image_gb" name="csbwfs_fb_image_gb" value="" placeholder="Background Color" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Mail:';?></th>
 				<td>
-				<input type="textbox" id="csbwfs_mail_image" name="csbwfs_mail_image" value="<?php echo get_option('csbwfs_mail_image'); ?>" placeholder="Insert mail button image path" size="40"/>
+				<input type="textbox" id="csbwfs_mail_image" name="csbwfs_mail_image" value="<?php echo get_option('csbwfs_mail_image'); ?>" placeholder="Insert mail button image path" size="40"/>&nbsp;<input type="textbox" name="csbwfs_fb_image_gb" name="csbwfs_fb_image_gb" value="" placeholder="Background Color" size="20"/>
 				</td>
 			</tr>
 			<tr><td colspan="2"><h4><strong>Style(Optional):</strong></h4></td></tr>
