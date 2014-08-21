@@ -275,9 +275,9 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 /**
  * Add social share bottons to the end of every post/page.
  *
- * @uses is_home()
- * @uses is_page()
- * @uses is_single()
+ * @is_home()
+ * @is_page()
+ * @is_single()
  */
 function csbfs_the_content_filter( $content ) {
 
