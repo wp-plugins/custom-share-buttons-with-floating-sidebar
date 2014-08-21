@@ -366,9 +366,6 @@ $shareButtonContent.='<div class="sbutton-post"><div id="ml-p"><a href="mailto:'
 endif;
 $shareButtonContent.='</div>';
 
-
-	//add_filter( 'the_content', array($this, 'add_share_buttons_to_content'));	
-    // Returns the content.
     if(is_home() && $pluginOptionsVal['csbwfs_page_hide_home']!='yes'):
     $shareButtonContent='';
     endif;
@@ -382,7 +379,7 @@ $shareButtonContent.='</div>';
     endif;
     
    if($shareButtonContent!=''): 
-   return sprintf('%s'.$shareButtonContent,$content);
+    return sprintf('%s'.$shareButtonContent,$content);
     else:
     return $content;
     endif;
