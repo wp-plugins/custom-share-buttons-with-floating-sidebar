@@ -218,7 +218,7 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 <div class="show"><a href="javascript:" alt="Email" id="show"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$showImg);?>" title="Show Buttons"></a></div>
 
 <div id="social-inner">
-	<?php if(get_csbwf_sidebar_options('csbwfs_fpublishBtn')!=''):?>
+	<?php if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):?>
 	<!-- Facebook -->
 	<div class="sbutton">
 		<div id="fb">
@@ -275,9 +275,9 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 /**
  * Add social share bottons to the end of every post/page.
  *
- * @is_home()
- * @is_page()
- * @is_single()
+ * @uses is_home()
+ * @uses is_page()
+ * @uses is_single()
  */
 function csbfs_the_content_filter( $content ) {
 
@@ -366,6 +366,9 @@ $shareButtonContent.='<div class="sbutton-post"><div id="ml-p"><a href="mailto:'
 endif;
 $shareButtonContent.='</div>';
 
+
+	//add_filter( 'the_content', array($this, 'add_share_buttons_to_content'));	
+    // Returns the content.
     if(is_home() && $pluginOptionsVal['csbwfs_page_hide_home']!='yes'):
     $shareButtonContent='';
     endif;
@@ -379,7 +382,7 @@ $shareButtonContent.='</div>';
     endif;
     
    if($shareButtonContent!=''): 
-    return sprintf('%s'.$shareButtonContent,$content);
+   return sprintf('%s'.$shareButtonContent,$content);
     else:
     return $content;
     endif;
