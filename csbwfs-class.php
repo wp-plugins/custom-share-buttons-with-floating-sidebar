@@ -333,7 +333,7 @@ if(is_page() || is_single() || is_category() || is_archive()){
 	 
 $shareButtonContent='<div id="socialButtonOnPage"><div class="sharethis-arrow"><img src="'.plugins_url('images/sharethis.png',__FILE__).'"></div>';
 /* Facebook*/
-if(get_csbwf_sidebar_options('csbwfs_fpublishBtn')!=''):
+if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):
 	$shareButtonContent.='<div class="sbutton-post"><div id="fb-p"><a href="https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'" onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;"
    target="_blank" alt="Share on Facebook"> <img src="'.$fImg.'"></a></div></div>';
 endif;
