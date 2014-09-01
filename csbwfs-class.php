@@ -64,11 +64,13 @@ function csbwf_sidebar_load_inline_js()
 	 jQuery("#delaydiv").fadeIn();}, '.$pluginOptionsVal['csbwfs_delayTimeBtn'].');';
   endif;  
   
+  if($pluginOptionsVal['csbwfs_fb_bg']!=''): $bgColor=',background:'.$pluginOptionsVal['csbwfs_fb_bg'];else:$bgColor=''; endif;
+  
   if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):
   $jscnt.='jQuery("div#tw a").hover(function(){
   jQuery("div#tw a").animate({width:"60px"});
   },function(){
-    jQuery("div#tw a").stop( true, true ).animate({width:"45px"});
+    jQuery("div#tw a").stop( true, true ).animate({width:"45px"'.$bgColor.'});
   });';
   endif;
   
@@ -222,8 +224,9 @@ if($pluginOptionsVal['csbwfs_position']=='right'){
 	<!-- Facebook -->
 	<div class="sbutton">
 		<div id="fb">
-			<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $shareurl;?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-   target="_blank" alt="Share on Facebook"> <img src="<?php echo $fImg;?>"></a></div>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $shareurl;?>" 
+			onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+   target="_blank" alt="Share on Facebook" > <img src="<?php echo $fImg;?>"></a></div>
 	</div>
     <?php endif;?>
     <?php if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):?>
