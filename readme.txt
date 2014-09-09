@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin, pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 2.7
 Tested up to: 4.0
-Stable tag: 1.3
+Stable tag: 1.4
 
 Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Mail)
 
@@ -20,6 +20,17 @@ There are not added any external JS files in this plugin so it's does not effect
 
 Live [demo](http://www.mrwebsolution.in/)
 
+= Features =
+
+ * Options for define the custom image path for any buttons
+ * Options for define the custom buttons background color
+ * Folating sidebar
+ * Share Buttons for every post/page
+ * Show/Hide options for any buttons
+ * Options for edit to message ("Show Buttons","Hide Buttons"...etc)
+ * Options for define the position to display the floating sidebar (Left/Right)
+ * Options for manage the style of the plugin
+
 
 == Installation ==
 
@@ -32,7 +43,7 @@ Step 3. Go to Settings/"Custom Share Buttons with Floating Sidebar" and configur
 == Frequently Asked Questions ==
 1.How add floating share buttons on my website?
 
-After active the plugin you have must need to enable this plugin and cheked the checkbox other settings as well.
+After active the plugin you have must need to enable this plugin through the plugin settings.
 
 2.Can i change the custom share buttons images from admin?
 
@@ -46,13 +57,13 @@ Yes, Please visit on this [site](http://www.mrwebsolution.in/) for check live de
 
 Yes, admin can define the top margin from plugin settings page
 
-4.Can we add the social share buttons on every post/pages?
+4.Can we add the social share buttons on bottom of every post/pages?
 
 Yes,you have only need to enable the "Social Share Button" from admin by plugin settings
 
 5.Can we add at a time only the "Floating Sidebar" OR "Social Share Buttons"? 
 
-Yes,For do it you have need to enable at a time only one from both "Floating Sidebar" and "Social Share Buttons"
+Yes,You have need to enable at a time only one from both "Floating Sidebar" and "Social Share Buttons"
 
 
 == Screenshots ==
@@ -66,6 +77,12 @@ Yes,For do it you have need to enable at a time only one from both "Floating Sid
 3. screenshot-4.png
 
 == Changelog == 
+
+= 1.4 = 
+ * Added an options for define the background color for every social share buttons
+ * Added an options for show/hide the buttions, so now if you will be click on hide buttons and then go to next page OR reload same page,then buttons will be not publish in front end,so buttons status will be remain until you will not change the their status by click on show/hide buttons
+ * Added an options for manage the general text  (like "Show buttons", "Hide buttons"..etc)
+ * Fixed some JS issues 
 
 = 1.3 = 
  * Added an options for add the social share buttons on bottom of the content on every post/pages

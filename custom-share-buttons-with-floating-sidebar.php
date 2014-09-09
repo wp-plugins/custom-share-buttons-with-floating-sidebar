@@ -5,7 +5,7 @@ Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 1.3
+Version: 1.4
 */
 
 /*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : raghunath.0087@gmail.com)
@@ -74,7 +74,12 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_page_li_image');	
 	register_setting('csbwf_sidebar_options','csbwfs_page_mail_image');	
 	register_setting('csbwf_sidebar_options','csbwfs_page_gp_image');	
-	register_setting('csbwf_sidebar_options','csbwfs_page_pin_image');	
+	register_setting('csbwf_sidebar_options','csbwfs_page_pin_image');
+	/** message content */	
+	
+	register_setting('csbwf_sidebar_options','csbwfs_show_btn');	
+	register_setting('csbwf_sidebar_options','csbwfs_hide_btn');	
+	register_setting('csbwf_sidebar_options','csbwfs_share_msg');	
 	
 } 
 
@@ -119,6 +124,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 		<li><a href="https://wordpress.org/plugins/simple-testimonial-rutator/" target="_blank">Simple Testimonial Rutator(Responsive)</a></li>
 		<li><a href="https://wordpress.org/plugins/wp-easy-recipe/" target="_blank">WP Easy Recipe</a></li>
 		<li><a href="https://wordpress.org/plugins/wp-social-buttons/" target="_blank">WP Social Buttons</a></li>
+		<li><a href="https://wordpress.org/plugins/wp-youtube-gallery/" target="_blank">WP Youtube Gallery</a></li>
 		</ul>
 	</div></td>
 			</tr>
@@ -155,7 +161,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<th><?php echo 'Linkdin:';?></th>
 				<td>
 			
-				<input type="textbox" id="csbwfs_li_image" name="csbwfs_li_image" value="<?php echo get_option('csbwfs_li_image'); ?>" placeholder="Insert linkdin button image path" size="30"/><input type="textbox" id="csbwfs_li_bg" name="csbwfs_li_bg" value="<?php echo get_option('csbwfs_li_image'); ?>" placeholder="BG color:#000000" size="20"/>
+				<input type="textbox" id="csbwfs_li_image" name="csbwfs_li_image" value="<?php echo get_option('csbwfs_li_image'); ?>" placeholder="Insert linkdin button image path" size="30"/><input type="textbox" id="csbwfs_li_bg" name="csbwfs_li_bg" value="<?php echo get_option('csbwfs_li_bg'); ?>" placeholder="BG color:#000000" size="20"/>
 				</td>
 			</tr>
 			<tr>
@@ -254,6 +260,26 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<?php if(get_option('csbwfs_mpublishBtn')=='yes'){?> 
 				<br><input type="text" name="csbwfs_mailMessage" id="csbwfs_mailMessage" value="<?php echo get_option('csbwfs_mailMessage');?>" placeholder="raghunath.0087@gmail.com" size="40" class="regular-text ltr"><br>Note:add the mail message like this format <b>your@email.com?subject=Your Subject</b>
 				<?php } ?>
+				</td>
+			</tr>
+			<tr><td colspan="2">&nbsp;</td></tr>
+			<tr><td colspan="2" border="1"><h2 style="width: 80%; border-bottom: 1px solid #666; padding-top: 10px; padding-bottom: 10px;"><strong>Define your custom message</strong></h2></td></tr>
+			<tr>
+				<th><?php echo 'Show:';?></th>
+				<td>
+				<input type="text" id="csbwfs_show_btn" name="csbwfs_show_btn" value="<?php echo get_option('csbwfs_show_btn'); ?>" placeholder="Show Buttons" size="40"/>
+				</td>
+			</tr>
+				<tr>
+				<th><?php echo 'Hide:';?></th>
+				<td>
+				<input type="text" id="csbwfs_hide_btn" name="csbwfs_hide_btn" value="<?php echo get_option('csbwfs_hide_btn'); ?>" placeholder="Hide Buttons" size="40"/>
+				</td>
+			</tr>
+				<tr>
+				<th><?php echo 'Message:';?></th>
+				<td>
+				<input type="textbox" id="csbwfs_share_msg" name="csbwfs_share_msg" value="<?php echo get_option('csbwfs_share_msg'); ?>" placeholder="Share This With Your Friends" size="40"/>
 				</td>
 			</tr>
 				<tr><td colspan="2">&nbsp;</td></tr>		
