@@ -22,13 +22,13 @@ Live [demo](http://www.mrwebsolution.in/)
 
 = Features =
 
- * Options for define the custom image path for any buttons
- * Options for define the custom buttons background color
- * Folating sidebar
+ * Options for add to Custom Image of any buttons
+ * Options for add to  background color of buttons
+ * Floating Sidebar
  * Share Buttons for every post/page
  * Show/Hide options for any buttons
  * Options for edit to message ("Show Buttons","Hide Buttons"...etc)
- * Options for define the position to display the floating sidebar (Left/Right)
+ * Options for set the position of floating sidebar (Left/Right)
  * Options for manage the style of the plugin
 
 
@@ -79,8 +79,8 @@ Yes,You have need to enable at a time only one from both "Floating Sidebar" and 
 == Changelog == 
 
 = 1.4 = 
- * Added an options for define the background color for every social share buttons
- * Added an options for show/hide the buttions, so now if you will be click on hide buttons and then go to next page OR reload same page,then buttons will be not publish in front end,so buttons status will be remain until you will not change the their status by click on show/hide buttons
+ * Added an options for define the background color of custom social share buttons
+ * Added a new options for show/hide the buttions, so now if you will be click on hide buttons and then go to next page OR reload same page,then buttons will be not publish in front end,so buttons status will be remain until you will not change the their status by click on show/hide buttons
  * Added an options for manage the general text  (like "Show buttons", "Hide buttons"..etc)
  * Fixed some JS issues 
 
