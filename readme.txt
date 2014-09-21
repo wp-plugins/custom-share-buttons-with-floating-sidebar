@@ -34,7 +34,7 @@ Live [demo](http://www.mrwebsolution.in/)
 
 == Installation ==
 
-Step 1. Upload "custom-share-buttons-with-floating-sidebar" folder to the `/wp-content/plugins/` directory
+Step 1.Dowanload the plugin and upload "custom-share-buttons-with-floating-sidebar" plugins file to plugin (`/wp-content/plugins/`) directory
 
 Step 2. Activate the plugin through the Plugins menu in WordPress
 
