@@ -69,6 +69,8 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_home');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_post');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_page');
+	register_setting('csbwf_sidebar_options','csbwfs_page_hide_archive');
+	
 	register_setting('csbwf_sidebar_options','csbwfs_page_fb_image');
 	register_setting('csbwf_sidebar_options','csbwfs_page_tw_image');
 	register_setting('csbwf_sidebar_options','csbwfs_page_li_image');	
@@ -201,7 +203,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				</td>
 		    </tr>
 			
-			<tr><td colspan="2"><strong>Show Share Buttons On :</strong> Home <input type="checkbox" id="csbwfs_page_hide_home" value="yes" name="csbwfs_page_hide_home" <?php if(get_option('csbwfs_page_hide_home')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> Page <input type="checkbox" id="csbwfs_page_hide_page" value="yes" name="csbwfs_page_hide_page" <?php if(get_option('csbwfs_page_hide_page')!='yes'){echo '';}else { echo 'checked="checked"';}?>/> Post <input type="checkbox" id="csbwfs_page_hide_post" value="yes" name="csbwfs_page_hide_post" <?php if(get_option('csbwfs_page_hide_post')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> <br>
+			<tr><td colspan="2"><strong>Show Share Buttons On :</strong> Home <input type="checkbox" id="csbwfs_page_hide_home" value="yes" name="csbwfs_page_hide_home" <?php if(get_option('csbwfs_page_hide_home')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> Page <input type="checkbox" id="csbwfs_page_hide_page" value="yes" name="csbwfs_page_hide_page" <?php if(get_option('csbwfs_page_hide_page')!='yes'){echo '';}else { echo 'checked="checked"';}?>/> Post <input type="checkbox" id="csbwfs_page_hide_post" value="yes" name="csbwfs_page_hide_post" <?php if(get_option('csbwfs_page_hide_post')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> Archive <input type="checkbox" id="csbwfs_page_hide_archive" value="yes" name="csbwfs_page_hide_archive" <?php if(get_option('csbwfs_page_hide_archive')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> <br>
 			</td></tr>
 			
 			<tr><td colspan="2"><strong><h4>Social Share Button Images (Size:31X30) :</h4></strong></td></tr>

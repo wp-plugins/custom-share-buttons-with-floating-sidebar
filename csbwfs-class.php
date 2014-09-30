@@ -205,6 +205,26 @@ if(is_category())
 	   $shareurl=get_permalink($post->ID);
 	   $ShareTitle=$post->post_title;
 	}
+	elseif(is_archive())
+	{
+	   global $wp;
+       $current_url = get_home_url(null, $wp->request, null);
+       
+       if ( is_day() ) :
+		 $ShareTitle='Daily Archives: '. get_the_date(); 
+		elseif ( is_month() ) : 
+		 $ShareTitle='Monthly Archives: '. get_the_date('F Y'); 
+		elseif ( is_year() ) : 
+		 $ShareTitle='Yearly Archives: '. get_the_date('Y'); 
+		elseif ( is_author() ) : 
+		 $ShareTitle='Author Archives: '. get_the_author(); 
+		else :
+		 $ShareTitle ='Blog Archives';
+		endif;			
+	   $shareurl=$current_url;
+	   
+	   //$ShareTitle=$post->post_title;
+	}
 	else
 	{
         $shareurl =home_url('/');
@@ -235,7 +255,7 @@ if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_p
 if(is_page() || is_single() || is_category() || is_archive()){
 	
 		if($pluginOptionsVal['csbwfs_mailMessage']!=''){ $mailMsg=$pluginOptionsVal['csbwfs_mailMessage'];} else{
-		 $mailMsg='?subject='.get_the_title().'&body='.get_the_permalink();}
+		 $mailMsg='?subject='.$ShareTitle.'&body='.$shareurl;}
  }else
  {
 	 $mailMsg='?subject='.get_bloginfo('name').'&body='.home_url('/');
@@ -466,6 +486,10 @@ $shareButtonContent.='</div>';
     endif;
     
      if(is_page() && $pluginOptionsVal['csbwfs_page_hide_page']!='yes'):
+     $shareButtonContent='';
+    endif;
+    
+    if(is_archive() && $pluginOptionsVal['csbwfs_page_hide_archive']!='yes'):
      $shareButtonContent='';
     endif;
     
