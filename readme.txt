@@ -18,7 +18,7 @@ Using this plugin you can easly share your website with your firends on Facebook
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
-Live [demo](http://www.mrwebsolution.in/)
+Live [demo](http://www.gurukulalwar.com/)
 
 = Features =
 
