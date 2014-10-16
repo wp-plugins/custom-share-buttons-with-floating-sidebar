@@ -96,12 +96,7 @@ function csbwf_sidebar_init(){
         $plugin = plugin_basename( __FILE__ );
         add_filter( "plugin_action_links_$plugin", 'csbwfs_add_settings_link' );
 
-/* 
-
-*Display the Options form for Custom Tweets 
-
-*/
-
+/** Display the Options form for CSBWFS */
 function csbwf_sidebar_admin_option_page(){ ?>
 
 	<div style="width: 80%; padding: 10px; margin: 10px;"> 
