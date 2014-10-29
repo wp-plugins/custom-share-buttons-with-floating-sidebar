@@ -70,13 +70,8 @@ function csbwfsCheckCookie() {
 
 if(isset($pluginOptionsVal['csbwfs_buttons_active']) && $pluginOptionsVal['csbwfs_buttons_active']==1){
 add_filter( 'the_content', 'csbfs_the_content_filter', 20);
-add_action('wp_head','csbuttons_style');
 }
 
-function csbuttons_style(){
-  	$csbstylee='<style>/* Custom Share Buttons Style*/ #socialButtonOnPage {width:100%; padding-top:5px; padding-bottom:5px;}#socialButtonOnPage .sbutton-post {float:left; padding:5px 1px;}#socialButtonOnPage .sbutton-post img {width:31px; height:30px;opacity:0.7; border-radius:3px 3px 3px 3px;box-shadow:0 1px 4px rgba(0, 0, 0, 0.2);}#socialButtonOnPage .sbutton-post img:hover{opacity:1;}#socialButtonOnPage .sharethis-arrow{float:left;padding:5px 10px 5px 1px;}</style>';
-	echo $csbstylee;
-	}
 //register style and scrip files
 function csbwf_sidebar_scripts() {
 wp_enqueue_script( 'jquery' ); // wordpress jQuery
@@ -149,6 +144,14 @@ function csbwf_sidebar_load_inline_js()
     jQuery("div#pin a").animate({width:"60px"});
   },function(){
     jQuery("div#pin a").stop( true, true ).animate({width:"45px"});
+  });';
+  endif;
+  
+   if(isset($pluginOptionsVal['csbwfs_ytpublishBtn']) && $pluginOptionsVal['csbwfs_ytpublishBtn']!=''):
+  $jscnt.='jQuery("div#yt a").hover(function(){
+    jQuery("div#yt a").animate({width:"60px"});
+  },function(){
+    jQuery("div#yt a").stop( true, true ).animate({width:"45px"});
   });';
   endif;
 
@@ -249,8 +252,14 @@ if($pluginOptionsVal['csbwfs_mail_image']!=''){ $mImg=$pluginOptionsVal['csbwfs_
 if($pluginOptionsVal['csbwfs_gp_image']!=''){ $gImg=$pluginOptionsVal['csbwfs_gp_image'];} 
    else{$gImg=plugins_url('images/gp.png',__FILE__);}  
 //get pinterest button image   
+ 
 if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_pin_image'];} 
    else{$pImg=plugins_url('images/pinit.png',__FILE__);}   
+   
+//get youtube button image
+if(isset($pluginOptionsVal['csbwfs_yt_image']) && $pluginOptionsVal['csbwfs_yt_image']!=''){ $ytImg=$pluginOptionsVal['csbwfs_yt_image'];} 
+   else{$ytImg=plugins_url('images/youtube.png',__FILE__);}   
+   
 //get email message
 if(is_page() || is_single() || is_category() || is_archive()){
 	
@@ -306,16 +315,20 @@ if($pluginOptionsVal['csbwfs_gp_bg']!=''){ $gImgbg=' style="background:'.$plugin
    else{$gImgbg='';}  
 //get pinterest button image   background color 
 if($pluginOptionsVal['csbwfs_pin_bg']!=''){ $pImgbg=' style="background:'.$pluginOptionsVal['csbwfs_pin_bg'].';"';} 
-   else{$pImgbg='';}   
+   else{$pImgbg='';}  
+    
+//get youtube button image   background color 
+if(isset($pluginOptionsVal['csbwfs_yt_bg']) && $pluginOptionsVal['csbwfs_yt_bg']!=''){ $ytImgbg=' style="background:'.$pluginOptionsVal['csbwfs_yt_bg'].';"';} 
+   else{$ytImgbg='';}   
 
 /** Message */ 
 
 if($pluginOptionsVal['csbwfs_show_btn']!=''){ $showbtn=$pluginOptionsVal['csbwfs_show_btn'];} 
    else{$showbtn='Show Buttons';}   
-//get mail button image  background color 
+//get show/hide button message 
 if($pluginOptionsVal['csbwfs_hide_btn']!=''){ $hidebtn=$pluginOptionsVal['csbwfs_hide_btn'];} 
    else{$hidebtn='Hide Buttons';}   
-//get mail button image  background color 
+//get mail button message 
 if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbwfs_share_msg'];} 
    else{$sharemsg='Share This With Your Friends';}   
 
@@ -365,12 +378,22 @@ if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbw
 	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://www.mrwebsolution.in/wp-content/themes/mrweb/images/logo.png&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" <?php echo $pImgbg;?>><img src="<?php echo $pImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
+	 	 
+	 <?php if(isset($pluginOptionsVal['csbwfs_ytpublishBtn']) && $pluginOptionsVal['csbwfs_ytpublishBtn']!=''):?>
+	<!-- Youtube -->
+	<div class="sbutton">
+
+	<div id="yt"><a onclick="window.open('<?php echo $pluginOptionsVal['csbwfs_ytPath'];?>');" href="javascript:void(0);" <?php echo $ytImgbg;?>><img src="<?php echo $ytImg;?>"></a></div>
+	</div>
+	 <?php endif;?>
+	
    <?php if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):?>
 	<!-- Mail-->
 	<div class="sbutton">
     <div id="ml"><a href="mailto:<?php echo $mailMsg;?>" alt="Email" <?php echo $mImgbg;?>><img src="<?php echo $mImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
+	 
 </div>
 
 <div class="hide"><a href="javascript:" alt="<?php echo $hidebtn;?>" id="hide"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$hideImg);?>" title="<?php echo $hidebtn;?>"></a></div>
@@ -428,6 +451,10 @@ if($pluginOptionsVal['csbwfs_gp_image']!=''){ $gImg=$pluginOptionsVal['csbwfs_gp
 //get pinterest button image   
 if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_pin_image'];} 
    else{$pImg=plugins_url('images/pinit-p.png',__FILE__);}   
+   
+//get youtube button image   
+if(isset($pluginOptionsVal['csbwfs_yt_image']) && $pluginOptionsVal['csbwfs_yt_image']!=''){ $ytImg=$pluginOptionsVal['csbwfs_yt_image'];} 
+   else{$ytImg=plugins_url('images/youtube-p.png',__FILE__);}   
 
 //get email message 
 if(is_page() || is_single() || is_category() || is_archive()){
@@ -438,8 +465,19 @@ if(is_page() || is_single() || is_category() || is_archive()){
  {
 	 $mailMsg='?subject='.get_bloginfo('name').'&body='.home_url('/');
 	 }
-	 
-$shareButtonContent='<div id="socialButtonOnPage"><div class="sharethis-arrow"><img src="'.plugins_url('images/sharethis.png',__FILE__).'"></div>';
+if(isset($pluginOptionsVal['csbwfs_btn_position']) && $pluginOptionsVal['csbwfs_btn_position']!=''):
+$btnPosition=$pluginOptionsVal['csbwfs_btn_position'];
+else:
+$btnPosition='left';
+endif;
+
+if(isset($pluginOptionsVal['csbwfs_btn_text']) && $pluginOptionsVal['csbwfs_btn_text']!=''):
+$btnText=$pluginOptionsVal['csbwfs_btn_text'];
+else:
+$btnText='Share This!';
+endif;
+
+$shareButtonContent='<div id="socialButtonOnPage" class="'.$btnPosition.'SocialButtonOnPage"><div class="sharethis-arrow"><span>'.$btnText.'</span></div>';
 /* Facebook*/
 if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):
 	$shareButtonContent.='<div class="sbutton-post"><div id="fb-p"><a href="https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'" onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;"
@@ -466,6 +504,11 @@ endif;
 /* Pinterest */
 if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):
 $shareButtonContent.='<div class="sbutton-post"><div id="pin-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media=http://www.mrwebsolution.in/wp-content/themes/mrweb/images/logo.png&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$pImg.'"></a></div></div>';
+endif;
+
+/* Youtube */
+if(isset($pluginOptionsVal['csbwfs_ytpublishBtn']) && $pluginOptionsVal['csbwfs_ytpublishBtn']!=''):
+$shareButtonContent.='<div class="sbutton-post"><div id="yt-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media=http://www.mrwebsolution.in/wp-content/themes/mrweb/images/logo.png&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$ytImg.'"></a></div></div>';
 endif;
 
 /* Email */

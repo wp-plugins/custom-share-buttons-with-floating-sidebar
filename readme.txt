@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin, pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 2.7
 Tested up to: 4.0
-Stable tag: 1.4
+Stable tag: 1.5
 
 Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Mail)
 
@@ -28,7 +28,8 @@ Live [demo](http://www.gurukulalwar.com/)
  * Share Buttons for every post/page
  * Show/Hide options for any buttons
  * Options for edit to message ("Show Buttons","Hide Buttons"...etc)
- * Options for set the position of floating sidebar (Left/Right)
+ * Options for set the position of Floating Sidebar (Left/Right)
+ * Options for set the position of Social Buttons (Left/Right)
  * Options for manage the style of the plugin
 
 
@@ -74,9 +75,19 @@ Yes,You have need to enable at a time only one from both "Floating Sidebar" and 
 
 3. screenshot-3.png
 
-3. screenshot-4.png
+4. screenshot-4.png
+
+5. screenshot-5.png
 
 == Changelog == 
+
+= 1.5 = 
+ * Make plugin settings page more stylish
+ * Added a new option for remove show/hide buttions
+ * Added an option for change position of social share buttons
+ * Make "Share This!" button text editable
+ * Add Youtube button
+ * Change image opacity on hover
 
 = 1.4 = 
  * Added an options for define the background color of custom social share buttons
