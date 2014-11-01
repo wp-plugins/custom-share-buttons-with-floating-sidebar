@@ -351,7 +351,8 @@ if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbw
     <?php if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):?>
 	<!-- Twitter -->
 	<div class="sbutton">
-	<div id="tw"><a href="javascript:" onclick="window.open('https://twitter.com/intent/tweet?text=<?php echo $ShareTitle;?>&nbsp;&nbsp;<?php echo $shareurl;?>','_blank','width=800,height=300')" alt="Twitter" <?php echo $tImgbg;?>><img src="<?php echo $tImg;?>"></a></div>
+    <?php $twitteUrl=str_replace('`','',"https://twitter.com/intent/tweet?text=$ShareTitle&nbsp;&nbsp;$shareurl"); ?>
+	<div id="tw"><a href="<?php echo $twitteUrl;?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"" alt="Twitter" <?php echo $tImgbg;?>><img src="<?php echo $tImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):?>
