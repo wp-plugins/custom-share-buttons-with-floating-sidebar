@@ -233,6 +233,7 @@ if(is_category())
         $shareurl =home_url('/');
         $ShareTitle=get_bloginfo('name');
 		}
+$ShareTitle= htmlspecialchars(urlencode($ShareTitle));
 
 /* Get All buttons Image */
 
@@ -331,8 +332,6 @@ if($pluginOptionsVal['csbwfs_hide_btn']!=''){ $hidebtn=$pluginOptionsVal['csbwfs
 //get mail button message 
 if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbwfs_share_msg'];} 
    else{$sharemsg='Share This With Your Friends';}   
-
-   
 ?>
 <div id="delaydiv">
 <div class='social-widget' <?php echo $idName;?> title="<?php echo $sharemsg; ?>" <?php echo $style;?> >
@@ -351,8 +350,7 @@ if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbw
     <?php if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):?>
 	<!-- Twitter -->
 	<div class="sbutton">
-    <?php $twitteUrl=str_replace('`','',"https://twitter.com/intent/tweet?text=$ShareTitle&nbsp;&nbsp;$shareurl"); ?>
-	<div id="tw"><a href="<?php echo $twitteUrl;?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"" alt="Twitter" <?php echo $tImgbg;?>><img src="<?php echo $tImg;?>"></a></div>
+	<div id="tw"><a href="javascript:" onclick="window.open('https://twitter.com/intent/tweet?text=<?php echo $ShareTitle;?>&nbsp;&nbsp;<?php echo $shareurl;?>','_blank','width=800,height=300')" alt="Twitter" <?php echo $tImgbg;?>><img src="<?php echo $tImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):?>
@@ -431,6 +429,7 @@ if(is_category())
         $shareurl =home_url('/');
         $ShareTitle=get_bloginfo('name');
 		}
+$ShareTitle= htmlspecialchars(urlencode($ShareTitle));
 
 /* Get All buttons Image */
 
@@ -461,7 +460,7 @@ if(isset($pluginOptionsVal['csbwfs_yt_image']) && $pluginOptionsVal['csbwfs_yt_i
 if(is_page() || is_single() || is_category() || is_archive()){
 	
 		if($pluginOptionsVal['csbwfs_mailMessage']!=''){ $mailMsg=$pluginOptionsVal['csbwfs_mailMessage'];} else{
-		 $mailMsg='?subject='.get_the_title().'&body='.get_the_permalink();}
+		 $mailMsg='?subject='.get_the_title().'&body='.$shareurl;}
  }else
  {
 	 $mailMsg='?subject='.get_bloginfo('name').'&body='.home_url('/');
@@ -538,7 +537,7 @@ $shareButtonContent.='</div>';
     endif;
     
    if($shareButtonContent!=''): 
-   return sprintf('%s'.$shareButtonContent,$content);
+   return $content.$shareButtonContent;
     else:
     return $content;
     endif;
