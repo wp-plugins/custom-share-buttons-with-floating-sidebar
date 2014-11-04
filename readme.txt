@@ -10,7 +10,9 @@ Add Social Share Buttons Using Floating Sidebar(Facebook,Twitter,Linkedin,Google
 == Description ==
 
 "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons on your site.Plugin is provide the options to add your own custom share button image,so you can change the share buttons images if you wish!.
+
 Using this plugin you can easly share your website with your firends on Facebook,Twitter,Linkedin,Pinterest,Google+,Youtube.
+
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
 Live [demo](http://www.gurukulalwar.com/)
@@ -38,6 +40,7 @@ Step 2. Activate the plugin through the Plugins menu in WordPress
 Step 3. Go to Settings/"Custom Share Buttons with Floating Sidebar" and configure the plugin settings.
 
 == Frequently Asked Questions ==
+
 1.How add floating share buttons on my website?
 
 After active the plugin you have must need to enable this plugin through the plugin settings.
