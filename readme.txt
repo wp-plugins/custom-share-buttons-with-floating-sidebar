@@ -1,21 +1,16 @@
-=== Custom Share Buttons with Floating Sidebar ===
 Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
-Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin, pinterest,floating sidebar,float,floating share buttons,float share buttons
+Tags: social buttons,social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin, pinterest,floating sidebar,share buttons with floating sidebar
 Requires at least: 2.7
 Tested up to: 4.0
 Stable tag: 1.5
 
-Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail)
+Add Social Share Buttons Using Floating Sidebar(Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail)
 
 == Description ==
 
-"custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to floating social share buttons on your site.
-
-Even you can change the share buttons images if you wish!.
-
-Using this plugin you can easly share your website with your firends on Facebook,Twitter,Linkedin,Pinterest,Google+.
-
+"custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons on your site.Plugin is provide the options to add your own custom share button image,so you can change the share buttons images if you wish!.
+Using this plugin you can easly share your website with your firends on Facebook,Twitter,Linkedin,Pinterest,Google+,Youtube.
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
 Live [demo](http://www.gurukulalwar.com/)
@@ -25,7 +20,8 @@ Live [demo](http://www.gurukulalwar.com/)
  * Options for add to Custom Image of any buttons
  * Options for add to  background color of buttons
  * Floating Sidebar
- * Share Buttons for every post/page
+ * Share Buttons for every home/post/page
+ * Show/Hide options for share buttons on home/post/page/archive pages
  * Show/Hide options for any buttons
  * Options for edit to message ("Show Buttons","Hide Buttons"...etc)
  * Options for set the position of Floating Sidebar (Left/Right)
@@ -52,7 +48,7 @@ Yes,admin can changes all social share custom buttons images if you wish, for th
 
 3.Is there any demo site where your plugins have been used?
 
-Yes, Please visit on this [site](http://www.mrwebsolution.in/) for check live demo
+Yes, Please visit on this [site](http://www.gurukulalwar.in/) for check live demo
 
 3.Can i define the top margin for share buttons block?
 
