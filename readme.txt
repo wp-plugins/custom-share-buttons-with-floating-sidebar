@@ -14,7 +14,7 @@ Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,L
 
 Even you can change the share buttons images if you wish!.
 
-Using this plugin you can easly share your website with your firends on Facebook,Twitter,Linkedin,Pinterest,Google+.
+Using this plugin you can easly share your website with your friends on Facebook,Twitter,Linkedin,Pinterest,Google+.
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
