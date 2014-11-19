@@ -350,7 +350,8 @@ if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbw
     <?php if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):?>
 	<!-- Twitter -->
 	<div class="sbutton">
-	<div id="tw"><a href="javascript:" onclick="window.open('https://twitter.com/intent/tweet?text=<?php echo $ShareTitle;?>&nbsp;&nbsp;<?php echo $shareurl;?>','_blank','width=800,height=300')" alt="Twitter" <?php echo $tImgbg;?>><img src="<?php echo $tImg;?>"></a></div>
+
+	<div id="tw"><a href="javascript:" onclick="window.open('http://twitter.com/share?url=<?php echo $shareurl;?>&text=<?php echo $ShareTitle;?>','_blank','width=800,height=300')" alt="Twitter" <?php echo $tImgbg;?>><img src="<?php echo $tImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	<?php if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):?>
@@ -486,7 +487,7 @@ endif;
 
 /* Twitter */
 if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):
-	$shareButtonContent.='<div class="sbutton-post"><div id="tw-p"><a href="javascript:" onclick="window.open(\'https://twitter.com/intent/tweet?text='.$ShareTitle.'&nbsp;&nbsp;'.$shareurl.'\', \'_blank\', \'width=800,height=300\')" alt="Twitter"><img src="'.$tImg.'"></a></div></div>';
+	$shareButtonContent.='<div class="sbutton-post"><div id="tw-p"><a href="javascript:" onclick="window.open(\'http://twitter.com/share?url='.$shareurl.'&text='.$ShareTitle.'&nbsp;&nbsp;\', \'_blank\', \'width=800,height=300\')" alt="Twitter"><img src="'.$tImg.'"></a></div></div>';
 endif;
 
 /* Google Plus */
@@ -503,7 +504,7 @@ endif;
 
 /* Pinterest */
 if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):
-$shareButtonContent.='<div class="sbutton-post"><div id="pin-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media=http://www.mrwebsolution.in/wp-content/uploads/2014/10/latest-logo1.jpg&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$pImg.'"></a></div></div>';
+$shareButtonContent.='<div class="sbutton-post"><div id="pin-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media='.plugins_url('images/mrweb-logo.jpg',__FILE__).'&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$pImg.'"></a></div></div>';
 endif;
 
 /* Youtube */
