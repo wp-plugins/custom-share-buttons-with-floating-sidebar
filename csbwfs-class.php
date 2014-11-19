@@ -374,7 +374,7 @@ if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbw
 	<!-- Pinterest -->
 	<div class="sbutton">
 
-	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://www.mrwebsolution.in/wp-content/themes/mrweb/images/logo.png&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" <?php echo $pImgbg;?>><img src="<?php echo $pImg;?>"></a></div>
+	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://www.mrwebsolution.in/wp-content/uploads/2014/10/latest-logo1.jpg&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" <?php echo $pImgbg;?>><img src="<?php echo $pImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	 	 
@@ -503,7 +503,7 @@ endif;
 
 /* Pinterest */
 if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):
-$shareButtonContent.='<div class="sbutton-post"><div id="pin-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media=http://www.mrwebsolution.in/wp-content/themes/mrweb/images/logo.png&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$pImg.'"></a></div></div>';
+$shareButtonContent.='<div class="sbutton-post"><div id="pin-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media=http://www.mrwebsolution.in/wp-content/uploads/2014/10/latest-logo1.jpg&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$pImg.'"></a></div></div>';
 endif;
 
 /* Youtube */
