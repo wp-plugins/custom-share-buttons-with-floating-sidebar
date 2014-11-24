@@ -3,7 +3,7 @@ Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin, pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 2.7
-Tested up to: 4.0
+Tested up to: 4.0.1
 Stable tag: 1.5
 
 Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail)
