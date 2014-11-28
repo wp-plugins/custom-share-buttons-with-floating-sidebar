@@ -332,7 +332,7 @@ if($pluginOptionsVal['csbwfs_hide_btn']!=''){ $hidebtn=$pluginOptionsVal['csbwfs
 //get mail button message 
 if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbwfs_share_msg'];} 
    else{$sharemsg='Share This With Your Friends';} 
-/** Check plugin disable is not*/     
+/** Check display Show/Hide button or not*/   
 if(isset($pluginOptionsVal['csbwfs_rmSHBtn']) && $pluginOptionsVal['csbwfs_rmSHBtn']!=''):
 $isActiveHideShowBtn='yes';
 else:

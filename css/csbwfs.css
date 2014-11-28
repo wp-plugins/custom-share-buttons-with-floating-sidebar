@@ -10,11 +10,13 @@
 }
 
 .social-widget .sbutton {
-    float: right;
-    height: 41px;
-    margin: 0;
-    position: relative;
-    width: 50px;
+background: none;
+float: right;
+height: 41px;
+margin: 0;
+padding: 0;
+position: relative;
+width: 50px;
 }
 	.sbutton img{padding:5px;}
 	
