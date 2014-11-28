@@ -331,13 +331,19 @@ if($pluginOptionsVal['csbwfs_hide_btn']!=''){ $hidebtn=$pluginOptionsVal['csbwfs
    else{$hidebtn='Hide Buttons';}   
 //get mail button message 
 if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbwfs_share_msg'];} 
-   else{$sharemsg='Share This With Your Friends';}   
+   else{$sharemsg='Share This With Your Friends';} 
+/** Check plugin disable is not*/     
+if(isset($pluginOptionsVal['csbwfs_rmSHBtn']) && $pluginOptionsVal['csbwfs_rmSHBtn']!=''):
+$isActiveHideShowBtn='yes';
+else:
+$isActiveHideShowBtn='no';
+endif;
 ?>
 <div id="delaydiv">
 <div class='social-widget' <?php echo $idName;?> title="<?php echo $sharemsg; ?>" <?php echo $style;?> >
-
+<?php if($isActiveHideShowBtn!='yes') :?>
 <div class="show"><a href="javascript:" alt="<?php echo $showbtn;?>" id="show"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$showImg);?>" title="<?php echo $showbtn;?>"></a></div>
-
+<? endif; ?>
 <div id="social-inner">
 	<?php if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):?>
 	<!-- Facebook -->
@@ -395,9 +401,9 @@ if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbw
 	 <?php endif;?>
 	 
 </div>
-
+<?php if($isActiveHideShowBtn!='yes') :?>
 <div class="hide"><a href="javascript:" alt="<?php echo $hidebtn;?>" id="hide"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$hideImg);?>" title="<?php echo $hidebtn;?>"></a></div>
-
+<?php endif;?>
 </div>
 </div>
 <?php
