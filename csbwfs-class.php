@@ -23,10 +23,19 @@
 $pluginOptionsVal=get_csbwf_sidebar_options();
 //check plugin in enable or not
 if(isset($pluginOptionsVal['csbwfs_active']) && $pluginOptionsVal['csbwfs_active']==1){
+	
+if((isMobile()) && 
+isset($pluginOptionsVal['csbwfs_deactive_for_mob']) && $pluginOptionsVal['csbwfs_deactive_for_mob']!='')
+{
+// silent is Gold;
+}else
+{
 add_action('wp_footer','get_csbwf_sidebar_content');
 add_action( 'wp_enqueue_scripts', 'csbwf_sidebar_scripts' );
 add_action('wp_footer','csbwf_sidebar_load_inline_js');
 add_action('wp_footer','csbwfs_cookie');
+}
+
 }
 
 function csbwfs_cookie()
@@ -154,6 +163,21 @@ function csbwf_sidebar_load_inline_js()
     jQuery("div#yt a").stop( true, true ).animate({width:"45px"});
   });';
   endif;
+   if(isset($pluginOptionsVal['csbwfs_republishBtn']) && $pluginOptionsVal['csbwfs_republishBtn']!=''):
+  $jscnt.='jQuery("div#re a").hover(function(){
+    jQuery("div#re a").animate({width:"60px"});
+  },function(){
+    jQuery("div#re a").stop( true, true ).animate({width:"45px"});
+  });';
+  endif;
+  
+   if(isset($pluginOptionsVal['csbwfs_stpublishBtn']) && $pluginOptionsVal['csbwfs_stpublishBtn']!=''):
+  $jscnt.='jQuery("div#st a").hover(function(){
+    jQuery("div#st a").animate({width:"60px"});
+  },function(){
+    jQuery("div#st a").stop( true, true ).animate({width:"45px"});
+  });';
+  endif;
 
   $jscnt.='jQuery("div.show").hide();
   jQuery("div.show a").click(function(){
@@ -197,6 +221,13 @@ function get_csbwf_sidebar_content() {
 global $post;
 $pluginOptionsVal=get_csbwf_sidebar_options();
 
+/*Default Pinit Share image */
+if(isset($pluginOptionsVal['csbwfs_defaultfeaturedshrimg']) && $pluginOptionsVal['csbwfs_defaultfeaturedshrimg']!=''){
+	$pinShareImg=$pluginOptionsVal['csbwfs_defaultfeaturedshrimg'];
+}else{
+	$pinShareImg=plugins_url('images/mrweb-logo.jpg',__FILE__);
+	}
+
 if(is_category())
 	{
 	   $category_id = get_query_var('cat');
@@ -205,6 +236,13 @@ if(is_category())
 	   $ShareTitle=$cats[0]->name;
 	}elseif(is_page() || is_single())
 	{
+		if ( has_post_thumbnail() ) 
+		{
+			$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+
+			$pinShareImg= $large_image_url[0] ;
+		}
+			
 	   $shareurl=get_permalink($post->ID);
 	   $ShareTitle=$post->post_title;
 	}
@@ -235,6 +273,8 @@ if(is_category())
 		}
 $ShareTitle= htmlspecialchars(urlencode($ShareTitle));
 
+
+
 /* Get All buttons Image */
 
 //get facebook button image
@@ -260,7 +300,15 @@ if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_p
 //get youtube button image
 if(isset($pluginOptionsVal['csbwfs_yt_image']) && $pluginOptionsVal['csbwfs_yt_image']!=''){ $ytImg=$pluginOptionsVal['csbwfs_yt_image'];} 
    else{$ytImg=plugins_url('images/youtube.png',__FILE__);}   
+    
+//get reddit plus button image 
+if(isset($pluginOptionsVal['csbwfs_re_image']) && $pluginOptionsVal['csbwfs_re_image']!=''){ $reImg=$pluginOptionsVal['csbwfs_re_image'];} 
+   else{$reImg=plugins_url('images/reddit.png',__FILE__);}  
    
+//get stumbleupon button image   
+if(isset($pluginOptionsVal['csbwfs_st_image']) && $pluginOptionsVal['csbwfs_st_image']!=''){ $stImg=$pluginOptionsVal['csbwfs_st_image'];} 
+   else{$stImg=plugins_url('images/stumbleupon.png',__FILE__);}   
+     
 //get email message
 if(is_page() || is_single() || is_category() || is_archive()){
 	
@@ -321,7 +369,12 @@ if($pluginOptionsVal['csbwfs_pin_bg']!=''){ $pImgbg=' style="background:'.$plugi
 //get youtube button image   background color 
 if(isset($pluginOptionsVal['csbwfs_yt_bg']) && $pluginOptionsVal['csbwfs_yt_bg']!=''){ $ytImgbg=' style="background:'.$pluginOptionsVal['csbwfs_yt_bg'].';"';} 
    else{$ytImgbg='';}   
-
+//get reddit button image   background color 
+if(isset($pluginOptionsVal['csbwfs_re_bg']) && $pluginOptionsVal['csbwfs_re_bg']!=''){ $reImgbg=' style="background:'.$pluginOptionsVal['csbwfs_re_bg'].';"';} 
+   else{$reImgbg='';}  
+//get stumbleupon button image   background color 
+if(isset($pluginOptionsVal['csbwfs_st_bg']) && $pluginOptionsVal['csbwfs_st_bg']!=''){ $stImgbg=' style="background:'.$pluginOptionsVal['csbwfs_st_bg'].';"';} 
+   else{$stImgbg='';}  
 /** Message */ 
 
 if($pluginOptionsVal['csbwfs_show_btn']!=''){ $showbtn=$pluginOptionsVal['csbwfs_show_btn'];} 
@@ -331,8 +384,8 @@ if($pluginOptionsVal['csbwfs_hide_btn']!=''){ $hidebtn=$pluginOptionsVal['csbwfs
    else{$hidebtn='Hide Buttons';}   
 //get mail button message 
 if($pluginOptionsVal['csbwfs_share_msg']!=''){ $sharemsg=$pluginOptionsVal['csbwfs_share_msg'];} 
-   else{$sharemsg='Share This With Your Friends';} 
-/** Check display Show/Hide button or not*/   
+   else{$sharemsg='Share This With Your Friends';}   
+/** Check display Show/Hide button or not*/
 if(isset($pluginOptionsVal['csbwfs_rmSHBtn']) && $pluginOptionsVal['csbwfs_rmSHBtn']!=''):
 $isActiveHideShowBtn='yes';
 else:
@@ -341,9 +394,11 @@ endif;
 ?>
 <div id="delaydiv">
 <div class='social-widget' <?php echo $idName;?> title="<?php echo $sharemsg; ?>" <?php echo $style;?> >
+
 <?php if($isActiveHideShowBtn!='yes') :?>
 <div class="show"><a href="javascript:" alt="<?php echo $showbtn;?>" id="show"><img src="<?php echo plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$showImg);?>" title="<?php echo $showbtn;?>"></a></div>
-<? endif; ?>
+<?php endif;?>
+
 <div id="social-inner">
 	<?php if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):?>
 	<!-- Facebook -->
@@ -381,7 +436,7 @@ endif;
 	<!-- Pinterest -->
 	<div class="sbutton">
 
-	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=http://www.mrwebsolution.in/wp-content/uploads/2014/10/latest-logo1.jpg&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" <?php echo $pImgbg;?>><img src="<?php echo $pImg;?>"></a></div>
+	<div id="pin"><a onclick="window.open('http://pinterest.com/pin/create/button/?url=<?php echo $shareurl;?>&amp;media=<?php echo $pinShareImg;?>&amp;description=<?php echo $ShareTitle;?> :<?php echo $shareurl;?>','pinIt','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" <?php echo $pImgbg;?>><img src="<?php echo $pImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
 	 	 
@@ -392,7 +447,19 @@ endif;
 	<div id="yt"><a onclick="window.open('<?php echo $pluginOptionsVal['csbwfs_ytPath'];?>');" href="javascript:void(0);" <?php echo $ytImgbg;?>><img src="<?php echo $ytImg;?>"></a></div>
 	</div>
 	 <?php endif;?>
-	
+	 <?php if(isset($pluginOptionsVal['csbwfs_republishBtn']) && $pluginOptionsVal['csbwfs_republishBtn']!=''):?>
+	<!-- Reddit -->
+	<div class="sbutton">
+	<div id="re"><a onclick="window.open('http://reddit.com/submit?url=<?php echo $shareurl;?>&amp;title=<?php echo $ShareTitle;?>','Stumbleupon','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" <?php echo $reImgbg;?>><img src="<?php echo $reImg;?>"></a></div>
+	</div>
+	 <?php endif;?>
+	 <?php if(isset($pluginOptionsVal['csbwfs_stpublishBtn']) && $pluginOptionsVal['csbwfs_stpublishBtn']!=''):?>
+	<!-- Stumbleupon -->
+	<div class="sbutton">
+
+	<div id="st"><a onclick="window.open('http://www.stumbleupon.com/submit?url=<?php echo $shareurl;?>&amp;title=<?php echo $ShareTitle;?>','Stumbleupon','toolbar=0,status=0,width=620,height=500');" href="javascript:void(0);" <?php echo $stImgbg;?>><img src="<?php echo $stImg;?>"></a></div>
+	</div>
+	 <?php endif;?>
    <?php if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):?>
 	<!-- Mail-->
 	<div class="sbutton">
@@ -549,4 +616,36 @@ $shareButtonContent.='</div>';
     return $content;
     endif;
 }
+
+/* 
+ * Site is browsing in mobile or not
+ * @IsMobile()
+ * */
+function isMobile() {
+// Check the server headers to see if they're mobile friendly
+if(isset($_SERVER["HTTP_X_WAP_PROFILE"])) {
+    return true;
+}
+// Let's NOT return "mobile" if it's an iPhone, because the iPhone can render normal pages quite well.
+if(strstr($_SERVER['HTTP_USER_AGENT'], 'iPad')) {
+    return false;
+}
+// If the http_accept header supports wap then it's a mobile too
+if(preg_match("/wap\.|\.wap/i",$_SERVER["HTTP_ACCEPT"])) {
+    return true;
+}
+// Still no luck? Let's have a look at the user agent on the browser. If it contains
+// any of the following, it's probably a mobile device. Kappow!
+if(isset($_SERVER["HTTP_USER_AGENT"])){
+    $user_agents = array("midp", "j2me", "avantg", "docomo", "novarra", "palmos", "palmsource", "240x320", "opwv", "chtml", "pda", "windows\ ce", "mmp\/", "blackberry", "mib\/", "symbian", "wireless", "nokia", "hand", "mobi", "phone", "cdm", "up\.b", "audio", "SIE\-", "SEC\-", "samsung", "HTC", "mot\-", "mitsu", "sagem", "sony", "alcatel", "lg", "erics", "vx", "NEC", "philips", "mmm", "xx", "panasonic", "sharp", "wap", "sch", "rover", "pocket", "benq", "java", "pt", "pg", "vox", "amoi", "bird", "compal", "kg", "voda", "sany", "kdd", "dbt", "sendo", "sgh", "gradi", "jb", "\d\d\di", "moto");
+    foreach($user_agents as $user_string){
+        if(preg_match("/".$user_string."/i",$_SERVER["HTTP_USER_AGENT"])) {
+            return true;
+        }
+    }
+}
+// None of the above? Then it's probably not a mobile device.
+return false;
+}
+
 ?>

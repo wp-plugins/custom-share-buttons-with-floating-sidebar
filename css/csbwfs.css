@@ -32,6 +32,11 @@ width: 50px;
 	
 	#pin a{background:none repeat scroll 0 0 #ca2027; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1); outline:none;}
 	#yt a{background:none repeat scroll 0 0 #ffffff; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1); outline:none;}
+	#re a{background:none repeat scroll 0 0 #FF1A00; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1); outline:none;}
+	#st a{background:none repeat scroll 0 0 #EB4924; text-align:center; display:block;  width:45px; height:40px; border-bottom:1px solid rgba(255, 255, 255, 0.1); outline:none;}
+
+
+
 #csbwfs-right #fb a {
     position: absolute;
     right: 0;
@@ -64,6 +69,16 @@ width: 50px;
    
 }
 #csbwfs-right #yt a {
+    position: absolute;
+    right: 0;
+   
+}
+#csbwfs-right #re a {
+    position: absolute;
+    right: 0;
+   
+}
+#csbwfs-right #st a {
     position: absolute;
     right: 0;
    

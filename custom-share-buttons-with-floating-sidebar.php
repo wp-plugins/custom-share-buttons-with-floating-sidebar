@@ -5,7 +5,7 @@ Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 1.5
+Version: 1.6
 */
 
 /*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : raghunath.0087@gmail.com)
@@ -25,18 +25,20 @@ Version: 1.5
 */
 
 //Admin "Custom Share Buttons with Floating Sidebar" Menu Item
-add_action('admin_menu','csbwf_sidebar_menu');
 
+if(!function_exists('csbwf_sidebar_menu')){
+add_action('admin_menu','csbwf_sidebar_menu');
 function csbwf_sidebar_menu(){
 
 	add_options_page('Custom Share Buttons With Floating Sidebar','Custom Share Buttons With Floating Sidebar','manage_options','csbwfs-settings','csbwf_sidebar_admin_option_page');
 
 }
+}
 
 //Define Action for register "Custom Share Buttons with Floating Sidebar" Options
 add_action('admin_init','csbwf_sidebar_init');
 
-
+if(!function_exists('csbwf_sidebar_init')):
 //Register "Custom Share Buttons with Floating Sidebar" options
 function csbwf_sidebar_init(){
 
@@ -47,6 +49,8 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_fb_image');
 	register_setting('csbwf_sidebar_options','csbwfs_tw_image');
 	register_setting('csbwf_sidebar_options','csbwfs_li_image');	
+	register_setting('csbwf_sidebar_options','csbwfs_re_image');	
+	register_setting('csbwf_sidebar_options','csbwfs_st_image');	
 	register_setting('csbwf_sidebar_options','csbwfs_mail_image');	
 	register_setting('csbwf_sidebar_options','csbwfs_gp_image');	
 	register_setting('csbwf_sidebar_options','csbwfs_pin_image');
@@ -56,13 +60,17 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_li_bg');	
 	register_setting('csbwf_sidebar_options','csbwfs_mail_bg');	
 	register_setting('csbwf_sidebar_options','csbwfs_gp_bg');	
-	register_setting('csbwf_sidebar_options','csbwfs_pin_bg');
+	register_setting('csbwf_sidebar_options','csbwfs_pin_bg');	
+	register_setting('csbwf_sidebar_options','csbwfs_re_bg');	
+	register_setting('csbwf_sidebar_options','csbwfs_st_bg');
 	register_setting('csbwf_sidebar_options','csbwfs_yt_bg');	
 	register_setting('csbwf_sidebar_options','csbwfs_fpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_tpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_gpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_ppublishBtn');	
-	register_setting('csbwf_sidebar_options','csbwfs_ytpublishBtn');	
+	register_setting('csbwf_sidebar_options','csbwfs_ytpublishBtn');
+	register_setting('csbwf_sidebar_options','csbwfs_republishBtn');
+	register_setting('csbwf_sidebar_options','csbwfs_stpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_ytPath');	
 	register_setting('csbwf_sidebar_options','csbwfs_lpublishBtn');	
 	register_setting('csbwf_sidebar_options','csbwfs_mpublishBtn');	
@@ -83,6 +91,8 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_page_mail_image');	
 	register_setting('csbwf_sidebar_options','csbwfs_page_gp_image');	
 	register_setting('csbwf_sidebar_options','csbwfs_page_pin_image');
+	register_setting('csbwf_sidebar_options','csbwfs_page_re_image');
+	register_setting('csbwf_sidebar_options','csbwfs_page_st_image');
 	register_setting('csbwf_sidebar_options','csbwfs_page_yt_image');
 	/** message content */	
 	
@@ -90,23 +100,28 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_hide_btn');	
 	register_setting('csbwf_sidebar_options','csbwfs_share_msg');
 	register_setting('csbwf_sidebar_options','csbwfs_rmSHBtn');	
+	register_setting('csbwf_sidebar_options','csbwfs_featuredshrimg');	
+	register_setting('csbwf_sidebar_options','csbwfs_defaultfeaturedshrimg');
+	register_setting('csbwf_sidebar_options','csbwfs_deactive_for_mob');	
 	
 } 
 
+endif;
 
+if(!function_exists('csbwfs_add_settings_link')):
 // Add settings link to plugin list page in admin
         function csbwfs_add_settings_link( $links ) {
             $settings_link = '<a href="options-general.php?page=csbwfs-settings">' . __( 'Settings', 'csbwfs' ) . '</a>';
             array_unshift( $links, $settings_link );
             return $links;
         }
-
+endif;
         $plugin = plugin_basename( __FILE__ );
         add_filter( "plugin_action_links_$plugin", 'csbwfs_add_settings_link' );
 
 add_action('admin_footer','add_csbwfs_admin_style_script');
 
-
+if(!function_exists('add_csbwfs_admin_style_script')):
 function add_csbwfs_admin_style_script()
 {
 wp_register_style( 'csbwf_admin_style', plugins_url( 'css/admin-csbwfs.css',__FILE__ ) );
@@ -137,9 +152,9 @@ echo $script='<script type="text/javascript">
 	</script>';
 
 	}
-
+endif;
 /** Display the Options form for CSBWFS */
-
+if(!function_exists('csbwf_sidebar_admin_option_page')):
 function csbwf_sidebar_admin_option_page(){ ?>
 
 	<div style="width: 80%; padding: 10px; margin: 10px;"> 
@@ -162,6 +177,8 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<p><input type="checkbox" id="publish3" name="csbwfs_gpublishBtn" value="yes" <?php if(get_option('csbwfs_gpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Google Button</b></p>
 				<p><input type="checkbox" id="publish4" name="csbwfs_lpublishBtn" value="yes" <?php if(get_option('csbwfs_lpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Linkdin Button</b></p>
 				<p><input type="checkbox" id="publish6" name="csbwfs_ppublishBtn" value="yes" <?php if(get_option('csbwfs_ppublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Pinterest Button</b></p>
+				<p><input type="checkbox" id="publish7" name="csbwfs_republishBtn" value="yes" <?php if(get_option('csbwfs_republishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Reddit Button</b></p>
+				<p><input type="checkbox" id="publish8" name="csbwfs_stpublishBtn" value="yes" <?php if(get_option('csbwfs_stpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Stumbleupon Button</b></p>
 				<p><input type="checkbox" id="publish5" name="csbwfs_mpublishBtn" value="yes" <?php if(get_option('csbwfs_mpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Mailbox Button</b></p>
 				<?php if(get_option('csbwfs_mpublishBtn')=='yes'){?> 
 				<p id="mailmsg"><input type="text" name="csbwfs_mailMessage" id="csbwfs_mailMessage" value="<?php echo get_option('csbwfs_mailMessage');?>" placeholder="raghunath.0087@gmail.com" size="40" class="regular-text ltr"><br>Note:add the mail message like this format <b>your@email.com?subject=Your Subject</b></p>
@@ -171,10 +188,14 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<p id="ytpath"><input type="text" name="csbwfs_ytPath" id="csbwfs_ytPath" value="<?php echo get_option('csbwfs_ytPath');?>" placeholder="http://www.youtube.com" size="40" class="regular-text ltr"><br>add youtube channel url</p>
 				<?php } ?>
 			
+
 			<p><label><h3 ><strong><?php _e('Define your custom message:','csbwfs');?></strong></h3></label></p>
 			<p><label><?php _e('Show:');?></label><input type="text" id="csbwfs_show_btn" name="csbwfs_show_btn" value="<?php echo get_option('csbwfs_show_btn'); ?>" placeholder="Show Buttons" size="40"/></p>
 			<p><label><?php _e('Hide:');?></label><input type="text" id="csbwfs_hide_btn" name="csbwfs_hide_btn" value="<?php echo get_option('csbwfs_hide_btn'); ?>" placeholder="Hide Buttons" size="40"/></p>
 			<p><label><?php _e('Message:');?></label><input type="textbox" id="csbwfs_share_msg" name="csbwfs_share_msg" value="<?php echo get_option('csbwfs_share_msg'); ?>" placeholder="Share This With Your Friends" size="40"/></p>
+	        <p><h3><strong><?php _e('Pinterest Share Image Setting :'); ?></strong></h3></p>
+			<p><?php _e('Default Image :');?><input type="textbox" id="csbwfs_defaultfeaturedshrimg" name="csbwfs_defaultfeaturedshrimg" value="<?php echo get_option('csbwfs_defaultfeaturedshrimg'); ?>" placeholder="" size="55"/></p>
+			<p><input type="checkbox" id="featuredshrimg" name="csbwfs_featuredshrimg" value="yes" <?php if(get_option('csbwfs_featuredshrimg')=='yes'){echo 'checked="checked"';}?>/> <?php _e('Make post/page featured image as pinterest share image');?></p>
 	</div>
 	<!-- Floating Sidebar -->
 	<div class="csbwfs-tab" id="div-csbwfs-sidebar">
@@ -190,7 +211,11 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				</td>
 			</tr>
 			<tr><th nowrap valign="top"><?php echo 'Delay Time: '; ?></th><td><input type="text" name="csbwfs_delayTimeBtn" id="csbwfs_delayTimeBtn" value="<?php echo get_option('csbwfs_delayTimeBtn')?get_option('csbwfs_delayTimeBtn'):0;?>"  size="40" class="regular-text ltr"><br><i>Publish share buttons after given time(millisecond)</i></td></tr>
-			<tr><td colspan="2"><strong><h4>Social Share Button Images 36X3 (Optional) :</h4></strong></td></tr>
+				<tr>
+				<th>&nbsp;</th>
+				<td><input type="checkbox" id="csbwfs_deactive_for_mob" name="csbwfs_deactive_for_mob" value="yes" <?php if(get_option('csbwfs_deactive_for_mob')=='yes'){echo 'checked="checked"';}?>/> <strong><?php _e('Disable Sidebar For Mobile','csbwfs');?></strong></td>
+			</tr>
+			<tr><td colspan="2"><strong><h4>Social Share Button Images 36X34 (Optional) :</h4></strong></td></tr>
 			<tr>
 				<th><?php echo 'Facebook:';?></th>
 				<td>
@@ -235,10 +260,24 @@ function csbwf_sidebar_admin_option_page(){ ?>
 			<tr>
 				<th><?php echo 'Youtube:';?></th>
 				<td>
-				<input type="textbox" id="csbwfs_yt_image" name="csbwfs_yt_image" value="<?php echo get_option('csbwfs_mail_image'); ?>" placeholder="Insert youtube button image path" size="30"/> <input type="textbox" id="csbwfs_yt_bg" name="csbwfs_yt_bg" value="<?php echo get_option('csbwfs_yt_bg'); ?>" placeholder="BG color:#FFFFFF" size="20"/>
+				<input type="textbox" id="csbwfs_yt_image" name="csbwfs_yt_image" value="<?php echo get_option('csbwfs_yt_image'); ?>" placeholder="Insert youtube button image path" size="30"/> <input type="textbox" id="csbwfs_yt_bg" name="csbwfs_yt_bg" value="<?php echo get_option('csbwfs_yt_bg'); ?>" placeholder="BG color:#FFFFFF" size="20"/>
 				</td>
 			</tr>
-			<tr><td colspan="2"><h4><strong>Style(Optional):</strong></h4></td></tr>
+			<tr>
+				<th><?php echo 'Reddit:';?></th>
+				<td>
+				<input type="textbox" id="csbwfs_re_image" name="csbwfs_re_image" value="<?php echo get_option('csbwfs_re_image'); ?>" placeholder="Insert reddit button image path" size="30"/> <input type="textbox" id="csbwfs_re_bg" name="csbwfs_re_bg" value="<?php echo get_option('csbwfs_re_bg'); ?>" placeholder="BG color:#FF1A00" size="20"/>
+				</td>
+			</tr>
+			<tr>
+				<th><?php echo 'Stumbleupon:';?></th>
+				<td>
+				<input type="textbox" id="csbwfs_st_image" name="csbwfs_st_image" value="<?php echo get_option('csbwfs_st_image'); ?>" placeholder="Insert stumbleupon button image path" size="30"/> <input type="textbox" id="csbwfs_st_bg" name="csbwfs_st_bg" value="<?php echo get_option('csbwfs_st_bg'); ?>" placeholder="BG color:#EB4924" size="20"/>
+				</td>
+			</tr>
+			
+			
+			<tr><td colspan="2"><h3><strong>Style(Optional):</strong></h3></td></tr>
 			
 			<tr>
 				<th><?php echo 'Top Margin:';?></th>
@@ -248,9 +287,10 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				</td>
 			</tr>
 			<tr>
-				<th><strong><?php _e('Remove Show/Hide Button:','csbwfs');?></strong></th>
-				<td><input type="checkbox" id="csbwfs_rmSHBtn" name="csbwfs_rmSHBtn" value="yes" <?php if(get_option('csbwfs_rmSHBtn')=='yes'){echo 'checked="checked"';}?>/></td>
+				<th>&nbsp;</th>
+				<td><input type="checkbox" id="csbwfs_rmSHBtn" name="csbwfs_rmSHBtn" value="yes" <?php if(get_option('csbwfs_rmSHBtn')=='yes'){echo 'checked="checked"';}?>/> <strong><?php _e('Remove Show/Hide Button:','csbwfs');?></strong></td>
 			</tr>
+			
 	</table>
 	</div>
 	<!-- Share Buttons -->
@@ -329,6 +369,18 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<input type="textbox" id="csbwfs_page_yt_image" name="csbwfs_page_yt_image" value="<?php echo get_option('csbwfs_page_yt_image'); ?>" placeholder="Insert youtube button image path" size="40"/>
 				</td>
 			</tr>
+			<tr>
+				<th><?php echo 'Reddit:';?></th>
+				<td>
+				<input type="textbox" id="csbwfs_page_re_image" name="csbwfs_page_re_image" value="<?php echo get_option('csbwfs_page_re_image'); ?>" placeholder="Insert reddit button image path" size="40"/>
+				</td>
+			</tr>
+			<tr>
+				<th><?php echo 'Stumbleupon:';?></th>
+				<td>
+				<input type="textbox" id="csbwfs_page_st_image" name="csbwfs_page_st_image" value="<?php echo get_option('csbwfs_page_st_image'); ?>" placeholder="Insert stumbleupon button image path" size="40"/>
+				</td>
+			</tr>
 			
 	</table>
 	
@@ -364,6 +416,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 
 <?php
 }
+endif;
 
 require dirname(__FILE__).'/csbwfs-class.php';
 	
@@ -388,10 +441,14 @@ function csbwf_sidebar_uninstall(){
 	delete_option('csbwfs_fb_image');
 	delete_option('csbwfs_tw_image');
 	delete_option('csbwfs_li_image');
+	delete_option('csbwfs_re_image');
+	delete_option('csbwfs_st_image');
 	delete_option('csbwfs_mail_image');
 	delete_option('csbwfs_gp_image');
 	delete_option('csbwfs_pin_image');
-	delete_option('csbwfs_yt_image');	
+	delete_option('csbwfs_yt_image');
+	delete_option('csbwfs_re_image');
+	delete_option('csbwfs_st_image');	
 	delete_option('csbwfs_ytPath');
 	delete_option('csbwfs_fb_bg');
 	delete_option('csbwfs_tw_bg');
@@ -405,7 +462,9 @@ function csbwf_sidebar_uninstall(){
 	delete_option('csbwfs_gpublishBtn');	
 	delete_option('csbwfs_ppublishBtn');	
 	delete_option('csbwfs_lpublishBtn');	
-	delete_option('csbwfs_mpublishBtn');
+	delete_option('csbwfs_mpublishBtn');	
+	delete_option('csbwfs_republishBtn');	
+	delete_option('csbwfs_stpublishBtn');
 	delete_option('csbwfs_ytpublishBtn');	
 	delete_option('csbwfs_mailMessage');
 	delete_option('csbwfs_top_margin');
@@ -415,11 +474,16 @@ function csbwf_sidebar_uninstall(){
 	delete_option('csbwfs_page_fb_image');
 	delete_option('csbwfs_page_tw_image');
 	delete_option('csbwfs_page_li_image');	
+	delete_option('csbwfs_page_re_image');	
+	delete_option('csbwfs_page_st_image');	
 	delete_option('csbwfs_page_mail_image');	
 	delete_option('csbwfs_page_gp_image');	
 	delete_option('csbwfs_page_pin_image');		
 	delete_option('csbwfs_page_yt_image');	
-	delete_option('csbwfs_rmSHBtn');	
+	delete_option('csbwfs_rmSHBtn');
+	delete_option('csbwfs_featuredshrimg');	
+	delete_option('csbwfs_defaultfeaturedshrimg');
+	delete_option('csbwfs_deactive_for_mob');	
 	
 } 
 ?>
