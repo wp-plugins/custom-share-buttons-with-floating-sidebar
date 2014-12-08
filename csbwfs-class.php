@@ -463,7 +463,7 @@ endif;
    <?php if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):?>
 	<!-- Mail-->
 	<div class="sbutton">
-    <div id="ml"><a href="mailto:<?php echo $mailMsg;?>" alt="Email" <?php echo $mImgbg;?>><img src="<?php echo $mImg;?>"></a></div>
+    <div id="ml"><a href="mailto:<?php echo $mailMsg;?>" alt="Email" <?php echo $mImgbg;?>><img src="<?php echo $mImg;?>" target="_blank"></a></div>
 	</div>
 	 <?php endif;?>
 	 
@@ -587,7 +587,7 @@ endif;
 
 /* Email */
 if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):
-$shareButtonContent.='<div class="sbutton-post"><div id="ml-p"><a href="mailto:'.$mailMsg.'" alt="Email"><img src="'.$mImg.'"></a></div></div>';
+$shareButtonContent.='<div class="sbutton-post"><div id="ml-p"><a target="_blank" href="mailto:'.$mailMsg.'" alt="Email"><img src="'.$mImg.'"></a></div></div>';
 endif;
 $shareButtonContent.='</div>';
 
