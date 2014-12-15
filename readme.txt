@@ -6,7 +6,9 @@ Requires at least: 2.7
 Tested up to: 4.0.1
 Stable tag: 1.6
 
-Add Social Share Buttons With Floating Sidebar(Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
+Add Social Share Buttons With Floating Sidebar
+
+(Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
 
 == Description ==
 
