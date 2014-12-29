@@ -3,22 +3,16 @@ Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin,Stumbleupon,Reddit,pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 2.7
-Tested up to: 4.0.1
-Stable tag: 1.6
+Tested up to: 4.1
+Stable tag: 1.7
 
-Add Social Share Buttons With Floating Sidebar
-
-(Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
+Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
 
 == Description ==
 
-"custom-share-buttons-with-floating-sidebar" is the very simple plugin for share your site with your friends through social sites (Facebook,Twitter,Linkedin,Pinterest,Google+,Stumbleupon,Reddit).
-
-You can add a floating sidebar with all social buttons and Even you can change the share buttons images from admin if you wish!.
+"custom-share-buttons-with-floating-sidebar" is the very simple plugin for share your site with your friends through social sites (Facebook,Twitter,Linkedin,Pinterest,Google+,Stumbleupon,Reddit).You can add a floating sidebar with all social buttons and Even you can change the share buttons images from admin if you wish!.
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
-
-Live [demo](http://www.gurukulalwar.com/)
 
 = Features =
 
@@ -34,6 +28,17 @@ Live [demo](http://www.gurukulalwar.com/)
  * Option for disable sidebar for mobile
  * Option for define the pinterest share image
 
+= Go Pro =
+
+We have also released an add-on for Custom Share Buttons With Floating Sidebar which not only demonstrates the flexibility of CSBWFS, but also adds some important features:
+
+ * Responsive Floating Sidebar
+ * Hide Floating Sidebar On Home/Post/Page/Category
+ * Responsive Lightbox Contact Form (for Mail Icon)
+ * Advance Feature For Choose To Pinterest Share Image
+ * Faster support via private forum
+
+Live [demo](http://www.gurukulalwar.com/)
 
 == Installation ==
 
@@ -85,6 +90,12 @@ Step 3. Go to Settings/"Custom Share Buttons with Floating Sidebar" and configur
 5. screenshot-5.png
 
 == Changelog == 
+
+= 1.7 = 
+ * Released Pro Version
+ * Added an option disable floating sidebar on home page
+ * Fixed share url issue on home page
+
 
 = 1.6 = 
  * Added new option for disable floating sidebar for mobile site
