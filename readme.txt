@@ -38,9 +38,9 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
  * Advance Feature For Choose To Pinterest Share Image
  * Faster support via private forum
 
-Live [demo](http://www.gurukulalwar.com/)
+ **Live [demo](http://www.gurukulalwar.com/)**
 
-[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)
+ **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
 
 == Installation ==
 
