@@ -40,6 +40,8 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
 
 Live [demo](http://www.gurukulalwar.com/)
 
+[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)
+
 == Installation ==
 
 Step 1.Dowanload the plugin and upload "custom-share-buttons-with-floating-sidebar" plugins file to plugin (`/wp-content/plugins/`) directory
