@@ -28,19 +28,21 @@ There are not added any external JS files in this plugin so it's does not effect
  * Option for disable sidebar for mobile
  * Option for define the pinterest share image
 
+ **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
+ 
 = Go Pro =
 
 We have also released an add-on for Custom Share Buttons With Floating Sidebar which not only demonstrates the flexibility of CSBWFS, but also adds some important features:
 
  * Responsive Floating Sidebar
  * Hide Floating Sidebar On Home/Post/Page/Category
- * Responsive Lightbox Contact Form (for Mail Icon)
+ * Responsive Light-box Contact Form (for Mail Icon)
+ * Option for add the "Contact Form 7" into light box
  * Advance Feature For Choose To Pinterest Share Image
  * Faster support via private forum
 
  **Live [demo](http://www.gurukulalwar.com/)**
 
- **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
 
 == Installation ==
 
