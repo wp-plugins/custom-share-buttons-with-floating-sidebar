@@ -659,13 +659,18 @@ if(isset($_SERVER["HTTP_X_WAP_PROFILE"])) {
     return true;
 }
 // Let's NOT return "mobile" if it's an iPhone, because the iPhone can render normal pages quite well.
+if(isset($_SERVER["HTTP_USER_AGENT"])):
 if(strstr($_SERVER['HTTP_USER_AGENT'], 'iPad')) {
     return false;
 }
+endif;
+
 // If the http_accept header supports wap then it's a mobile too
+if(isset($_SERVER["HTTP_ACCEPT"])):
 if(preg_match("/wap\.|\.wap/i",$_SERVER["HTTP_ACCEPT"])) {
     return true;
 }
+endif;
 // Still no luck? Let's have a look at the user agent on the browser. If it contains
 // any of the following, it's probably a mobile device. Kappow!
 if(isset($_SERVER["HTTP_USER_AGENT"])){
