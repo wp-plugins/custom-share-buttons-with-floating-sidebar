@@ -105,23 +105,8 @@ function csbwf_sidebar_load_inline_js()
 	  var defaultAnimateWidth;';
   $jscnt.='
 	jQuery(document).ready(function()
-  { if(windWidth < "500" )
-   {
-	   animateWidth="35";
-	   defaultAnimateWidth= animateWidth-10;
-	   }else if(windWidth < "751")
-	   {
-		   animateWidth="40";
-		   defaultAnimateWidth= animateWidth-5;
-		   }else
-			   {
-				   animateWidth="55";
-				   defaultAnimateWidth= animateWidth-10;
-				   }';
-  
-
-   
- 
+  { animateWidth="55";
+	defaultAnimateWidth= animateWidth-10;';
   if($pluginOptionsVal['csbwfs_delayTimeBtn']!='0'):
    $jscnt.='jQuery("#delaydiv").hide();
 	setTimeout(function(){
