@@ -13,7 +13,9 @@ Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,L
 "custom-share-buttons-with-floating-sidebar" is the very simple plugin for share your site with your friends through social sites (Facebook,Twitter,Linkedin,Pinterest,Google+,Stumbleupon,Reddit).You can add a floating sidebar with all social buttons and Even you can change the share buttons images from admin if you wish!.
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
-
+ 
+ **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
+ 
 = Features =
 
  * Options for add to Custom Image of any buttons
@@ -39,9 +41,11 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
  * Responsive Light-box Contact Form (for Mail Icon)
  * Option for add the "Contact Form 7" into light box
  * Advance Feature For Choose To Pinterest Share Image
+ * Option for Show/Hide sidebar on any specific page/post
+ * Option (OG Tags) for define facebook share content (image,content)
  * Faster support via private forum
 
- **Live [demo](http://www.gurukulalwar.com/)**
+ **[Live Demo](http://www.gurukulalwar.com/)**
 
 
 == Installation ==
