@@ -2,9 +2,9 @@
 Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin,Stumbleupon,Reddit,pinterest,floating sidebar,float,floating share buttons,float share buttons
-Requires at least: 2.7
-Tested up to: 4.1
-Stable tag: 1.7
+Requires at least: 3.0
+Tested up to: 4.1.1
+Stable tag: 1.8
 
 Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
 
@@ -13,9 +13,9 @@ Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,L
 "custom-share-buttons-with-floating-sidebar" is the very simple plugin for share your site with your friends through social sites (Facebook,Twitter,Linkedin,Pinterest,Google+,Stumbleupon,Reddit).You can add a floating sidebar with all social buttons and Even you can change the share buttons images from admin if you wish!.
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
- 
+
  **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
- 
+
 = Features =
 
  * Options for add to Custom Image of any buttons
@@ -24,29 +24,27 @@ There are not added any external JS files in this plugin so it's does not effect
  * Share Buttons for every post/page
  * Show/Hide options for any buttons
  * Options for edit to message ("Show Buttons","Hide Buttons"...etc)
- * Options for set the position of Floating Sidebar (Left/Right)
+ * Options for set the position of Floating Sidebar (Left/Right/Bottom)
  * Options for set the position of Social Buttons (Left/Right)
  * Options for manage the style of the plugin
  * Option for disable sidebar for mobile
  * Option for define the pinterest share image
 
- **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
- 
 = Go Pro =
 
 We have also released an add-on for Custom Share Buttons With Floating Sidebar which not only demonstrates the flexibility of CSBWFS, but also adds some important features:
 
  * Responsive Floating Sidebar
  * Hide Floating Sidebar On Home/Post/Page/Category
- * Responsive Light-box Contact Form (for Mail Icon)
- * Option for add the "Contact Form 7" into light box
+ * Responsive Lightbox Contact Form (for Mail Icon)
  * Advance Feature For Choose To Pinterest Share Image
  * Option for Show/Hide sidebar on any specific page/post
  * Option (OG Tags) for define facebook share content (image,content)
- * Faster support via private forum
+ * Faster support
 
- **[Live Demo](http://www.gurukulalwar.com/)**
+ **Live [demo](http://www.gurukulalwar.com/)**
 
+ **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
 
 == Installation ==
 
@@ -98,6 +96,11 @@ Step 3. Go to Settings/"Custom Share Buttons with Floating Sidebar" and configur
 5. screenshot-5.png
 
 == Changelog == 
+
+= 1.8 = 
+ * Released Pro Version 1.1
+ * Added new bottom position option for floating sidebar
+ * Modify CSS 
 
 = 1.7 = 
  * Released Pro Version

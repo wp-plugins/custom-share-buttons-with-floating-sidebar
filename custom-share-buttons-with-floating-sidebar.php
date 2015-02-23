@@ -5,7 +5,7 @@ Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 1.7
+Version: 1.8
 */
 
 /*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : raghunath.0087@gmail.com)
@@ -166,7 +166,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 
 	<form action="options.php" method="post" id="csbwf-sidebar-admin-form">
 		
-	<div id="csbwf-tab-menu"><a id="csbwfs-general" class="csbwf-tab-links active" >General</a> <a  id="csbwfs-sidebar" class="csbwf-tab-links">Floating Sidebar</a> <a  id="csbwfs-share-buttons" class="csbwf-tab-links">Social Share Buttons</a> <a  id="csbwfs-support" class="csbwf-tab-links">Support</a> </div>
+	<div id="csbwf-tab-menu"><a id="csbwfs-general" class="csbwf-tab-links active" >General</a> <a  id="csbwfs-sidebar" class="csbwf-tab-links">Floating Sidebar</a> <a  id="csbwfs-share-buttons" class="csbwf-tab-links">Social Share Buttons</a> <a  id="csbwfs-support" class="csbwf-tab-links">Support</a> <a  id="csbwfs-pro" class="csbwf-tab-links">GO PRO</a> </div>
 
 	<div class="csbwfs-setting">
 	<!-- General Setting -->	
@@ -209,6 +209,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<select id="csbwfs_position" name="csbwfs_position" >
 				<option value="left" <?php if(get_option('csbwfs_position')=='left'){echo 'selected="selected"';}?>>Left</option>
 				<option value="right" <?php if(get_option('csbwfs_position')=='right'){echo 'selected="selected"';}?>>Right</option>
+				<option value="bottom" <?php if(get_option('csbwfs_position')=='bottom'){echo 'selected="selected"';}?>>Bottom</option>
 				</select>
 				</td>
 			</tr>
@@ -406,7 +407,26 @@ function csbwf_sidebar_admin_option_page(){ ?>
 		<li><a href="https://wordpress.org/plugins/wp-youtube-gallery/" target="_blank">WP Youtube Gallery</a></li>
 		</ul></p>
 	</div>
-
+<!-- GO PRO -->
+	<div class="last author csbwfs-tab" id="div-csbwfs-pro">
+	
+	<h2>GO PRO</h2>
+	<p>We have released an add-on for Custom Share Buttons With Floating Sidebar which not only demonstrates the flexibility of CSBWFS, but also adds some important features:</p>
+ <ol>
+ <li> * Responsive Floating Sidebar</li>
+ <li> * Hide Floating Sidebar On Home/Post/Page/Category</li>
+ <li> * Responsive Lightbox Contact Form (for Mail Icon)</li>
+ <li> * Advance Feature For Choose To Pinterest Share Image</li>
+ <li> * Option for Show/Hide sidebar on any specific page/post</li>
+ <li> * Option (OG Tags) for define facebook share content (image,content)</li>
+ <li> * Faster support</li>
+ </ol>
+ <p><a href="http://www.gurukulalwar.com" target="_blank" style="display: block; font-size: 16px; font-weight: bold; text-decoration: none; text-align: center; width: 105px; padding: 1px; background: none repeat scroll 0px 0px red; color: rgb(255, 255, 255);">Live Demo</a></p>
+ <p><a style="display: block; font-size: 16px; font-weight: bold; text-decoration: none; text-align: center; width: 105px; padding: 1px; background: none repeat scroll 0px 0px red; color: rgb(255, 255, 255);" href="http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/">Buy Now</a></p>
+ <p> <a href="mailto:raghunath.0087@gmail.com" target="_blank" class="contact-author">Contact To Author</a></p>
+  
+	</div>
+	
 	</div>
 	<span class="submit-btn"><?php echo get_submit_button('Save Settings','button-primary','submit','','');?></span>
 		
