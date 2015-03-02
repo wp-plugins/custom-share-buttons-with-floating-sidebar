@@ -14,7 +14,7 @@ Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,L
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
- **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
+ **[Upgrade to Pro Version](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
 
 = Features =
 
@@ -37,14 +37,18 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
  * Responsive Floating Sidebar
  * Hide Floating Sidebar On Home/Post/Page/Category
  * Responsive Lightbox Contact Form (for Mail Icon)
+ * Option for add to Contact Form 7 shortcode in lightbox
  * Advance Feature For Choose To Pinterest Share Image
  * Option for Show/Hide sidebar on any specific page/post
  * Option (OG Tags) for define facebook share content (image,content)
+ * Three New Buttons (Google Translate Button ,  Instagram Button, Whatsapp Button)
  * Faster support
 
- **Live [demo](http://www.gurukulalwar.com/)**
+ **[Live Demo](http://csbwfs.mrwebsolution.in)**
 
- **[Upgrade to Pro Version](http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/)**
+ **[Addon Documentation](http://csbwfs.mrwebsolution.in/documentation)**
+
+ **[Upgrade to Pro Version](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
 
 == Installation ==
 
@@ -79,9 +83,13 @@ Step 3. Go to Settings/"Custom Share Buttons with Floating Sidebar" and configur
 
  Yes,You have need to enable at a time only one from both "Floating Sidebar" and "Social Share Buttons"
 
-7.Is there any demo site where your plugins have been used?
+7.Is this mobile friendly OR is this responsive plugin?
 
- Yes, Please visit on this [site](http://www.mrwebsolution.in/) for check live demo
+No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS ADDON is responsive with some new extra features.Please visit on this [site](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro) for check full details about addon.
+
+8.Is there any demo site where your plugins have been used?
+
+ Yes, Please visit on this [site](http://csbwfs.mrwebsolution.in/) for check live demo
 
 == Screenshots ==
 
