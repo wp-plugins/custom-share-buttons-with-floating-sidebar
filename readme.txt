@@ -41,7 +41,8 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
  * Advance Feature For Choose To Pinterest Share Image
  * Option for Show/Hide sidebar on any specific page/post
  * Option (OG Tags) for define facebook share content (image,content)
- * Three New Buttons (Google Translate Button ,  Instagram Button, Whatsapp Button)
+ * Option for add to social site official page URL for all social buttons
+ * Extra Buttons (Google Translate,Instagram, Whatsapp)
  * Faster support
 
  **[Live Demo](http://csbwfs.mrwebsolution.in)**
