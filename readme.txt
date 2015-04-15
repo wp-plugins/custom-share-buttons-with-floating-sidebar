@@ -14,7 +14,8 @@ Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,L
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
- **[Upgrade to Pro Version](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version-Server1](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version-Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
 
 = Features =
 
@@ -49,7 +50,8 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
 
  **[Addon Documentation](http://csbwfs.mrwebsolution.in/documentation)**
 
- **[Upgrade to Pro Version](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version-Server1](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version-Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
 
 == Installation ==
 
