@@ -2,9 +2,9 @@
 Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin,Stumbleupon,Reddit,pinterest,floating sidebar,float,floating share buttons,float share buttons
-Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 1.8
+Requires at least: 3.3
+Tested up to: 4.1.2
+Stable tag: 1.9
 
 Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
 
@@ -38,22 +38,26 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
 
  * Responsive Floating Sidebar
  * Hide Floating Sidebar On Home/Post/Page/Category
- * Responsive Lightbox Contact Form (for Mail Icon)
- * Option for add to Contact Form 7 shortcode in lightbox
- * Advance Feature For Choose To Pinterest Share Image
  * Option for Show/Hide sidebar on any specific page/post
+ * Responsive Lightbox Contact Form (for Mail Icon)
+ * Option for add to “Contact Form 7″ Shortcode into lightbox
+ * Advance Feature For Choose To Pinterest Share Image
  * Option (OG Tags) for define facebook share content (image,content)
- * Option for add to social site official page URL for all social buttons
+ * Option for add to external social site official page URL for all social buttons
  * Extra Buttons (Google Translate,Instagram, Whatsapp)
+ * Option for display to number of share (Twitter,Facebook,LinkedIn,StumbleUpon,Google Plus,Pinterest and Reddit)
  * Faster support
+
 
  **[Live Demo](http://csbwfs.mrwebsolution.in)**
 
  **[Addon Documentation](http://csbwfs.mrwebsolution.in/documentation)**
 
- **[Upgrade to Pro Version-Server1](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version - Server1](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
 
- **[Upgrade to Pro Version-Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
+ **[Upgrade to Pro Version - Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
+
+ For any query contact to plugin author on **[raghunath.0087@gmail.com](mailto:raghunath.0087@gmail.com)**
 
 == Installation ==
 
@@ -109,6 +113,13 @@ No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS 
 5. screenshot-5.png
 
 == Changelog == 
+
+= 1.9 = 
+ * Released Pro Version 1.3
+ * Fixed all suggested issues by users
+ * Fixed css conflict issues
+ * Added Stumbleupon and Reddit buttons to social share buttons
+ * Minify CSS 
 
 = 1.8 = 
  * Released Pro Version 1.1

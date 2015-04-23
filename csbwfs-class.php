@@ -108,162 +108,93 @@ function csbwf_sidebar_load_inline_js()
 	animateHeight="49";
 	defaultAnimateHeight= animateHeight-2;';
   if($pluginOptionsVal['csbwfs_delayTimeBtn']!='0'):
-     $jscnt.='jQuery("#delaydiv").hide();
+     $jscnt.='jQuery("#csbwfs-delaydiv").hide();
 	  setTimeout(function(){
-	  jQuery("#delaydiv").fadeIn();}, '.$pluginOptionsVal['csbwfs_delayTimeBtn'].');';
+	  jQuery("#csbwfs-delaydiv").fadeIn();}, '.$pluginOptionsVal['csbwfs_delayTimeBtn'].');';
   endif;  
   
 if($pluginOptionsVal['csbwfs_position']=='right' || $pluginOptionsVal['csbwfs_position']=='left'){
   
   if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):
-  $jscnt.='jQuery("div#tw a").hover(function(){
-  jQuery("div#tw a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-tw a").hover(function(){
+  jQuery("div#csbwfs-tw a").animate({width:animateWidth});
   },function(){
-    jQuery("div#tw a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-tw a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
   
   if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):
-  $jscnt.='jQuery("div#fb a").hover(function(){
-    jQuery("div#fb a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-fb a").hover(function(){
+    jQuery("div#csbwfs-fb a").animate({width:animateWidth});
   },function(){
-    jQuery("div#fb a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-fb a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
   
   if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):
-  $jscnt.='jQuery("div#ml a").hover(function(){
-    jQuery("div#ml a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-ml a").hover(function(){
+    jQuery("div#csbwfs-ml a").animate({width:animateWidth});
   },function(){
-    jQuery("div#ml a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-ml a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
   
   if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):
-  $jscnt.='jQuery("div#gp a").hover(function(){
-    jQuery("div#gp a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-gp a").hover(function(){
+    jQuery("div#csbwfs-gp a").animate({width:animateWidth});
   },function(){
-    jQuery("div#gp a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-gp a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
   
   if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):
-  $jscnt.='jQuery("div#li a").hover(function(){
-    jQuery("div#li a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-li a").hover(function(){
+    jQuery("div#csbwfs-li a").animate({width:animateWidth});
   },function(){
-    jQuery("div#li a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-li a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
   
    if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):
-  $jscnt.='jQuery("div#pin a").hover(function(){
-    jQuery("div#pin a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-pin a").hover(function(){
+    jQuery("div#csbwfs-pin a").animate({width:animateWidth});
   },function(){
-    jQuery("div#pin a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-pin a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
   
    if(isset($pluginOptionsVal['csbwfs_ytpublishBtn']) && $pluginOptionsVal['csbwfs_ytpublishBtn']!=''):
-  $jscnt.='jQuery("div#yt a").hover(function(){
-    jQuery("div#yt a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-yt a").hover(function(){
+    jQuery("div#csbwfs-yt a").animate({width:animateWidth});
   },function(){
-    jQuery("div#yt a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-yt a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
    if(isset($pluginOptionsVal['csbwfs_republishBtn']) && $pluginOptionsVal['csbwfs_republishBtn']!=''):
-  $jscnt.='jQuery("div#re a").hover(function(){
-    jQuery("div#re a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-re a").hover(function(){
+    jQuery("div#csbwfs-re a").animate({width:animateWidth});
   },function(){
-    jQuery("div#re a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-re a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
   
    if(isset($pluginOptionsVal['csbwfs_stpublishBtn']) && $pluginOptionsVal['csbwfs_stpublishBtn']!=''):
-  $jscnt.='jQuery("div#st a").hover(function(){
-    jQuery("div#st a").animate({width:animateWidth});
+  $jscnt.='jQuery("div#csbwfs-st a").hover(function(){
+    jQuery("div#csbwfs-st a").animate({width:animateWidth});
   },function(){
-    jQuery("div#st a").stop( true, true ).animate({width:defaultAnimateWidth});
+    jQuery("div#csbwfs-st a").stop( true, true ).animate({width:defaultAnimateWidth});
   });';
   endif;
   
 }else
 {  
-  if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):
-  $jscnt.='jQuery("div#tw a").hover(function(){
-  jQuery("div#tw a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#tw a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
-  
-  if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):
-  $jscnt.='jQuery("div#fb a").hover(function(){
-    jQuery("div#fb a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#fb a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
-  
-  if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):
-  $jscnt.='jQuery("div#ml a").hover(function(){
-    jQuery("div#ml a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#ml a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
-  
-  if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):
-  $jscnt.='jQuery("div#gp a").hover(function(){
-    jQuery("div#gp a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#gp a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
-  
-  if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):
-  $jscnt.='jQuery("div#li a").hover(function(){
-    jQuery("div#li a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#li a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
-  
-   if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):
-  $jscnt.='jQuery("div#pin a").hover(function(){
-    jQuery("div#pin a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#pin a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
-  
-   if(isset($pluginOptionsVal['csbwfs_ytpublishBtn']) && $pluginOptionsVal['csbwfs_ytpublishBtn']!=''):
-  $jscnt.='jQuery("div#yt a").hover(function(){
-    jQuery("div#yt a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#yt a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
-   if(isset($pluginOptionsVal['csbwfs_republishBtn']) && $pluginOptionsVal['csbwfs_republishBtn']!=''):
-  $jscnt.='jQuery("div#re a").hover(function(){
-    jQuery("div#re a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#re a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
-  
-   if(isset($pluginOptionsVal['csbwfs_stpublishBtn']) && $pluginOptionsVal['csbwfs_stpublishBtn']!=''):
-  $jscnt.='jQuery("div#st a").hover(function(){
-    jQuery("div#st a").animate({height:animateHeight});
-  },function(){
-    jQuery("div#st a").stop( true, true ).animate({height:defaultAnimateHeight});
-  });';
-  endif;
+ //silent
   
 }
 
   $jscnt.='jQuery("div.csbwfs-show").hide();
   jQuery("div.csbwfs-show a").click(function(){
-    jQuery("div#social-inner").show(500);
+    jQuery("div#csbwfs-social-inner").show(500);
      jQuery("div.csbwfs-show").hide(500);
     jQuery("div.csbwfs-hide").show(500);
     csbwfsSetCookie("csbwfs_show_hide_status","active","1");
@@ -272,7 +203,7 @@ if($pluginOptionsVal['csbwfs_position']=='right' || $pluginOptionsVal['csbwfs_po
   jQuery("div.csbwfs-hide a").click(function(){
      jQuery("div.csbwfs-show").show(500);
       jQuery("div.csbwfs-hide").hide(500);
-     jQuery("div#social-inner").hide(500);
+     jQuery("div#csbwfs-social-inner").hide(500);
      csbwfsSetCookie("csbwfs_show_hide_status","in_active","1");
   });';
   
@@ -280,9 +211,9 @@ if($pluginOptionsVal['csbwfs_position']=='right' || $pluginOptionsVal['csbwfs_po
     if (button_status =="in_active") {
       jQuery("div.csbwfs-show").show();
       jQuery("div.csbwfs-hide").hide();
-     jQuery("div#social-inner").hide();
+     jQuery("div#csbwfs-social-inner").hide();
     } else {
-      jQuery("div#social-inner").show();
+      jQuery("div#csbwfs-social-inner").show();
      jQuery("div.csbwfs-show").hide();
     jQuery("div.csbwfs-hide").show();
     }';
@@ -492,57 +423,57 @@ $isActiveHideShowBtn='yes';
 else:
 $isActiveHideShowBtn='no';
 endif;
-$flitingSidebarContent='<div id="delaydiv"><div class="csbwfs-social-widget" '.$idName.' title="'.$sharemsg.'" '.$style.'>';
+$flitingSidebarContent='<div id="csbwfs-delaydiv"><div class="csbwfs-social-widget" '.$idName.' title="'.$sharemsg.'" '.$style.'>';
 
 if($isActiveHideShowBtn!='yes') :
 $flitingSidebarContent .= '<div class="csbwfs-show"><a href="javascript:" alt="'.$showbtn.'" id="csbwfs-show"><img src="'.plugins_url('custom-share-buttons-with-floating-sidebar/images/'.$showImg).'" title="'.$showbtn.'"></a></div>';
 endif;
 
-$flitingSidebarContent .= '<div id="social-inner">';
+$flitingSidebarContent .= '<div id="csbwfs-social-inner">';
 
 /** FB */
 if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="fb"><a href="https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'" onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;" target="_blank" alt="Share on Facebook" '.$fImgbg.'> <img src="'.$fImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-fb"><a href="https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'" onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;" target="_blank" alt="Share on Facebook" '.$fImgbg.'> <img src="'.$fImg.'"></a></div></div>';
 endif;
 
 /** TW */
 if($pluginOptionsVal['csbwfs_tpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="tw"><a href="javascript:" onclick="window.open(\'http://twitter.com/share?url='.$shareurl.'&text='.$ShareTitle.'\',\'_blank\',\'width=800,height=300\')" alt="Twitter" '.$tImgbg.'><img src="'.$tImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-tw"><a href="javascript:" onclick="window.open(\'http://twitter.com/share?url='.$shareurl.'&text='.$ShareTitle.'\',\'_blank\',\'width=800,height=300\')" alt="Twitter" '.$tImgbg.'><img src="'.$tImg.'"></a></div></div>';
 endif;
 
 /** GP */
 if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="gp"><a href="https://plus.google.com/share?url='.$shareurl.'"  onclick="javascript:window.open(this.href,\'\',\'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800\');return false;" alt="Google Plus" '.$gImgbg.'><img src="'.$gImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-gp"><a href="https://plus.google.com/share?url='.$shareurl.'"  onclick="javascript:window.open(this.href,\'\',\'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800\');return false;" alt="Google Plus" '.$gImgbg.'><img src="'.$gImg.'"></a></div></div>';
 endif;
 
 /**  LI */
 if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="li"><a href="https://www.linkedin.com/cws/share?mini=true&url='. $shareurl.'" onclick="javascript:window.open(this.href,\'\',\'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800\');return false;" alt="Google Plus" '.$lImgbg.'><img src="'.$lImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-li"><a href="https://www.linkedin.com/cws/share?mini=true&url='. $shareurl.'" onclick="javascript:window.open(this.href,\'\',\'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800\');return false;" alt="Google Plus" '.$lImgbg.'><img src="'.$lImg.'"></a></div></div>';
 endif;
 
 /** PIN */
 if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="pin"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media='.$pinShareImg.'&amp;description='.$ShareTitle.' :'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=800,height=500\');" href="javascript:void(0);" '.$pImgbg.'><img src="'.$pImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-pin"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media='.$pinShareImg.'&amp;description='.$ShareTitle.' :'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=800,height=500\');" href="javascript:void(0);" '.$pImgbg.'><img src="'.$pImg.'"></a></div></div>';
 endif;
 
 /** YT */	 	 
 if(isset($pluginOptionsVal['csbwfs_ytpublishBtn']) && $pluginOptionsVal['csbwfs_ytpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="yt"><a onclick="window.open(\''.$pluginOptionsVal['csbwfs_ytPath'].'\');" href="javascript:void(0);" '.$ytImgbg.'><img src="'.$ytImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-yt"><a onclick="window.open(\''.$pluginOptionsVal['csbwfs_ytPath'].'\');" href="javascript:void(0);" '.$ytImgbg.'><img src="'.$ytImg.'"></a></div></div>';
 endif;
 
 /** Reddit */
 if(isset($pluginOptionsVal['csbwfs_republishBtn']) && $pluginOptionsVal['csbwfs_republishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="re"><a onclick="window.open(\'http://reddit.com/submit?url='.$shareurl.'&amp;title='.$ShareTitle.'\',\'Reddit\',\'toolbar=0,status=0,width=1000,height=800\');" href="javascript:void(0);" '.$reImgbg.'><img src="'.$reImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-re"><a onclick="window.open(\'http://reddit.com/submit?url='.$shareurl.'&amp;title='.$ShareTitle.'\',\'Reddit\',\'toolbar=0,status=0,width=1000,height=800\');" href="javascript:void(0);" '.$reImgbg.'><img src="'.$reImg.'"></a></div></div>';
 endif;
 
 /** Stumbleupon */
 if(isset($pluginOptionsVal['csbwfs_stpublishBtn']) && $pluginOptionsVal['csbwfs_stpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="st"><a <a onclick="window.open(\'http://www.stumbleupon.com/submit?url='.$shareurl.'&amp;title='.$ShareTitle.'\',\'Stumbleupon\',\'toolbar=0,status=0,width=1000,height=800\');"  href="javascript:void(0);" '.$stImgbg.'><img src="'. $stImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-st"><a onclick="window.open(\'http://www.stumbleupon.com/submit?url='.$shareurl.'&amp;title='.$ShareTitle.'\',\'Stumbleupon\',\'toolbar=0,status=0,width=1000,height=800\');"  href="javascript:void(0);" '.$stImgbg.'><img src="'. $stImg.'"></a></div></div>';
 endif; 
 
 /** Mail*/
 if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="ml"><a href="mailto:'.$mailMsg.'" alt="Email" '.$mImgbg.'><img src="'.$mImg.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-ml"><a href="mailto:'.$mailMsg.'" alt="Email" '.$mImgbg.'><img src="'.$mImg.'"></a></div></div>';
 endif;
 
 $flitingSidebarContent .='</div>'; //End social-inner
@@ -630,7 +561,13 @@ if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_p
 //get youtube button image   
 if(isset($pluginOptionsVal['csbwfs_yt_image']) && $pluginOptionsVal['csbwfs_yt_image']!=''){ $ytImg=$pluginOptionsVal['csbwfs_yt_image'];} 
    else{$ytImg=plugins_url('images/youtube-p.png',__FILE__);}   
-
+//get reddit plus button image 
+if(isset($pluginOptionsVal['csbwfs_re_image']) && $pluginOptionsVal['csbwfs_re_image']!=''){ $reImg=$pluginOptionsVal['csbwfs_re_image'];} 
+   else{$reImg=plugins_url('images/reddit.png',__FILE__);}  
+//get stumbleupon button image   
+if(isset($pluginOptionsVal['csbwfs_st_image']) && $pluginOptionsVal['csbwfs_st_image']!=''){ $stImg=$pluginOptionsVal['csbwfs_st_image'];} 
+   else{$stImg=plugins_url('images/stumbleupon.png',__FILE__);}  
+   
 //get email message 
 if(is_page() || is_single() || is_category() || is_archive()){
 	
@@ -678,13 +615,23 @@ endif;
 
 /* Pinterest */
 if($pluginOptionsVal['csbwfs_ppublishBtn']!=''):
-$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="pin-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media='.plugins_url('images/mrweb-logo.jpg',__FILE__).'&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$pImg.'"></a></div></div>';
+$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="pin-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media='.plugins_url('images/mrweb-logo.jpg',__FILE__).'&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);"><img src="'.$pImg.'"></a></div></div>';
 endif;
 
 /* Youtube */
 if(isset($pluginOptionsVal['csbwfs_ytpublishBtn']) && $pluginOptionsVal['csbwfs_ytpublishBtn']!=''):
 $shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="yt-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media=http://www.mrwebsolution.in/wp-content/themes/mrweb/images/logo.png&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$ytImg.'"></a></div></div>';
 endif;
+/* Stumbleen */
+if(isset($pluginOptionsVal['csbwfs_stpublishBtn']) && $pluginOptionsVal['csbwfs_stpublishBtn']!=''):
+$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="st-p"><a onclick="window.open(\'http://www.stumbleupon.com/submit?url='.$shareurl.'&amp;title='.$ShareTitle.'\',\'Stumbleupon\',\'toolbar=0,status=0,width=1000,height=800\');"  href="javascript:void(0);" ><img src="'.$stImg.'"></a></div></div>';
+endif;
+
+/* Reddit */
+if(isset($pluginOptionsVal['csbwfs_republishBtn']) && $pluginOptionsVal['csbwfs_republishBtn']!=''):
+$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="re-p"><a onclick="window.open(\'http://reddit.com/submit?url='.$shareurl.'&amp;title='.$ShareTitle.'\',\'Reddit\',\'toolbar=0,status=0,width=1000,height=800\');" href="javascript:void(0);"><img src="'.$reImg.'"></a></div></div>';
+endif;
+
 
 /* Email */
 if($pluginOptionsVal['csbwfs_mpublishBtn']!=''):

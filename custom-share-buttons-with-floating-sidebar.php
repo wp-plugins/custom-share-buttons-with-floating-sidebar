@@ -5,7 +5,7 @@ Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 1.8
+Version: 1.9
 */
 
 /*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : raghunath.0087@gmail.com)
@@ -401,7 +401,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<p><strong>My Other Plugins:</strong><br>
 	<ul>
 		<li><a href="https://wordpress.org/plugins/protect-wp-admin/" target="_blank">Protect WP-Admin</a></li>
-		<li><a href="https://wordpress.org/plugins/simple-testimonial-rutator/" target="_blank">Simple Testimonial Rutator</a></li>
+		<li><a href="https://wordpress.org/plugins/wp-testimonial/" target="_blank">WP Testimonial</a></li>
 		<li><a href="https://wordpress.org/plugins/wp-easy-recipe/" target="_blank">WP Easy Recipe</a></li>
 		<li><a href="https://wordpress.org/plugins/wp-social-buttons/" target="_blank">WP Social Buttons</a></li>
 		<li><a href="https://wordpress.org/plugins/wp-youtube-gallery/" target="_blank">WP Youtube Gallery</a></li>
@@ -421,8 +421,8 @@ function csbwf_sidebar_admin_option_page(){ ?>
  <li> * Option (OG Tags) for define facebook share content (image,content)</li>
  <li> * Faster support</li>
  </ol>
- <p><a href="http://www.gurukulalwar.com" target="_blank" style="display: block; font-size: 16px; font-weight: bold; text-decoration: none; text-align: center; width: 105px; padding: 1px; background: none repeat scroll 0px 0px red; color: rgb(255, 255, 255);">Live Demo</a></p>
- <p><a style="display: block; font-size: 16px; font-weight: bold; text-decoration: none; text-align: center; width: 105px; padding: 1px; background: none repeat scroll 0px 0px red; color: rgb(255, 255, 255);" href="http://www.mrwebsolution.in/wordpress-plugins/custom-share-buttons-with-floating-sidebar/">Buy Now</a></p>
+ <p><a href="http://csbwfs.mrwebsolution.in/" target="_blank" style="display: block; font-size: 16px; font-weight: bold; text-decoration: none; text-align: center; width: 105px; padding: 1px; background: none repeat scroll 0px 0px red; color: rgb(255, 255, 255);">Live Demo</a></p>
+ <p><a style="display: block; font-size: 16px; font-weight: bold; text-decoration: none; text-align: center; width: 105px; padding: 1px; background: none repeat scroll 0px 0px red; color: rgb(255, 255, 255);" href="http://csbwfs.mrwebsolution.in/">Buy Now</a></p>
  <p> <a href="mailto:raghunath.0087@gmail.com" target="_blank" class="contact-author">Contact To Author</a></p>
   
 	</div>
