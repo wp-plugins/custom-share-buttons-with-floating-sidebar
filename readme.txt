@@ -3,7 +3,7 @@ Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin,Stumbleupon,Reddit,pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 3.3
-Tested up to: 4.2
+Tested up to: 4.2.1
 Stable tag: 1.9
 
 Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
@@ -14,7 +14,7 @@ Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,L
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
- **[Upgrade to Pro Version-Server1](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version-Server1](http://csbwfs.mrwebsolution.in/pro)**
 
  **[Upgrade to Pro Version-Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
 
@@ -53,7 +53,7 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
 
  **[Addon Documentation](http://csbwfs.mrwebsolution.in/documentation)**
 
- **[Upgrade to Pro Version - Server1](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version - Server1](http://csbwfs.mrwebsolution.in/pro)**
 
  **[Upgrade to Pro Version - Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
 
