@@ -620,7 +620,7 @@ endif;
 
 /* Youtube */
 if(isset($pluginOptionsVal['csbwfs_ytpublishBtn']) && $pluginOptionsVal['csbwfs_ytpublishBtn']!=''):
-$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="yt-p"><a onclick="window.open(\'http://pinterest.com/pin/create/button/?url='.$shareurl.'&amp;media=http://www.mrwebsolution.in/wp-content/themes/mrweb/images/logo.png&amp;description='.$ShareTitle.':'.$shareurl.'\',\'pinIt\',\'toolbar=0,status=0,width=620,height=500\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$ytImg.'"></a></div></div>';
+$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="yt-p"><a onclick="window.open(\''.$pluginOptionsVal['csbwfs_ytPath'].'\');" href="javascript:void(0);" style="width: 45px;"><img src="'.$ytImg.'"></a></div></div>';
 endif;
 /* Stumbleen */
 if(isset($pluginOptionsVal['csbwfs_stpublishBtn']) && $pluginOptionsVal['csbwfs_stpublishBtn']!=''):
