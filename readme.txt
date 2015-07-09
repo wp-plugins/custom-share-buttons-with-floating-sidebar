@@ -3,8 +3,8 @@ Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin,Stumbleupon,Reddit,pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 3.3
-Tested up to: 4.2.1
-Stable tag: 1.9
+Tested up to: 4.2.2
+Stable tag: 2.0
 
 Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
 
@@ -14,9 +14,9 @@ Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,L
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
- **[Upgrade to Pro Version-Server1](http://csbwfs.mrwebsolution.in/pro)**
+ **[Upgrade to Pro Version - Server1](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
 
- **[Upgrade to Pro Version-Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
+ **[Upgrade to Pro Version - Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
 
 = Features =
 
@@ -53,9 +53,9 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
 
  **[Addon Documentation](http://csbwfs.mrwebsolution.in/documentation)**
 
- **[Upgrade to Pro Version - Server1](http://csbwfs.mrwebsolution.in/pro)**
+ **[Upgrade to Pro Version - Server1 ](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
 
- **[Upgrade to Pro Version - Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
+ **[Upgrade to Pro Version - Server2 ](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
 
  For any query contact to plugin author on **[raghunath.0087@gmail.com](mailto:raghunath.0087@gmail.com)**
 
@@ -113,6 +113,13 @@ No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS 
 5. screenshot-5.png
 
 == Changelog == 
+
+= 2.0 = 
+ * Fixed pinterest share image issue
+ * Fixed youtube buttons url issue
+ * modify layout of plugin settings page 
+ * Added options for define the buttons image alt text
+ * Released Pro Version 1.5
 
 = 1.9 = 
  * Released Pro Version 1.3

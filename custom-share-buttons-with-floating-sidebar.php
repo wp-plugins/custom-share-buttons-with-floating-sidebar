@@ -5,7 +5,7 @@ Plugin URI: http://www.mrwebsolution.in/
 Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 1.9
+Version: 2.0
 */
 
 /*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : raghunath.0087@gmail.com)
@@ -77,16 +77,32 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_mailMessage');
 	register_setting('csbwf_sidebar_options','csbwfs_top_margin');
 	register_setting('csbwf_sidebar_options','csbwfs_delayTimeBtn');
-	
+	/** Image Alt */
+	register_setting('csbwf_sidebar_options','csbwfs_fb_title');
+	register_setting('csbwf_sidebar_options','csbwfs_tw_title');
+	register_setting('csbwf_sidebar_options','csbwfs_li_title');
+	register_setting('csbwf_sidebar_options','csbwfs_pin_title');
+	register_setting('csbwf_sidebar_options','csbwfs_gp_title');
+	register_setting('csbwf_sidebar_options','csbwfs_mail_title');
+	register_setting('csbwf_sidebar_options','csbwfs_yt_title');
+	register_setting('csbwf_sidebar_options','csbwfs_re_title');
+	register_setting('csbwf_sidebar_options','csbwfs_st_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_fb_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_tw_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_li_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_pin_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_gp_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_mail_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_yt_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_re_title');
+	register_setting('csbwf_sidebar_options','csbwfs_page_st_title');
 	//Options for post/pages
 	register_setting('csbwf_sidebar_options','csbwfs_buttons_active');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_home');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_post');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_page');
 	register_setting('csbwf_sidebar_options','csbwfs_page_hide_archive');
-	
 	register_setting('csbwf_sidebar_options','csbwfs_hide_home');
-	
 	register_setting('csbwf_sidebar_options','csbwfs_page_fb_image');
 	register_setting('csbwf_sidebar_options','csbwfs_page_tw_image');
 	register_setting('csbwf_sidebar_options','csbwfs_page_li_image');	
@@ -97,7 +113,6 @@ function csbwf_sidebar_init(){
 	register_setting('csbwf_sidebar_options','csbwfs_page_st_image');
 	register_setting('csbwf_sidebar_options','csbwfs_page_yt_image');
 	/** message content */	
-	
 	register_setting('csbwf_sidebar_options','csbwfs_show_btn');	
 	register_setting('csbwf_sidebar_options','csbwfs_hide_btn');	
 	register_setting('csbwf_sidebar_options','csbwfs_share_msg');
@@ -118,43 +133,36 @@ if(!function_exists('csbwfs_add_settings_link')):
             return $links;
         }
 endif;
-        $plugin = plugin_basename( __FILE__ );
-        add_filter( "plugin_action_links_$plugin", 'csbwfs_add_settings_link' );
+$plugin = plugin_basename( __FILE__ );
+add_filter( "plugin_action_links_$plugin", 'csbwfs_add_settings_link' );
 
-add_action('admin_footer','add_csbwfs_admin_style_script');
 
+if (isset($_GET['page']) && $_GET['page'] == 'csbwfs-settings') {
 if(!function_exists('add_csbwfs_admin_style_script')):
 function add_csbwfs_admin_style_script()
 {
+    wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_script('media-upload');
+    wp_enqueue_script('thickbox');
+    wp_register_script('csbwfs-image-upload', plugins_url('/js/csbwfs.js',__FILE__ ), array('jquery','media-upload','thickbox','wp-color-picker'));
+    wp_enqueue_script('csbwfs-image-upload');
+    
+}	
+endif;
+
+function csbwfs_admin_styles() {
 wp_register_style( 'csbwf_admin_style', plugins_url( 'css/admin-csbwfs.css',__FILE__ ) );
 wp_enqueue_style( 'csbwf_admin_style' );
+wp_enqueue_style( 'wp-color-picker' ); 
+wp_enqueue_style('thickbox');
+}
 
-echo $script='<script type="text/javascript">
-	/* Custom Share Buttons With Floting Sidebar admin js*/
-	jQuery(document).ready(function(){
-		jQuery(".csbwfs-tab").hide();
-		jQuery("#div-csbwfs-general").show();
-	    jQuery(".csbwf-tab-links").click(function(){
-		var divid=jQuery(this).attr("id");
-		jQuery(".csbwf-tab-links").removeClass("active");
-		jQuery(".csbwfs-tab").hide();
-		jQuery("#"+divid).addClass("active");
-		jQuery("#div-"+divid).fadeIn();
-		});
-		jQuery("#publish5").click(function(){
-		if(jQuery("#publish5").prop("checked"))
-		{jQuery("#mailmsg").show();}else{jQuery("#mailmsg").hide();} 
-	    });
-	    
-	    jQuery("#ytBtns").click(function(){
-		if(jQuery("#ytBtns").prop("checked"))
-		{jQuery("#ytpath").show();}else{jQuery("#ytpath").hide();} 
-	    });
-		})
-	</script>';
+// better use get_current_screen(); or the global $current_screen
 
-	}
-endif;
+    add_action('admin_print_styles', 'csbwfs_admin_styles');
+    add_action('admin_footer','add_csbwfs_admin_style_script');
+}
+
 /** Display the Options form for CSBWFS */
 if(!function_exists('csbwf_sidebar_admin_option_page')):
 function csbwf_sidebar_admin_option_page(){ ?>
@@ -174,7 +182,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<h2>General Settings</h2>
 	<p><label>Enable:</label><input type="checkbox" id="csbwfs_active" name="csbwfs_active" value='1' <?php if(get_option('csbwfs_active')!=''){ echo ' checked="checked"'; }?>/></p>
 	<p><h3><strong><?php _e('Social Share Button Publish Options:','csbwfs');?></strong></h3></p>
-	<p><input type="checkbox" id="publish1" value="yes" name="csbwfs_fpublishBtn" <?php if(get_option('csbwfs_fpublishBtn')=='yes'){echo 'checked="checked"';}?>/>Facebook Button</p>
+	<p><input type="checkbox" id="publish1" value="yes" name="csbwfs_fpublishBtn" <?php if(get_option('csbwfs_fpublishBtn')=='yes'){echo 'checked="checked"';}?>/><b>Facebook Button</b></p>
 				<p><input type="checkbox" id="publish2" name="csbwfs_tpublishBtn" value="yes" <?php if(get_option('csbwfs_tpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Twitter Button</b></p>
 				<p><input type="checkbox" id="publish3" name="csbwfs_gpublishBtn" value="yes" <?php if(get_option('csbwfs_gpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Google Button</b></p>
 				<p><input type="checkbox" id="publish4" name="csbwfs_lpublishBtn" value="yes" <?php if(get_option('csbwfs_lpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Linkdin Button</b></p>
@@ -221,66 +229,53 @@ function csbwf_sidebar_admin_option_page(){ ?>
 			<tr><th>&nbsp;</th><td><input type="checkbox" id="csbwfs_hide_home" value="yes" name="csbwfs_hide_home" <?php if(get_option('csbwfs_hide_home')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> <strong>Hide Sidebar On Home Page </strong></td></tr>
 			<tr><td colspan="2"><strong><h4>Social Share Button Images 36X34 (Optional) :</h4></strong></td></tr>
 			<tr>
-				<th><?php echo 'Facebook:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_fb_image" name="csbwfs_fb_image" value="<?php echo get_option('csbwfs_fb_image'); ?>" placeholder="Insert facebook button image path" size="30"/> <input type="textbox" id="csbwfs_fb_bg" name="csbwfs_fb_bg" value="<?php echo get_option('csbwfs_fb_bg'); ?>" placeholder="BG color:#000000" size="20"/>
-				</td>
+			<th><?php echo 'Facebook:';?></th>
+			<td class="csbwfsButtonsImg" id="csbwfsButtonsFbImg">
+	       <input type="text" id="csbwfs_fb_image" name="csbwfs_fb_image" value="<?php echo get_option('csbwfs_fb_image'); ?>" placeholder="Insert facebook button image path" size="30" class="inputButtonid"/> <input id="csbwfs_fb_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_fb_bg" data-default-color="#305891" class="color-field" name="csbwfs_fb_bg" value="<?php echo get_option('csbwfs_fb_bg'); ?>" size="20"/>&nbsp;&nbsp;<input type="text" id="csbwfs_fb_title"  name="csbwfs_fb_title" value="<?php echo get_option('csbwfs_fb_title'); ?>" placeholder="Share on facebook" size="20"/>
+			</td>
 			</tr>
-			<tr>
-				<th><?php echo 'Twitter:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_tw_image" name="csbwfs_tw_image" value="<?php echo get_option('csbwfs_tw_image'); ?>" placeholder="Insert twitter button image path" size="30"/><input type="textbox" id="csbwfs_tw_bg" name="csbwfs_tw_bg" value="<?php echo get_option('csbwfs_tw_bg'); ?>" placeholder="BG color:#000000" size="20"/>
+			<tr><th><?php echo 'Twitter:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsTwImg">		
+				<input type="text" id="csbwfs_tw_image" name="csbwfs_tw_image" value="<?php echo get_option('csbwfs_tw_image'); ?>" placeholder="Insert twitter button image path" size="30" class="inputButtonid"/><input id="csbwfs_tw_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_tw_bg" name="csbwfs_tw_bg" value="<?php echo get_option('csbwfs_tw_bg'); ?>" data-default-color="#2ca8d2" class="color-field"  size="20"/>&nbsp;&nbsp;<input type="text" id="csbwfs_tw_title"  name="csbwfs_tw_title" value="<?php echo get_option('csbwfs_tw_title'); ?>" placeholder="Share on twitter" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Linkdin:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_li_image" name="csbwfs_li_image" value="<?php echo get_option('csbwfs_li_image'); ?>" placeholder="Insert linkdin button image path" size="30"/><input type="textbox" id="csbwfs_li_bg" name="csbwfs_li_bg" value="<?php echo get_option('csbwfs_li_bg'); ?>" placeholder="BG color:#000000" size="20"/>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsLiImg">
+				<input type="text" id="csbwfs_li_image" name="csbwfs_li_image" value="<?php echo get_option('csbwfs_li_image'); ?>" placeholder="Insert linkdin button image path" class="inputButtonid" size="30" class="buttonimg"/><input id="csbwfs_li_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_li_bg" name="csbwfs_li_bg" value="<?php echo get_option('csbwfs_li_bg'); ?>" data-default-color="#dd4c39" class="color-field"  size="20"/>&nbsp;&nbsp;<input type="text" id="csbwfs_li_title"  name="csbwfs_li_title" value="<?php echo get_option('csbwfs_li_title'); ?>" placeholder="Share on linkdin" size="20"/>
 				</td>
 			</tr>
-			<tr>
-				<th><?php echo 'Pintrest:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_pin_image" name="csbwfs_pin_image" value="<?php echo get_option('csbwfs_pin_image'); ?>" placeholder="Insert pinterest button image path" size="30"/><input type="textbox" id="csbwfs_pin_bg" name="csbwfs_pin_bg" value="<?php echo get_option('csbwfs_pin_bg'); ?>" placeholder="BG color:#000000" size="20"/>
+			<tr><th><?php echo 'Pintrest:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsPiImg">			
+				<input type="text" id="csbwfs_pin_image" name="csbwfs_pin_image" value="<?php echo get_option('csbwfs_pin_image'); ?>" class="inputButtonid" placeholder="Insert pinterest button image path" size="30" class="buttonimg"/><input id="csbwfs_pin_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_pin_bg" name="csbwfs_pin_bg" value="<?php echo get_option('csbwfs_pin_bg'); ?>" data-default-color="#ca2027" class="color-field"  size="20"/>&nbsp;&nbsp;<input type="text" id="csbwfs_pin_title"  name="csbwfs_pin_title" value="<?php echo get_option('csbwfs_pin_title'); ?>" placeholder="Share on pintrest" size="20"/>
 				</td>
 			</tr>
-			<tr>
-				<th><?php echo 'Google:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_gp_image" name="csbwfs_gp_image" value="<?php echo get_option('csbwfs_gp_image'); ?>" placeholder="Insert google button image path" size="30"/><input type="textbox" id="csbwfs_gp_image" name="csbwfs_gp_bg" value="<?php echo get_option('csbwfs_gp_bg'); ?>" placeholder="BG color:#000000" size="20"/>
+			<tr><th><?php echo 'Google Plus:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsGoImg">
+				<input type="text" id="csbwfs_gp_image" name="csbwfs_gp_image" value="<?php echo get_option('csbwfs_gp_image'); ?>" placeholder="Insert google button image path" size="30" class="inputButtonid"/><input id="csbwfs_gp_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_gp_image" name="csbwfs_gp_bg" value="<?php echo get_option('csbwfs_gp_bg'); ?>" data-default-color="#dd4c39" class="color-field"  size="20"/>&nbsp;&nbsp;<input type="text" id="csbwfs_gp_title"  name="csbwfs_gp_title" value="<?php echo get_option('csbwfs_gp_title'); ?>" placeholder="Share on google" size="20"/>
 				</td>
 			</tr>
-			<tr>
-				<th><?php echo 'Mail:';?></th>
-				<td>
-				<input type="textbox" id="csbwfs_mail_image" name="csbwfs_mail_image" value="<?php echo get_option('csbwfs_mail_image'); ?>" placeholder="Insert mail button image path" size="30"/> <input type="textbox" id="csbwfs_mail_bg" name="csbwfs_mail_bg" value="<?php echo get_option('csbwfs_mail_bg'); ?>" placeholder="BG color:#000000" size="20"/>
+			<tr><th><?php echo 'Reddit:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsReImg">
+				<input type="text" id="csbwfs_re_image" name="csbwfs_re_image" value="<?php echo get_option('csbwfs_re_image'); ?>" placeholder="Insert reddit button image path" size="30" class="inputButtonid"/><input id="csbwfs_re_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_re_bg" name="csbwfs_re_bg" value="<?php echo get_option('csbwfs_re_bg'); ?>" data-default-color="#ff1a00" class="color-field"  size="20"/>&nbsp;&nbsp;<input type="text" id="csbwfs_re_title"  name="csbwfs_re_title" value="<?php echo get_option('csbwfs_re_title'); ?>" placeholder="Share on reddit" size="20"/>
 				</td>
 			</tr>
-			<tr>
-				<th><?php echo 'Youtube:';?></th>
-				<td>
-				<input type="textbox" id="csbwfs_yt_image" name="csbwfs_yt_image" value="<?php echo get_option('csbwfs_yt_image'); ?>" placeholder="Insert youtube button image path" size="30"/> <input type="textbox" id="csbwfs_yt_bg" name="csbwfs_yt_bg" value="<?php echo get_option('csbwfs_yt_bg'); ?>" placeholder="BG color:#FFFFFF" size="20"/>
+			<tr><th><?php echo 'Stumbleupon:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsStImg">
+				<input type="text" id="csbwfs_st_image" name="csbwfs_st_image" value="<?php echo get_option('csbwfs_st_image'); ?>" placeholder="Insert stumbleupon button image path" size="30" class="inputButtonid"/><input id="csbwfs_st_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_st_bg" name="csbwfs_st_bg" value="<?php echo get_option('csbwfs_st_bg'); ?>" data-default-color="#eb4924" class="color-field"  size="20"/>
+				&nbsp;&nbsp;<input type="text" id="csbwfs_st_title"  name="csbwfs_st_title" value="<?php echo get_option('csbwfs_st_title'); ?>" placeholder="Share on stumbleupon" size="20"/>
 				</td>
 			</tr>
-			<tr>
-				<th><?php echo 'Reddit:';?></th>
-				<td>
-				<input type="textbox" id="csbwfs_re_image" name="csbwfs_re_image" value="<?php echo get_option('csbwfs_re_image'); ?>" placeholder="Insert reddit button image path" size="30"/> <input type="textbox" id="csbwfs_re_bg" name="csbwfs_re_bg" value="<?php echo get_option('csbwfs_re_bg'); ?>" placeholder="BG color:#FF1A00" size="20"/>
+			<tr><th><?php echo 'Mail:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsMaImg">
+				<input type="text" id="csbwfs_mail_image" name="csbwfs_mail_image" value="<?php echo get_option('csbwfs_mail_image'); ?>" placeholder="Insert mail button image path" size="30" class="inputButtonid"/><input id="csbwfs_mail_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_mail_bg" name="csbwfs_mail_bg" value="<?php echo get_option('csbwfs_mail_bg'); ?>" data-default-color="#738a8d" class="color-field"  size="20"/>&nbsp;&nbsp;<input type="text" id="csbwfs_mail_title"  name="csbwfs_mail_title" value="<?php echo get_option('csbwfs_mail_title'); ?>" placeholder="Send contact request" size="20"/>
 				</td>
 			</tr>
-			<tr>
-				<th><?php echo 'Stumbleupon:';?></th>
-				<td>
-				<input type="textbox" id="csbwfs_st_image" name="csbwfs_st_image" value="<?php echo get_option('csbwfs_st_image'); ?>" placeholder="Insert stumbleupon button image path" size="30"/> <input type="textbox" id="csbwfs_st_bg" name="csbwfs_st_bg" value="<?php echo get_option('csbwfs_st_bg'); ?>" placeholder="BG color:#EB4924" size="20"/>
+			<tr><th><?php echo 'Youtube:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsYtImg">
+				<input type="text" id="csbwfs_yt_image" name="csbwfs_yt_image" value="<?php echo get_option('csbwfs_yt_image'); ?>" placeholder="Insert youtube button image path" size="30" class="inputButtonid"/><input id="csbwfs_yt_image_button" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_yt_bg" name="csbwfs_yt_bg" value="<?php echo get_option('csbwfs_yt_bg'); ?>" data-default-color="#ffffff" class="color-field"  size="20"/>&nbsp;&nbsp;<input type="text" id="csbwfs_yt_title"  name="csbwfs_yt_title" value="<?php echo get_option('csbwfs_yt_title'); ?>" placeholder="Youtube" size="20"/>
 				</td>
-			</tr>
-			
-			
+			</tr>		
 			<tr><td colspan="2"><h3><strong>Style(Optional):</strong></h3></td></tr>
 			
 			<tr>
@@ -315,7 +310,6 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				</select>
 				</td>
 			</tr>
-			
 			<tr>
 				<th nowrap><?php echo 'Share Button Text:';?></th>
 				<td>
@@ -326,66 +320,64 @@ function csbwf_sidebar_admin_option_page(){ ?>
 			</td></tr>
 			
 			<tr><td colspan="2"><strong><h4>Social Share Button Images 31X30 (Optional) :</h4></strong></td></tr>
-			<tr>
-				<th><?php echo 'Facebook:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_page_fb_image" name="csbwfs_page_fb_image" value="<?php echo get_option('csbwfs_page_fb_image'); ?>" placeholder="Insert facebook button image path" size="40"/>
+			<tr><th><?php echo 'Facebook:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsFbImg2"><input type="text" id="csbwfs_page_fb_image" name="csbwfs_page_fb_image" value="<?php echo get_option('csbwfs_page_fb_image'); ?>" placeholder="Insert facebook button image path" size="40"  class="inputButtonid"/>
+                <input id="csbwfs_fb_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_fb_title"  name="csbwfs_page_fb_title" value="<?php echo get_option('csbwfs_page_fb_title'); ?>" placeholder="Alt Text" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Twitter:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_page_tw_image" name="csbwfs_page_tw_image" value="<?php echo get_option('csbwfs_page_tw_image'); ?>" placeholder="Insert twitter button image path" size="40"/>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsTwImg2">
+				<input type="text" id="csbwfs_page_tw_image" name="csbwfs_page_tw_image" value="<?php echo get_option('csbwfs_page_tw_image'); ?>" placeholder="Insert twitter button image path" size="40" class="inputButtonid"/>
+				<input id="csbwfs_tw_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_tw_title"  name="csbwfs_page_tw_title" value="<?php echo get_option('csbwfs_page_tw_title'); ?>" placeholder="Alt Text" size="20"/>
 				</td>
 			</tr>
-			<tr>
-				<th><?php echo 'Linkdin:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_page_li_image" name="csbwfs_page_li_image" value="<?php echo get_option('csbwfs_page_li_image'); ?>" placeholder="Insert linkdin button image path" size="40"/>
+			<tr><th><?php echo 'Linkdin:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsLiImg2"><input type="text" id="csbwfs_page_li_image" name="csbwfs_page_li_image" value="<?php echo get_option('csbwfs_page_li_image'); ?>" placeholder="Insert linkdin button image path" size="40" class="inputButtonid"/>
+				<input id="csbwfs_li_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_li_title"  name="csbwfs_page_li_title" value="<?php echo get_option('csbwfs_page_li_title'); ?>" placeholder="Alt Text" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Pintrest:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_page_pin_image" name="csbwfs_page_pin_image" value="<?php echo get_option('csbwfs_page_pin_image'); ?>" placeholder="Insert pinterest button image path" size="40"/>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsPiImg2"><input type="text" id="csbwfs_page_pin_image" name="csbwfs_page_pin_image" value="<?php echo get_option('csbwfs_page_pin_image'); ?>" placeholder="Insert pinterest button image path" size="40" class="inputButtonid"/>
+				<input id="csbwfs_pi_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_pin_title"  name="csbwfs_page_pin_title" value="<?php echo get_option('csbwfs_page_pin_title'); ?>" placeholder="Alt Text" size="20"/>
 				</td>
 			</tr>
 			<tr>
-				<th><?php echo 'Google:';?></th>
-				<td>
-			
-				<input type="textbox" id="csbwfs_page_gp_image" name="csbwfs_page_gp_image" value="<?php echo get_option('csbwfs_page_gp_image'); ?>" placeholder="Insert google button image path" size="40"/>
-				</td>
-			</tr>
-			<tr>
-				<th><?php echo 'Mail:';?></th>
-				<td>
-				<input type="textbox" id="csbwfs_page_mail_image" name="csbwfs_page_mail_image" value="<?php echo get_option('csbwfs_page_mail_image'); ?>" placeholder="Insert mail button image path" size="40"/>
-				</td>
-			</tr>
-			<tr>
-				<th><?php echo 'Youtube:';?></th>
-				<td>
-				<input type="textbox" id="csbwfs_page_yt_image" name="csbwfs_page_yt_image" value="<?php echo get_option('csbwfs_page_yt_image'); ?>" placeholder="Insert youtube button image path" size="40"/>
+				<th><?php echo 'Google Plus:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsGpImg2">
+				<input type="text" id="csbwfs_page_gp_image" name="csbwfs_page_gp_image" value="<?php echo get_option('csbwfs_page_gp_image'); ?>" placeholder="Insert google button image path" size="40" class="inputButtonid"/>
+				<input id="csbwfs_gp_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_gp_title"  name="csbwfs_page_gp_title" value="<?php echo get_option('csbwfs_page_gp_title'); ?>" placeholder="Alt Text" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Reddit:';?></th>
-				<td>
-				<input type="textbox" id="csbwfs_page_re_image" name="csbwfs_page_re_image" value="<?php echo get_option('csbwfs_page_re_image'); ?>" placeholder="Insert reddit button image path" size="40"/>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsReImg2">
+				<input type="text" id="csbwfs_page_re_image" name="csbwfs_page_re_image" value="<?php echo get_option('csbwfs_page_re_image'); ?>" placeholder="Insert reddit button image path" size="40" class="inputButtonid"/>
+				<input id="csbwfs_re_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_re_title"  name="csbwfs_page_re_title" value="<?php echo get_option('csbwfs_page_re_title'); ?>" placeholder="Alt Text" size="20"/>
 				</td>
 			</tr>
 			<tr>
 				<th><?php echo 'Stumbleupon:';?></th>
-				<td>
-				<input type="textbox" id="csbwfs_page_st_image" name="csbwfs_page_st_image" value="<?php echo get_option('csbwfs_page_st_image'); ?>" placeholder="Insert stumbleupon button image path" size="40"/>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsStImg2">
+				<input type="text" id="csbwfs_page_st_image" name="csbwfs_page_st_image" value="<?php echo get_option('csbwfs_page_st_image'); ?>" placeholder="Insert stumbleupon button image path" size="40" class="inputButtonid"/>
+				<input id="csbwfs_st_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_st_title"  name="csbwfs_page_st_title" value="<?php echo get_option('csbwfs_page_st_title'); ?>" placeholder="Alt Text" size="20"/>
 				</td>
 			</tr>
-			
+			<tr>
+				<th><?php echo 'Mail:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsMlImg2">
+				<input type="text" id="csbwfs_page_mail_image" name="csbwfs_page_mail_image" value="<?php echo get_option('csbwfs_page_mail_image'); ?>" placeholder="Insert mail button image path" size="40" class="inputButtonid"/>
+				<input id="csbwfs_ml_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_mail_title"  name="csbwfs_page_mail_title" value="<?php echo get_option('csbwfs_page_mail_title'); ?>" placeholder="Alt Text" size="20"/>
+				</td>
+			</tr>
+			<tr>
+				<th><?php echo 'Youtube:';?></th>
+				<td class="csbwfsButtonsImg" id="csbwfsButtonsYtImg2">
+				<input type="text" id="csbwfs_page_yt_image" name="csbwfs_page_yt_image" value="<?php echo get_option('csbwfs_page_yt_image'); ?>" placeholder="Insert youtube button image path" size="40" class="inputButtonid"/>
+				<input id="csbwfs_yt_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_yt_title"  name="csbwfs_page_yt_title" value="<?php echo get_option('csbwfs_page_yt_title'); ?>" placeholder="Alt Text" size="20"/>
+				</td>
+			</tr>
 	</table>
 	
 	</div>
@@ -413,16 +405,22 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<h2>GO PRO</h2>
 	<p>We have released an add-on for Custom Share Buttons With Floating Sidebar which not only demonstrates the flexibility of CSBWFS, but also adds some important features:</p>
  <ol>
- <li> * Responsive Floating Sidebar</li>
- <li> * Hide Floating Sidebar On Home/Post/Page/Category</li>
- <li> * Responsive Lightbox Contact Form (for Mail Icon)</li>
- <li> * Advance Feature For Choose To Pinterest Share Image</li>
- <li> * Option for Show/Hide sidebar on any specific page/post</li>
- <li> * Option (OG Tags) for define facebook share content (image,content)</li>
- <li> * Faster support</li>
+   <li>Responsive Floating Sidebar</li> 
+   <li>Hide Floating Sidebar On Home/Post/Page/Category</li> 
+    <li>Option for Show/Hide sidebar on any specific page/post</li> 
+    <li>Responsive Lightbox Contact Form (for Mail Icon)</li> 
+    <li>Option for add to “Contact Form 7″ Shortcode into lightbox</li> 
+    <li>Advance Feature For Choose To Pinterest Share Image</li> 
+    <li>Option (OG Tags) for define facebook share content (image,content)</li> 
+    <li>Option for add to social site official page URL for all social buttons</li> 
+    <li>Extra Button (Google Translate Button ,  Instagram Button, Whatsapp Button)</li> 
+    <li>Option for display to number of share (Twitter,Facebook,LinkedIn,StumbleUpon,Google Plus,Pinterest and Reddit)</li> 
+    <li>Option for change to any button image and their title,background colour and url (You can use any button as your own custom button)</li> 
+    <li>4 Extra Custom Buttons</li> 
+    <li>Faster support</li> 
  </ol>
- <p><a href="http://csbwfs.mrwebsolution.in/" target="_blank" style="display: block; font-size: 16px; font-weight: bold; text-decoration: none; text-align: center; width: 105px; padding: 1px; background: none repeat scroll 0px 0px red; color: rgb(255, 255, 255);">Live Demo</a></p>
- <p><a style="display: block; font-size: 16px; font-weight: bold; text-decoration: none; text-align: center; width: 105px; padding: 1px; background: none repeat scroll 0px 0px red; color: rgb(255, 255, 255);" href="http://csbwfs.mrwebsolution.in/">Buy Now</a></p>
+ <p><a href="http://csbwfs.mrwebsolution.in/" target="_blank" class="contact-author">Live Demo</a></p>
+ <p><a class="contact-author" href="http://csbwfs.mrwebsolution.in/">Buy Now</a></p>
  <p> <a href="mailto:raghunath.0087@gmail.com" target="_blank" class="contact-author">Contact To Author</a></p>
   
 	</div>
@@ -455,7 +453,6 @@ if( function_exists('register_uninstall_hook') )
 
 //Delete all Custom Tweets options after delete the plugin from admin
 function csbwf_sidebar_uninstall(){
-		
 	delete_option('csbwfs_active');
 	delete_option('csbbuttons_active');
 	delete_option('csbwfs_position');
@@ -494,6 +491,15 @@ function csbwf_sidebar_uninstall(){
 	delete_option('csbwfs_page_hide_home');
 	delete_option('csbwfs_page_hide_post');
 	delete_option('csbwfs_page_hide_page');
+	delete_option('csbwfs_fb_title');
+	delete_option('csbwfs_tw_title');
+	delete_option('csbwfs_li_title');
+	delete_option('csbwfs_pin_title');
+	delete_option('csbwfs_gp_title');
+	delete_option('csbwfs_mail_title');
+	delete_option('csbwfs_yt_title');
+	delete_option('csbwfs_re_title');
+	delete_option('csbwfs_st_title');
 	delete_option('csbwfs_page_fb_image');
 	delete_option('csbwfs_page_tw_image');
 	delete_option('csbwfs_page_li_image');	
