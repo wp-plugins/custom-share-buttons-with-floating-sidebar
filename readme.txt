@@ -14,7 +14,7 @@ Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,L
 
 There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
 
- **[Upgrade to Pro Version - Server1](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version - Server1](http://csbwfs.mrwebsolution.in/pro)**
 
  **[Upgrade to Pro Version - Server2](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
 
@@ -53,11 +53,14 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
 
  **[Addon Documentation](http://csbwfs.mrwebsolution.in/documentation)**
 
- **[Upgrade to Pro Version - Server1 ](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro)**
+ **[Upgrade to Pro Version - Server1 ](http://csbwfs.mrwebsolution.in/pro)**
 
  **[Upgrade to Pro Version - Server2 ](https://raghunathgurjar.wordpress.com/csbwfs-pro/)**
 
  For any query contact to plugin author on **[raghunath.0087@gmail.com](mailto:raghunath.0087@gmail.com)**
+
+ We have released new version for Magento Site 
+ **[Go Pro Magento Version](http://www.magentocommerce.com/magento-connect/social-share-buttons-pro.html)**
 
 == Installation ==
 
@@ -94,7 +97,7 @@ Step 3. Go to Settings/"Custom Share Buttons with Floating Sidebar" and configur
 
 7.Is this mobile friendly OR is this responsive plugin?
 
-No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS ADDON is responsive with some new extra features.Please visit on this [site](http://csbwfs.mrwebsolution.in/social-share-buttons-with-floating-sidebar-pro) for check full details about addon.
+No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS ADDON is responsive with some new extra features.Please visit on this [site](http://csbwfs.mrwebsolution.in/pro) for check full details about addon.
 
 8.Is there any demo site where your plugins have been used?
 
@@ -138,13 +141,11 @@ No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS 
  * Added an option disable floating sidebar on home page
  * Fixed share url issue on home page
 
-
 = 1.6 = 
  * Added new option for disable floating sidebar for mobile site
  * Added two new Stumbleupon and Reddit buttons
  * Added options for define Pinterest Share images
  * Fixed show/hide button issue
-
 
 = 1.5 = 
  * Make plugin settings page more stylish
