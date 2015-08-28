@@ -3,16 +3,25 @@ Contributors:india-web-developer
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WN785E5V492L4
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin,Stumbleupon,Reddit,pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 3.3
-Tested up to: 4.2.4
+Tested up to: 4.3
 Stable tag: 2.0
 
-Add Social Share Buttons Using Floating Sidebar On Your Site (Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit)
+Add Social Share Buttons(Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit) Using Floating Sidebar
 
 == Description ==
 
-"custom-share-buttons-with-floating-sidebar" is the very simple plugin for share your site with your friends through social sites (Facebook,Twitter,Linkedin,Pinterest,Google+,Stumbleupon,Reddit).You can add a floating sidebar with all social buttons and Even you can change the share buttons images from admin if you wish!.
+= “custom-share-buttons-with-floating-sidebar” = , it is plugin for social networks. It is very simple plugin for share your site with your friends through social sites,The plugin supports 7 social networking.
+Your users share via their accounts on popular social networks such as Facebook, Twitter, Linkedin, Pinterest, Google+, Stumbleupon, Reddit.
 
-There are not added any external JS files in this plugin so it's does not effect on your site speed as well.
+With this plugin, you give users the tools to share your content, product details and other information with their own networks.
+
+More than 22 billion shares are viewed each and every day on the internet, with sharing becoming an increasingly important part of every website owner’s marketing strategies.
+
+Let your users share via their accounts on popular social networks. Install this free plugin to enable Social Sharing on your WordPress site and start driving high quality referrals to your website.
+
+It is lightweight plugin. There are not added any external JS files in this plugin so it’s does not effect on your site speed as well.
+
+You can add a social share floating sidebar with all social share buttons and Even you can change the share buttons images and their style from admin if you wish!.
 
  **[Upgrade to Pro Version - Server1](http://csbwfs.mrwebsolution.in/pro)**
 
@@ -122,7 +131,7 @@ No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS 
  * Fixed youtube buttons url issue
  * modify layout of plugin settings page 
  * Added options for define the buttons image alt text
- * Released Pro Version 1.5
+ * Released Pro Version 1.6
 
 = 1.9 = 
  * Released Pro Version 1.3
