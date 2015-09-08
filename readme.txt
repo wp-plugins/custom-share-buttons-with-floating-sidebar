@@ -4,14 +4,14 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin,Stumbleupon,Reddit,pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 3.3
 Tested up to: 4.3
-Stable tag: 2.0
+Stable tag: 2.1
 
 Add Social Share Buttons(Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit) Using Floating Sidebar
 
 == Description ==
 
-= “custom-share-buttons-with-floating-sidebar” = , it is plugin for social networks. It is very simple plugin for share your site with your friends through social sites,The plugin supports 7 social networking.
-Your users share via their accounts on popular social networks such as Facebook, Twitter, Linkedin, Pinterest, Google+, Stumbleupon, Reddit.
+= “custom-share-buttons-with-floating-sidebar” = , it is plugin for social networks. It is very simple plugin for share your site with your friends through social sites,The plugin supports 9 social networking.
+Your users share via their accounts on popular social networks such as Facebook, Twitter, Linkedin, Pinterest, Google+, Stumbleupon, Reddit, Youtube and Refer a Friend.
 
 With this plugin, you give users the tools to share your content, product details and other information with their own networks.
 
@@ -51,10 +51,12 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
  * Responsive Lightbox Contact Form (for Mail Icon)
  * Option for add to “Contact Form 7″ Shortcode into lightbox
  * Advance Feature For Choose To Pinterest Share Image
- * Option (OG Tags) for define facebook share content (image,content)
- * Option for add to external social site official page URL for all social buttons
- * Extra Buttons (Google Translate,Instagram, Whatsapp)
+ * Option for add to OG tags content(title,image,content)
+ * Option for add to social site official page URL for all social buttons
+ * Extra Buttons (Google Translate,Instagram,Whatsapp,Digg,Yummly,Vk, Buffer and Print)
  * Option for display to number of share (Twitter,Facebook,LinkedIn,StumbleUpon,Google Plus,Pinterest and Reddit)
+ * Option for change to any button image and their title,background colour and url (You can use any button as your own custom button)
+ * 4 Extra Custom Buttons
  * Faster support
 
 
@@ -126,6 +128,9 @@ No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS 
 
 == Changelog == 
 
+= 2.1 = 
+ * Fixed share buttons css issues
+ * Fixed some minor js conflict issues
 = 2.0 = 
  * Fixed pinterest share image issue
  * Fixed youtube buttons url issue

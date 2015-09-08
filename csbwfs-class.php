@@ -30,7 +30,7 @@ isset($pluginOptionsVal['csbwfs_deactive_for_mob']) && $pluginOptionsVal['csbwfs
 // silent is Gold;
 }else
 {
-add_action('wp_footer','get_csbwf_sidebar_content');
+add_action('wp_head','get_csbwf_sidebar_content');
 add_action( 'wp_enqueue_scripts', 'csbwf_sidebar_scripts' );
 add_action('wp_footer','csbwf_sidebar_load_inline_js');
 add_action('wp_footer','csbwfs_cookie');
@@ -76,6 +76,7 @@ function csbwfsCheckCookie() {
 
 if(isset($pluginOptionsVal['csbwfs_buttons_active']) && $pluginOptionsVal['csbwfs_buttons_active']==1){
 add_filter( 'the_content', 'csbfs_the_content_filter', 20);
+add_action( 'wp_enqueue_scripts', 'csbwf_sidebar_scripts' );
 }
 
 //register style and scrip files

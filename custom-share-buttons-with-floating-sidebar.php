@@ -2,13 +2,13 @@
 /*
 Plugin Name: Custom Share Buttons with Floating Sidebar
 Plugin URI: http://www.mrwebsolution.in/
-Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can change the share buttons images if you wish
+Description: "custom-share-buttons-with-floating-sidebar" is the very simple plugin for add to social share buttons with float sidebar. Even you can edit share buttons if you wish
 Author: Raghunath
 Author URI: http://raghunathgurjar.wordpress.com
-Version: 2.0
+Version: 2.1
 */
 
-/*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : raghunath.0087@gmail.com)
+/*  Copyright 2015  custom-share-buttons-with-floating-sidebar  (email : raghunath.0087@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -25,9 +25,9 @@ Version: 2.0
 */
 
 //Admin "Custom Share Buttons with Floating Sidebar" Menu Item
-
-if(!function_exists('csbwf_sidebar_menu')){
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 add_action('admin_menu','csbwf_sidebar_menu');
+if(!function_exists('csbwf_sidebar_menu')){
 function csbwf_sidebar_menu(){
 
 	add_options_page('Custom Share Buttons With Floating Sidebar','Custom Share Buttons With Floating Sidebar','manage_options','csbwfs-settings','csbwf_sidebar_admin_option_page');
@@ -180,7 +180,6 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<!-- General Setting -->	
 	<div class="first csbwfs-tab" id="div-csbwfs-general">
 	<h2>General Settings</h2>
-	<p><label>Enable:</label><input type="checkbox" id="csbwfs_active" name="csbwfs_active" value='1' <?php if(get_option('csbwfs_active')!=''){ echo ' checked="checked"'; }?>/></p>
 	<p><h3><strong><?php _e('Social Share Button Publish Options:','csbwfs');?></strong></h3></p>
 	<p><input type="checkbox" id="publish1" value="yes" name="csbwfs_fpublishBtn" <?php if(get_option('csbwfs_fpublishBtn')=='yes'){echo 'checked="checked"';}?>/><b>Facebook Button</b></p>
 				<p><input type="checkbox" id="publish2" name="csbwfs_tpublishBtn" value="yes" <?php if(get_option('csbwfs_tpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Twitter Button</b></p>
@@ -212,6 +211,10 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<h2>Floating Sidebar Settings</h2>
 	<table>
 			<tr>
+				<th nowrap><?php _e('Enable');?></th>
+				<td><input type="checkbox" id="csbwfs_active" name="csbwfs_active" value='1' <?php if(get_option('csbwfs_active')!=''){ echo ' checked="checked"'; }?>/></td>
+			</tr>
+			<tr>
 				<th nowrap><?php echo 'Siderbar Position:';?></th>
 				<td>
 				<select id="csbwfs_position" name="csbwfs_position" >
@@ -227,7 +230,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 				<td><input type="checkbox" id="csbwfs_deactive_for_mob" name="csbwfs_deactive_for_mob" value="yes" <?php if(get_option('csbwfs_deactive_for_mob')=='yes'){echo 'checked="checked"';}?>/> <strong><?php _e('Disable Sidebar For Mobile','csbwfs');?></strong></td>
 			</tr>
 			<tr><th>&nbsp;</th><td><input type="checkbox" id="csbwfs_hide_home" value="yes" name="csbwfs_hide_home" <?php if(get_option('csbwfs_hide_home')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> <strong>Hide Sidebar On Home Page </strong></td></tr>
-			<tr><td colspan="2"><strong><h4>Social Share Button Images 36X34 (Optional) :</h4></strong></td></tr>
+			<tr><td colspan="2"><strong><h4>Social Share Button Images 32X32 (Optional) :</h4></strong></td></tr>
 			<tr>
 			<th><?php echo 'Facebook:';?></th>
 			<td class="csbwfsButtonsImg" id="csbwfsButtonsFbImg">
@@ -319,7 +322,7 @@ function csbwf_sidebar_admin_option_page(){ ?>
 			<tr><td colspan="2"><strong>Show Share Buttons On :</strong> Home <input type="checkbox" id="csbwfs_page_hide_home" value="yes" name="csbwfs_page_hide_home" <?php if(get_option('csbwfs_page_hide_home')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> Page <input type="checkbox" id="csbwfs_page_hide_page" value="yes" name="csbwfs_page_hide_page" <?php if(get_option('csbwfs_page_hide_page')!='yes'){echo '';}else { echo 'checked="checked"';}?>/> Post <input type="checkbox" id="csbwfs_page_hide_post" value="yes" name="csbwfs_page_hide_post" <?php if(get_option('csbwfs_page_hide_post')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> Category/Archive <input type="checkbox" id="csbwfs_page_hide_archive" value="yes" name="csbwfs_page_hide_archive" <?php if(get_option('csbwfs_page_hide_archive')!='yes'){echo '';}else{echo 'checked="checked"';}?>/> <br>
 			</td></tr>
 			
-			<tr><td colspan="2"><strong><h4>Social Share Button Images 31X30 (Optional) :</h4></strong></td></tr>
+			<tr><td colspan="2"><strong><h4>Social Share Button Images 32X32 (Optional) :</h4></strong></td></tr>
 			<tr><th><?php echo 'Facebook:';?></th>
 				<td class="csbwfsButtonsImg" id="csbwfsButtonsFbImg2"><input type="text" id="csbwfs_page_fb_image" name="csbwfs_page_fb_image" value="<?php echo get_option('csbwfs_page_fb_image'); ?>" placeholder="Insert facebook button image path" size="40"  class="inputButtonid"/>
                 <input id="csbwfs_fb_image_button2" type="button" value="Upload Image" class="cswbfsUploadBtn"/>&nbsp;&nbsp;<input type="text" id="csbwfs_page_fb_title"  name="csbwfs_page_fb_title" value="<?php echo get_option('csbwfs_page_fb_title'); ?>" placeholder="Alt Text" size="20"/>
@@ -391,13 +394,15 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<p><strong>Plugin Author:</strong><br><img src="<?php echo  plugins_url( 'images/raghu.jpg' , __FILE__ );?>" width="75" height="75"><br><a href="http://raghunathgurjar.wordpress.com" target="_blank">Raghunath Gurjar</a></p>
 	<p><a href="mailto:raghunath.0087@gmail.com" target="_blank" class="contact-author">Contact Author</a></p>
 	<p><strong>My Other Plugins:</strong><br>
-	<ul>
+	<ol>
 		<li><a href="https://wordpress.org/plugins/protect-wp-admin/" target="_blank">Protect WP-Admin</a></li>
 		<li><a href="https://wordpress.org/plugins/wp-testimonial/" target="_blank">WP Testimonial</a></li>
-		<li><a href="https://wordpress.org/plugins/wp-easy-recipe/" target="_blank">WP Easy Recipe</a></li>
+		<li><a href="https://wordpress.org/plugins/cf7-advance-security" target="_blank">Contact Form 7 Advance Security WP-Admin</a></li>
+		<li><a href="https://wordpress.org/plugins/wc-sales-count-manager/" target="_blank">WooCommerce Sales Count Manager</a></li>
 		<li><a href="https://wordpress.org/plugins/wp-social-buttons/" target="_blank">WP Social Buttons</a></li>
 		<li><a href="https://wordpress.org/plugins/wp-youtube-gallery/" target="_blank">WP Youtube Gallery</a></li>
-		</ul></p>
+		<li><a href="https://wordpress.org/plugins/wp-easy-recipe/" target="_blank">WP Easy Recipe</a></li>
+		</ol>
 	</div>
 <!-- GO PRO -->
 	<div class="last author csbwfs-tab" id="div-csbwfs-pro">
@@ -405,22 +410,22 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<h2>GO PRO</h2>
 	<p>We have released an add-on for Custom Share Buttons With Floating Sidebar which not only demonstrates the flexibility of CSBWFS, but also adds some important features:</p>
  <ol>
-   <li>Responsive Floating Sidebar</li> 
-   <li>Hide Floating Sidebar On Home/Post/Page/Category</li> 
-    <li>Option for Show/Hide sidebar on any specific page/post</li> 
-    <li>Responsive Lightbox Contact Form (for Mail Icon)</li> 
-    <li>Option for add to “Contact Form 7″ Shortcode into lightbox</li> 
-    <li>Advance Feature For Choose To Pinterest Share Image</li> 
-    <li>Option (OG Tags) for define facebook share content (image,content)</li> 
-    <li>Option for add to social site official page URL for all social buttons</li> 
-    <li>Extra Button (Google Translate Button ,  Instagram Button, Whatsapp Button)</li> 
-    <li>Option for display to number of share (Twitter,Facebook,LinkedIn,StumbleUpon,Google Plus,Pinterest and Reddit)</li> 
-    <li>Option for change to any button image and their title,background colour and url (You can use any button as your own custom button)</li> 
-    <li>4 Extra Custom Buttons</li> 
-    <li>Faster support</li> 
+<li>Responsive Floating Sidebar</li>
+<li>Hide Floating Sidebar On Home/Post/Page/Category</li>
+<li>Option for Show/Hide sidebar on any specific page/post</li>
+<li>Responsive Lightbox Contact Form (for Mail Icon)</li>
+<li>Option for add to <strong>“Contact Form 7″</strong> Shortcode into lightbox</li>
+<li>Advance Feature For Choose To Pinterest Share Image</li>
+<li>Option for add to OG tags content(title,image,content)</li>
+<li>Option for add to social site official page URL for all social buttons</li>
+<li>Extra Buttons (Google Translate,Instagram,Whatsapp,Digg,Yummly,Vk, Buffer and Print)</li>
+<li><strong>Option for display to number of share</strong> (Twitter,Facebook,LinkedIn,StumbleUpon,Google Plus,Pinterestand Reddit)</li>
+<li><strong>Option for change to any button image and their title,background colour and url </strong> (You can use any button as your own custom button)</li>
+<li><strong>4 Extra Custom Buttons</strong></li>
+<li>Faster support</li>
  </ol>
  <p><a href="http://csbwfs.mrwebsolution.in/" target="_blank" class="contact-author">Live Demo</a></p>
- <p><a class="contact-author" href="http://csbwfs.mrwebsolution.in/">Buy Now</a></p>
+ <p><a class="contact-author" href="http://csbwfs.mrwebsolution.in/pro">Buy Now</a></p>
  <p> <a href="mailto:raghunath.0087@gmail.com" target="_blank" class="contact-author">Contact To Author</a></p>
   
 	</div>
@@ -514,5 +519,5 @@ function csbwf_sidebar_uninstall(){
 	delete_option('csbwfs_defaultfeaturedshrimg');
 	delete_option('csbwfs_deactive_for_mob');	
 	
-} 
+}
 ?>
