@@ -303,7 +303,7 @@ $ShareTitle= htmlspecialchars(urlencode($ShareTitle));
 /* Get All buttons Image */
 
 //get facebook button image
-if($pluginOptionsVal['csbwfs_fb_image']!=''){ $fImg=$pluginOptionsVal['csbwfs_fb_image'];} 
+if($pluginOptionsVal['csbwfs_page_fb_image']!=''){ $fImg=$pluginOptionsVal['csbwfs_fb_image'];} 
    else{$fImg=plugins_url('images/fb.png',__FILE__);}   
 //get twitter button image  
 if($pluginOptionsVal['csbwfs_tw_image']!=''){ $tImg=$pluginOptionsVal['csbwfs_tw_image'];} 
@@ -569,32 +569,32 @@ $ShareTitle= htmlspecialchars(urlencode($ShareTitle));
 /* Get All buttons Image */
 
 //get facebook button image
-if($pluginOptionsVal['csbwfs_fb_image']!=''){ $fImg=$pluginOptionsVal['csbwfs_fb_image'];} 
+if($pluginOptionsVal['csbwfs_page_fb_image']!=''){ $fImg=$pluginOptionsVal['csbwfs_page_fb_image'];} 
    else{$fImg=plugins_url('images/fb-p.png',__FILE__);}   
 //get twitter button image  
-if($pluginOptionsVal['csbwfs_tw_image']!=''){ $tImg=$pluginOptionsVal['csbwfs_tw_image'];} 
+if($pluginOptionsVal['csbwfs_page_tw_image']!=''){ $tImg=$pluginOptionsVal['csbwfs_page_tw_image'];} 
    else{$tImg=plugins_url('images/tw-p.png',__FILE__);}   
 //get linkdin button image
-if($pluginOptionsVal['csbwfs_li_image']!=''){ $lImg=$pluginOptionsVal['csbwfs_li_image'];} 
+if($pluginOptionsVal['csbwfs_page_li_image']!=''){ $lImg=$pluginOptionsVal['csbwfs_page_li_image'];} 
    else{$lImg=plugins_url('images/in-p.png',__FILE__);}   
 //get mail button image  
-if($pluginOptionsVal['csbwfs_mail_image']!=''){ $mImg=$pluginOptionsVal['csbwfs_mail_image'];} 
+if($pluginOptionsVal['csbwfs_page_mail_image']!=''){ $mImg=$pluginOptionsVal['csbwfs_page_mail_image'];} 
    else{$mImg=plugins_url('images/ml-p.png',__FILE__);}   
 //get google plus button image 
-if($pluginOptionsVal['csbwfs_gp_image']!=''){ $gImg=$pluginOptionsVal['csbwfs_gp_image'];} 
+if($pluginOptionsVal['csbwfs_page_gp_image']!=''){ $gImg=$pluginOptionsVal['csbwfs_page_gp_image'];} 
    else{$gImg=plugins_url('images/gp-p.png',__FILE__);}  
 //get pinterest button image   
-if($pluginOptionsVal['csbwfs_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_pin_image'];} 
+if($pluginOptionsVal['csbwfs_page_pin_image']!=''){ $pImg=$pluginOptionsVal['csbwfs_page_pin_image'];} 
    else{$pImg=plugins_url('images/pinit-p.png',__FILE__);}   
    
 //get youtube button image   
-if(isset($pluginOptionsVal['csbwfs_yt_image']) && $pluginOptionsVal['csbwfs_yt_image']!=''){ $ytImg=$pluginOptionsVal['csbwfs_yt_image'];} 
+if(isset($pluginOptionsVal['csbwfs_page_yt_image']) && $pluginOptionsVal['csbwfs_page_yt_image']!=''){ $ytImg=$pluginOptionsVal['csbwfs_page_yt_image'];} 
    else{$ytImg=plugins_url('images/youtube-p.png',__FILE__);}   
 //get reddit plus button image 
-if(isset($pluginOptionsVal['csbwfs_re_image']) && $pluginOptionsVal['csbwfs_re_image']!=''){ $reImg=$pluginOptionsVal['csbwfs_re_image'];} 
+if(isset($pluginOptionsVal['csbwfs_page_re_image']) && $pluginOptionsVal['csbwfs_page_re_image']!=''){ $reImg=$pluginOptionsVal['csbwfs_page_re_image'];} 
    else{$reImg=plugins_url('images/reddit.png',__FILE__);}  
 //get stumbleupon button image   
-if(isset($pluginOptionsVal['csbwfs_st_image']) && $pluginOptionsVal['csbwfs_st_image']!=''){ $stImg=$pluginOptionsVal['csbwfs_st_image'];} 
+if(isset($pluginOptionsVal['csbwfs_page_st_image']) && $pluginOptionsVal['csbwfs_page_st_image']!=''){ $stImg=$pluginOptionsVal['csbwfs_page_st_image'];} 
    else{$stImg=plugins_url('images/stumbleupon.png',__FILE__);}  
 
 /* Get All buttons Image Alt/Title */
