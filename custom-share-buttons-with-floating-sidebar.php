@@ -180,6 +180,8 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<!-- General Setting -->	
 	<div class="first csbwfs-tab" id="div-csbwfs-general">
 	<h2>General Settings</h2>
+    <p><input type="checkbox" id="csbwfs_active" name="csbwfs_active" value='1' <?php if(get_option('csbwfs_active')!=''){ echo ' checked="checked"'; }?>/> <b><?php _e('Enable Sidebar');?> </b></p>
+
 	<p><h3><strong><?php _e('Social Share Button Publish Options:','csbwfs');?></strong></h3></p>
 	<p><input type="checkbox" id="publish1" value="yes" name="csbwfs_fpublishBtn" <?php if(get_option('csbwfs_fpublishBtn')=='yes'){echo 'checked="checked"';}?>/><b>Facebook Button</b></p>
 				<p><input type="checkbox" id="publish2" name="csbwfs_tpublishBtn" value="yes" <?php if(get_option('csbwfs_tpublishBtn')=='yes'){echo 'checked="checked"';}?>/> <b>Twitter Button</b></p>
@@ -210,10 +212,6 @@ function csbwf_sidebar_admin_option_page(){ ?>
 	<div class="csbwfs-tab" id="div-csbwfs-sidebar">
 	<h2>Floating Sidebar Settings</h2>
 	<table>
-			<tr>
-				<th nowrap><?php _e('Enable');?></th>
-				<td><input type="checkbox" id="csbwfs_active" name="csbwfs_active" value='1' <?php if(get_option('csbwfs_active')!=''){ echo ' checked="checked"'; }?>/></td>
-			</tr>
 			<tr>
 				<th nowrap><?php echo 'Siderbar Position:';?></th>
 				<td>
