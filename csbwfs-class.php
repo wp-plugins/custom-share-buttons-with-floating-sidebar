@@ -5,7 +5,8 @@
  * @get_csbwf_sidebar_content()
  * */
 ?>
-<?php 
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
 // get all options value for "Custom Share Buttons with Floating Sidebar"
 	function get_csbwf_sidebar_options() {
 		global $wpdb;
