@@ -5,8 +5,8 @@
  * @get_csbwf_sidebar_content()
  * */
 ?>
-<?php 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
 // get all options value for "Custom Share Buttons with Floating Sidebar"
 	function get_csbwf_sidebar_options() {
 		global $wpdb;
@@ -18,9 +18,42 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	
 		return $ctOptions;	
 	}
-	
-// Get plugin options
+/* 
+ * Site is browsing in mobile or not
+ * @IsMobile()
+ * */
+function isMobile() {
+// Check the server headers to see if they're mobile friendly
+if(isset($_SERVER["HTTP_X_WAP_PROFILE"])) {
+    return true;
+}
+// Let's NOT return "mobile" if it's an iPhone, because the iPhone can render normal pages quite well.
+if(isset($_SERVER["HTTP_USER_AGENT"])):
+if(strstr($_SERVER['HTTP_USER_AGENT'], 'iPad')) {
+    return false;
+}
+endif;
 
+// If the http_accept header supports wap then it's a mobile too
+if(isset($_SERVER["HTTP_ACCEPT"])):
+if(preg_match("/wap\.|\.wap/i",$_SERVER["HTTP_ACCEPT"])) {
+    return true;
+}
+endif;
+// Still no luck? Let's have a look at the user agent on the browser. If it contains
+// any of the following, it's probably a mobile device. Kappow!
+if(isset($_SERVER["HTTP_USER_AGENT"])){
+    $user_agents = array("midp", "j2me", "avantg", "docomo", "novarra", "palmos", "palmsource", "240x320", "opwv", "chtml", "pda", "windows\ ce", "mmp\/", "blackberry", "mib\/", "symbian", "wireless", "nokia", "hand", "mobi", "phone", "cdm", "up\.b", "audio", "SIE\-", "SEC\-", "samsung", "HTC", "mot\-", "mitsu", "sagem", "sony", "alcatel", "lg", "erics", "vx", "NEC", "philips", "mmm", "xx", "panasonic", "sharp", "wap", "sch", "rover", "pocket", "benq", "java", "pt", "pg", "vox", "amoi", "bird", "compal", "kg", "voda", "sany", "kdd", "dbt", "sendo", "sgh", "gradi", "jb", "\d\d\di", "moto");
+    foreach($user_agents as $user_string){
+        if(preg_match("/".$user_string."/i",$_SERVER["HTTP_USER_AGENT"])) {
+            return true;
+        }
+    }
+}
+// None of the above? Then it's probably not a mobile device.
+return false;
+}	
+// Get plugin options
 $pluginOptionsVal=get_csbwf_sidebar_options();
 //check plugin in enable or not
 if(isset($pluginOptionsVal['csbwfs_active']) && $pluginOptionsVal['csbwfs_active']==1){
@@ -194,6 +227,10 @@ if($pluginOptionsVal['csbwfs_position']=='right' || $pluginOptionsVal['csbwfs_po
   
 }
 
+if(isset($pluginOptionsVal['csbwfs_auto_hide']) && $pluginOptionsVal['csbwfs_auto_hide']!=''):
+$jscnt.='csbwfsSetCookie("csbwfs_show_hide_status","in_active","1");';
+endif;
+
   $jscnt.='jQuery("div.csbwfs-show").hide();
   jQuery("div.csbwfs-show a").click(function(){
     jQuery("div#csbwfs-social-inner").show(500);
@@ -304,7 +341,7 @@ $ShareTitle= htmlspecialchars(urlencode($ShareTitle));
 /* Get All buttons Image */
 
 //get facebook button image
-if($pluginOptionsVal['csbwfs_page_fb_image']!=''){ $fImg=$pluginOptionsVal['csbwfs_fb_image'];} 
+if($pluginOptionsVal['csbwfs_fb_image']!=''){ $fImg=$pluginOptionsVal['csbwfs_fb_image'];} 
    else{$fImg=plugins_url('images/fb.png',__FILE__);}   
 //get twitter button image  
 if($pluginOptionsVal['csbwfs_tw_image']!=''){ $tImg=$pluginOptionsVal['csbwfs_tw_image'];} 
@@ -447,7 +484,7 @@ $flitingSidebarContent .= '<div id="csbwfs-social-inner">';
 
 /** FB */
 if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-fb"><a href="https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'" onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;" target="_blank" title="'.$fImgAlt.'" '.$fImgbg.'><img src="'.$fImg.'" alt="'.$fImgAlt.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-fb"><a href="javascript:" onclick="javascript:window.open(\'https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'\', \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;" target="_blank" title="'.$fImgAlt.'" '.$fImgbg.'><img src="'.$fImg.'" alt="'.$fImgAlt.'"></a></div></div>';
 endif;
 
 /** TW */
@@ -457,12 +494,12 @@ endif;
 
 /** GP */
 if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-gp"><a href="https://plus.google.com/share?url='.$shareurl.'"  onclick="javascript:window.open(this.href,\'\',\'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800\');return false;" title="'.$gImgAlt.'" '.$gImgbg.'><img src="'.$gImg.'" alt="'.$gImgAlt.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-gp"><a href="javascript:"  onclick="javascript:window.open(\'https://plus.google.com/share?url='.$shareurl.'\',\'\',\'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800\');return false;" title="'.$gImgAlt.'" '.$gImgbg.'><img src="'.$gImg.'" alt="'.$gImgAlt.'"></a></div></div>';
 endif;
 
 /**  LI */
 if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):
-$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-li"><a href="https://www.linkedin.com/cws/share?mini=true&url='. $shareurl.'" onclick="javascript:window.open(this.href,\'\',\'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800\');return false;" title="'.$lImgAlt.'" '.$lImgbg.'><img src="'.$lImg.'" alt="'.$lImgAlt.'"></a></div></div>';
+$flitingSidebarContent .='<div class="csbwfs-sbutton"><div id="csbwfs-li"><a href="javascript:" onclick="javascript:window.open(\'https://www.linkedin.com/cws/share?mini=true&url='. $shareurl.'\',\'\',\'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=800\');return false;" title="'.$lImgAlt.'" '.$lImgbg.'><img src="'.$lImg.'" alt="'.$lImgAlt.'"></a></div></div>';
 endif;
 
 /** PIN */
@@ -645,13 +682,16 @@ endif;
 if(isset($pluginOptionsVal['csbwfs_btn_text']) && $pluginOptionsVal['csbwfs_btn_text']!=''):
 $btnText=$pluginOptionsVal['csbwfs_btn_text'];
 else:
-$btnText='Share This!';
+$btnText='';
 endif;
 
-$shareButtonContent='<div id="socialButtonOnPage" class="'.$btnPosition.'SocialButtonOnPage"><div class="sharethis-arrow" title="'.$btnText.'"><span>'.$btnText.'</span></div>';
+$shareButtonContent='<div id="socialButtonOnPage" class="'.$btnPosition.'SocialButtonOnPage">';
+if($btnText!=''):
+$shareButtonContent.='<div class="sharethis-arrow" title="'.$btnText.'"><span>'.$btnText.'</span></div>';
+endif;
 /* Facebook*/
 if($pluginOptionsVal['csbwfs_fpublishBtn']!=''):
-	$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="fb-p"><a href="https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'" onclick="javascript:window.open(this.href, \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;"
+	$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="fb-p"><a href="javascript:" onclick="javascript:window.open(\'https://www.facebook.com/sharer/sharer.php?u='.$shareurl.'\', \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600\');return false;"
    target="_blank" title="'.$fImgAlt.'"> <img src="'.$fImg.'" alt="'.$fImgAlt.'"></a></div></div>';
 endif;
 
@@ -662,13 +702,13 @@ endif;
 
 /* Google Plus */
 if($pluginOptionsVal['csbwfs_gpublishBtn']!=''):
-	$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="gp-p"><a href="https://plus.google.com/share?url='.$shareurl.'" onclick="javascript:window.open(this.href,\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" title="'.$gImgAlt.'">  <img src="'.$gImg.'" alt="'.$gImgAlt.'"></a></div>
+	$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="gp-p"><a href="javascript:" onclick="javascript:window.open(\'https://plus.google.com/share?url='.$shareurl.'\',\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" title="'.$gImgAlt.'">  <img src="'.$gImg.'" alt="'.$gImgAlt.'"></a></div>
 	</div>';
 endif;
 
 /* Linkedin */
 if($pluginOptionsVal['csbwfs_lpublishBtn']!=''):
-$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="li-p"><a href="https://www.linkedin.com/cws/share?url='.$shareurl.'" onclick="javascript:window.open(this.href,\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" title="'.$lImgAlt.'"><img src="'.$lImg.'" alt="'.$lImgAlt.'"></a></div></div>';
+$shareButtonContent.='<div class="csbwfs-sbutton-post"><div id="li-p"><a href="javascript:" onclick="javascript:window.open(\'https://www.linkedin.com/cws/share?url='.$shareurl.'\',\'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" title="'.$lImgAlt.'"><img src="'.$lImg.'" alt="'.$lImgAlt.'"></a></div></div>';
 endif;
 
 /* Pinterest */
@@ -724,41 +764,4 @@ $shareButtonContent.='</div>';
     return $content;
    endif;
 }
-
-/* 
- * Site is browsing in mobile or not
- * @IsMobile()
- * */
-function isMobile() {
-// Check the server headers to see if they're mobile friendly
-if(isset($_SERVER["HTTP_X_WAP_PROFILE"])) {
-    return true;
-}
-// Let's NOT return "mobile" if it's an iPhone, because the iPhone can render normal pages quite well.
-if(isset($_SERVER["HTTP_USER_AGENT"])):
-if(strstr($_SERVER['HTTP_USER_AGENT'], 'iPad')) {
-    return false;
-}
-endif;
-
-// If the http_accept header supports wap then it's a mobile too
-if(isset($_SERVER["HTTP_ACCEPT"])):
-if(preg_match("/wap\.|\.wap/i",$_SERVER["HTTP_ACCEPT"])) {
-    return true;
-}
-endif;
-// Still no luck? Let's have a look at the user agent on the browser. If it contains
-// any of the following, it's probably a mobile device. Kappow!
-if(isset($_SERVER["HTTP_USER_AGENT"])){
-    $user_agents = array("midp", "j2me", "avantg", "docomo", "novarra", "palmos", "palmsource", "240x320", "opwv", "chtml", "pda", "windows\ ce", "mmp\/", "blackberry", "mib\/", "symbian", "wireless", "nokia", "hand", "mobi", "phone", "cdm", "up\.b", "audio", "SIE\-", "SEC\-", "samsung", "HTC", "mot\-", "mitsu", "sagem", "sony", "alcatel", "lg", "erics", "vx", "NEC", "philips", "mmm", "xx", "panasonic", "sharp", "wap", "sch", "rover", "pocket", "benq", "java", "pt", "pg", "vox", "amoi", "bird", "compal", "kg", "voda", "sany", "kdd", "dbt", "sendo", "sgh", "gradi", "jb", "\d\d\di", "moto");
-    foreach($user_agents as $user_string){
-        if(preg_match("/".$user_string."/i",$_SERVER["HTTP_USER_AGENT"])) {
-            return true;
-        }
-    }
-}
-// None of the above? Then it's probably not a mobile device.
-return false;
-}
-
 ?>

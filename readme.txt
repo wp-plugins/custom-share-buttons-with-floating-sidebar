@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: social share buttons,custom share buttons,facebook, twitter, google+, share, share links,linkedin,Stumbleupon,Reddit,pinterest,floating sidebar,float,floating share buttons,float share buttons
 Requires at least: 3.3
 Tested up to: 4.3.1
-Stable tag: 2.1
+Stable tag: 2.2
 
 Add Social Share Buttons(Facebook,Twitter,Linkedin,Google+,Pinterest,Youtube,Mail,Stumbleupon,Reddit) Using Floating Sidebar
 
@@ -40,10 +40,13 @@ You can add a social share floating sidebar with all social share buttons and Ev
  * Options for manage the style of the plugin
  * Option for disable sidebar for mobile
  * Option for define the pinterest share image
+ * Option for auto close sidebar buttons on page load
+ * Option for hide "Share This!!" button on page/post
 
 = Go Pro =
 
 We have also released an add-on for Custom Share Buttons With Floating Sidebar which not only demonstrates the flexibility of CSBWFS, but also adds some important features:
+
 
  * Responsive Floating Sidebar
  * Hide Floating Sidebar On Home/Post/Page/Category
@@ -52,12 +55,14 @@ We have also released an add-on for Custom Share Buttons With Floating Sidebar w
  * Option for add to “Contact Form 7″ Shortcode into lightbox
  * Advance Feature For Choose To Pinterest Share Image
  * Option for add to OG tags content(title,image,content)
+ * Option for set automatically horizontal sidebar position for mobile
  * Option for add to social site official page URL for all social buttons
- * Extra Buttons (Google Translate,Instagram,Whatsapp,Digg,Yummly,Vk, Buffer and Print)
- * Option for display to number of share (Twitter,Facebook,LinkedIn,StumbleUpon,Google Plus,Pinterest and Reddit)
+ * Extra Buttons (Google Translate,Instagram,Whatsapp,Digg,Yummly,Vk, Buffer, Line, Skype and Print)
+ * Option for display to number of share (Twitter,Facebook,LinkedIn,StumbleUpon,Google Plus,Pinterestand Reddit)
  * Option for change to any button image and their title,background colour and url (You can use any button as your own custom button)
- * 4 Extra Custom Buttons
+ * Option for define distance from left/right/bottom
  * Faster support
+
 
 
  **[Live Demo](http://csbwfs.mrwebsolution.in)**
@@ -127,7 +132,10 @@ No,this is not a responsibe plugin but you can use our csbwfs addon, Our CSBWFS 
 5. screenshot-5.png
 
 == Changelog == 
-
+= 2.2 = 
+ * Fixed double time open share url issue
+ * Added an option for auto close sidebar buttons on page load
+ * Added an option for hide "Share This!!" button on page/post
 = 2.1 = 
  * Fixed share buttons css issues
  * Fixed some minor js conflict issues
